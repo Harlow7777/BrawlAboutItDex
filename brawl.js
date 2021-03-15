@@ -1,5 +1,5 @@
-const poke_container = document.getElementById('poke_container');
-const pokemons_number = 3;
+const divContainer = document.getElementById('div_container');
+const creature_number = 3;
 const colors = {
 	fire: '#FDDFDF',
 	grass: '#DEFDE0',
@@ -19,9 +19,9 @@ const colors = {
 };
 const main_types = Object.keys(colors);
 
-const fetchPokemons = async () => {
-	for (let i = 0; i < pokemons_number; i++) {
-		await getPokemon(i);
+const fetchCreatures = async () => {
+	for (let i = 0; i < creature_number; i++) {
+		await getCreatures(i);
 	}
 };
 
@@ -39,38 +39,33 @@ function loadJSON(callback) {
         xobj.send();
 }
 
-const getPokemon = async id => {
+const getCreatures = async id => {
     loadJSON(function(response) {
-    var pokemon = JSON.parse(response);
-    createPokemonCard(pokemon[id]);
+    var creature = JSON.parse(response);
+    createCreatureCard(creature[id]);
     });
 };
 
-function createPokemonCard(pokemon) {
-    //pokemon div
-	const pokemonEl = document.createElement('div');
-	pokemonEl.classList.add('pokemon');
+function createCreatureCard(creature) {
+	const creatureElement = document.createElement('div');
+	creatureElement.classList.add('creature');
 
-    //get type from pokemon.types
-	const poke_types = pokemon.types(type => type.name);
-	const type = main_types.find(type => poke_types.indexOf(type) > -1);
-	//find type color from const colors
+    const name = creature.name;
+
+	const creature_types = creature.types(type => type.name);
+	const type = main_types.find(type => creature_types.indexOf(type) > -1);
+
 	const color = colors[type];
+	creatureElement.style.backgroundColor = color;
 
-	//get name from pokemon.name
-	const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-
-	//set background color
-	pokemonEl.style.backgroundColor = color;
-
-	const pokeInnerHTML = `
+	const innerHTML = `
         <div class="img-container">
             <img src="./images/${
-                            pokemon.name
+                            name
                             }.jpg" alt="${name}" />
         </div>
         <div class="info">
-            <span class="number">#${pokemon.id
+            <span class="number">#${creature.id
 							.toString()
 							.padStart(3, '0')}</span>
             <h3 class="name">${name}</h3>
@@ -78,9 +73,8 @@ function createPokemonCard(pokemon) {
         </div>
     `;
 
-	pokemonEl.innerHTML = pokeInnerHTML;
-
-	poke_container.appendChild(pokemonEl);
+	creatureElement.innerHTML = innerHTML;
+	poke_container.appendChild(creatureElement);
 }
 
-fetchPokemons();
+fetchCreatures();
