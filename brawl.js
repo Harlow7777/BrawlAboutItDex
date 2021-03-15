@@ -42,13 +42,13 @@ function loadJSON(callback) {
 const getCreatures = async id => {
     loadJSON(function(response) {
     var creatures = JSON.parse(response);
-    console.log("ALL CREATURES: " + creatures);
     createCreatureCard(creatures[id]);
     });
 };
 
 function createCreatureCard(creature) {
-    console.log("CREATURE: " + creature);
+    console.log("CREATURE KEYS: " + Object.keys(creature));
+    console.log("CREATURE VALS: " + Object.values(creature));
 	const creatureElement = document.createElement('div');
 	creatureElement.classList.add('creature');
 
