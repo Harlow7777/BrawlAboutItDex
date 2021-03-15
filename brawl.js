@@ -67,7 +67,9 @@ function createCreatureCard(creature) {
 							.toString()
 							.padStart(3, '0')}</span>
             <h3 class="name">${name}</h3>
-            <img src="./images/types/${type}.png" alt="${type}">
+            <div class="img-container">
+                <img src="./images/types/${type}.png" alt="${type}">
+            </div>
             <small class="stats"><span>HP ${stats.health} Atk ${stats.attack} Def ${stats.defense} Spd ${stats.speed}</span>
         </div>
     `;
