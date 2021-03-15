@@ -42,7 +42,7 @@ function loadJSON(callback) {
 const getPokemon = async id => {
     loadJSON(function(response) {
     var pokemon = JSON.parse(response);
-    console.log(pokemon[id].name);
+    console.log(pokemon[id-1].name);
     createPokemonCard(pokemon);
     });
 };
@@ -53,7 +53,7 @@ function createPokemonCard(pokemon) {
 	pokemonEl.classList.add('pokemon');
 
     //get type from pokemon.types
-	const poke_types = pokemon.types.map(type => type.type.name);
+	const poke_types = pokemon.types(type => type.name);
 	const type = main_types.find(type => poke_types.indexOf(type) > -1);
 	//find type color from const colors
     const color = colors[type];
