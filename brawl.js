@@ -56,7 +56,7 @@ function createPokemonCard(pokemon) {
 	const poke_types = pokemon.types(type => type.name);
 	const type = main_types.find(type => poke_types.indexOf(type) > -1);
 	//find type color from const colors
-    const color = colors[type];
+	const color = colors[type];
 
 	//get name from pokemon.name
 	const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
