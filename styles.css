@@ -64,3 +64,8 @@ body {
 	margin: 15px 0 7px;
 	letter-spacing: 1px;
 }
+
+.type-img {
+    width: 400px,
+    height: auto
+}
