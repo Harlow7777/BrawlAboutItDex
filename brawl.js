@@ -41,12 +41,14 @@ function loadJSON(callback) {
 
 const getCreatures = async id => {
     loadJSON(function(response) {
-    var creature = JSON.parse(response);
-    createCreatureCard(creature[id]);
+    var creatures = JSON.parse(response);
+    console.log("ALL CREATURES: " + creatures);
+    createCreatureCard(creatures[id]);
     });
 };
 
 function createCreatureCard(creature) {
+    console.log("CREATURE: " + creature);
 	const creatureElement = document.createElement('div');
 	creatureElement.classList.add('creature');
 
