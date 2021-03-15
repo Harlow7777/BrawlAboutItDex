@@ -2,24 +2,12 @@
   {
     "id": 1,
     "name": "Tate",
-    "stats": [
-      {
-        "name": "health",
-        "base_stat": 45
-      },
-      {
-        "name": "attack",
-        "base_stat": 45
-      },
-      {
-        "name": "defense",
-        "base_stat": 45
-      },
-      {
-        "name": "speed",
-        "base_stat": 45
-      }
-    ],
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
     "types": [
       {
         "slot": 1,
@@ -30,24 +18,12 @@
   {
     "id": 2,
     "name": "Potito",
-    "stats": [
-      {
-        "name": "health",
-        "base_stat": 45
-      },
-      {
-        "name": "attack",
-        "base_stat": 45
-      },
-      {
-        "name": "defense",
-        "base_stat": 45
-      },
-      {
-        "name": "speed",
-        "base_stat": 45
-      }
-    ],
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
     "types": [
       {
         "slot": 1,
@@ -58,24 +34,12 @@
   {
     "id": 3,
     "name": "Psychotato",
-    "stats": [
-      {
-        "name": "health",
-        "base_stat": 45
-      },
-      {
-        "name": "attack",
-        "base_stat": 45
-      },
-      {
-        "name": "defense",
-        "base_stat": 45
-      },
-      {
-        "name": "speed",
-        "base_stat": 45
-      }
-    ],
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
     "types": [
       {
         "slot": 1,

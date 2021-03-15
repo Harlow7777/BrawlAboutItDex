@@ -54,7 +54,7 @@ function createCreatureCard(creature) {
 
 	const creature_types = creature.types.map(type => type.name);
 	const type = main_types.find(type => creature_types.indexOf(type) > -1);
-
+    const stats = creature.stats;
 	const color = colors[type];
 	creatureElement.style.backgroundColor = color;
 
@@ -69,6 +69,7 @@ function createCreatureCard(creature) {
 							.toString()
 							.padStart(3, '0')}</span>
             <h3 class="name">${name}</h3>
+            <small class="stats"><span>HP:${stats.health} Atk:${stats.attack} Def:${stats.defense} Spd: ${stats.speed}</span>
             <small class="type">Type: <span>${type}</span></small>
         </div>
     `;
