@@ -46,6 +46,8 @@ body {
 
 .creature .img-container img {
 	margin-top: 20px;
+	width: 50px;
+	height: auto;
 	max-width: 90%;
 }
 
@@ -63,9 +65,4 @@ body {
 .creature .name {
 	margin: 15px 0 7px;
 	letter-spacing: 1px;
-}
-
-.type-img {
-    width: 100px,
-    height: auto
 }
