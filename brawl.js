@@ -60,17 +60,18 @@ function createCreatureCard(creature) {
 
 	const innerHTML = `
         <div class="img-container">
-            <img src="./images/${
-                            name
-                            }.jpg" alt="${name}" />
+            <img src="./images/${name}.jpg" alt="${name}" />
         </div>
         <div class="info">
             <span class="number">#${creature.id
 							.toString()
 							.padStart(3, '0')}</span>
             <h3 class="name">${name}</h3>
-            <small class="stats"><span>HP:${stats.health} Atk:${stats.attack} Def:${stats.defense} Spd: ${stats.speed}</span>
             <small class="type">Type: <span>${type}</span></small>
+            <div class="type-img">
+                <img src="./images/types/${type}.png" alt="${type}">
+            </div>
+            <small class="stats"><span>HP ${stats.health} Atk ${stats.attack} Def ${stats.defense} Spd ${stats.speed}</span>
         </div>
     `;
 
