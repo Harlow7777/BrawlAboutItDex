@@ -20,7 +20,7 @@ const colors = {
 const main_types = Object.keys(colors);
 
 const fetchPokemons = async () => {
-	for (let i = 1; i <= pokemons_number; i++) {
+	for (let i = 0; i < pokemons_number; i++) {
 		await getPokemon(i);
 	}
 };
@@ -42,8 +42,7 @@ function loadJSON(callback) {
 const getPokemon = async id => {
     loadJSON(function(response) {
     var pokemon = JSON.parse(response);
-    console.log(pokemon[id-1].name);
-    createPokemonCard(pokemon);
+    createPokemonCard(pokemon[id]);
     });
 };
 
