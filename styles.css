@@ -46,9 +46,12 @@ body {
 
 .creature .img-container img {
 	margin-top: 20px;
-	width: 50px;
-	height: auto;
 	max-width: 90%;
+}
+
+.type-symbol {
+    width: 50px;
+	height: auto;
 }
 
 .creature .info {
