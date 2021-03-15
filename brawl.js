@@ -47,8 +47,6 @@ const getCreatures = async id => {
 };
 
 function createCreatureCard(creature) {
-    console.log("CREATURE KEYS: " + Object.keys(creature));
-    console.log("CREATURE VALS: " + Object.values(creature));
 	const creatureElement = document.createElement('div');
 	creatureElement.classList.add('creature');
 
