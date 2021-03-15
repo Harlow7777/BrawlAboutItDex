@@ -76,7 +76,7 @@ function createCreatureCard(creature) {
     `;
 
 	creatureElement.innerHTML = innerHTML;
-	poke_container.appendChild(creatureElement);
+	div_container.appendChild(creatureElement);
 }
 
 fetchCreatures();
