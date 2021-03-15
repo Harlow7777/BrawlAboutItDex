@@ -54,7 +54,7 @@ function createCreatureCard(creature) {
 
     const name = creature.name;
 
-	const creature_types = creature.types(type => type.name);
+	const creature_types = creature.types.map(type => type.name);
 	const type = main_types.find(type => creature_types.indexOf(type) > -1);
 
 	const color = colors[type];
