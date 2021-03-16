@@ -50,5 +50,165 @@
         "name": "mind"
       }
     ]
+  },
+  {
+    "id": 4,
+    "name": "Muscle",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "muscle"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Space",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "space"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Sound",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "sound"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Nature",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "nature"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Water",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "water"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Fire",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "fire"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Air",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "air"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Ghost",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "ghost"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Electric",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "electric"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Metal",
+    "stats": {
+      "health": 45,
+      "attack": 45,
+      "defense": 45,
+      "speed": 45
+    },
+    "types": [
+      {
+        "slot": 1,
+        "name": "metal"
+      }
+    ]
   }
 ]
