@@ -59,7 +59,7 @@ function createCreatureCard(creature) {
 		var colorGradient = getCssValuePrefix() + 'linear-gradient(';
 		creatureElement.style.backgroundColor = getCssValuePrefix() + 'linear-gradient(';
 		Object.values(creature_types).forEach(type => {
-			colorGradient += colors[type] + ', ';
+			colorGradient += colors[type] + ',';
 			typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '">';
 		});
 		colorGradient = colorGradient.slice(0, -1);
