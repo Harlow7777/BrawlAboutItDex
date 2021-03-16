@@ -49,13 +49,14 @@ body {
 
 .creature .img-container img {
 	margin-top: 20px;
+	margin-left: 22.5px;
 	max-width: 90%;
 }
 
 .type-symbol {
 	max-width: 100%;
 	margin-top: 0px;
-	margin-left: 100px;
+	margin-left: 160px;
 	width: 30px;
 	height: auto;
 }
