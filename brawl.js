@@ -56,7 +56,7 @@ function createCreatureCard(creature) {
 
 	const creature_types = creature.types.map(type => type.name);
 	if(creature_types.length > 1) {
-		const colorGradient = getCssValuePrefix() + 'linear-gradient(';
+		var colorGradient = getCssValuePrefix() + 'linear-gradient(';
 		creatureElement.style.backgroundColor = getCssValuePrefix() + 'linear-gradient(';
 		Object.values(creature_types).forEach(type => {
 			colorGradient += colors[type] + ', ';
@@ -85,7 +85,7 @@ function createCreatureCard(creature) {
             <small class="stats"><span>HP ${stats.health} Atk ${stats.attack} Def ${stats.defense} Spd ${stats.speed}</span>
         </div>
     `;
-
+	console.log("INNER HTML: " + innerHTML);
 	creatureElement.innerHTML = innerHTML;
 	div_container.appendChild(creatureElement);
 }
