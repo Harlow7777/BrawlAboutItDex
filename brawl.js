@@ -5,9 +5,9 @@ const colors = {
 	nature: '#DEFDE0',
 	electric: '#FCF7DE',
 	water: '#DEF3FD',
-	ground: '#DE791E',
-	sound: '#FF3AFE',
-	air: '#50C9FA',
+	ground: '#E1B48C',
+	sound: '#FFAFFF',
+	air: '#9DE3FF',
 	muscle: '#E6E0D4',
 	mind: '#B268FF',
 	space: '#000000',
@@ -71,7 +71,7 @@ function createCreatureCard(creature) {
 
 	const innerHTML = typeSymbol + `
 	<div class="img-container" style='width: 100%;text-align:center;'>
-            <img src="./images/${name}.jpg" alt="${name}" />
+            <img src="./images/${name}.jpg" alt="${name}" style='width:50px; height:100px;margin:0px auto;'/>
         </div>
         <div class="info">
             <span class="number">#${creature.id
