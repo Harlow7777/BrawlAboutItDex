@@ -40,6 +40,7 @@ body {
 }
 
 .creature .img-container {
+	margin-left: 22.5px;
 	background-color: rgba(255, 255, 255, 0.6);
 	border-radius: 50%;
 	width: 120px;
@@ -49,7 +50,6 @@ body {
 
 .creature .img-container img {
 	margin-top: 20px;
-	margin-left: 22.5px;
 	max-width: 90%;
 }
 
