@@ -2,20 +2,17 @@ const divContainer = document.getElementById('div_container');
 const creature_number = 3;
 const colors = {
 	fire: '#FDDFDF',
-	grass: '#DEFDE0',
+	nature: '#DEFDE0',
 	electric: '#FCF7DE',
 	water: '#DEF3FD',
-	ground: '#8E2711',
-	rock: '#d5d5d4',
-	fairy: '#fceaff',
-	poison: '#98d7a5',
-	bug: '#f8d5a3',
-	dragon: '#97b3e6',
-	psychic: '#eaeda1',
-	flying: '#F5F5F5',
-	fighting: '#E6E0D4',
-	normal: '#F5F5F5',
-	mind: '#E73DFF'
+	ground: '#823e00',
+	sound: '#eaeda1',
+	air: '#F5F5F5',
+	muscle: '#E6E0D4',
+	mind: '#E73DFF',
+	space: '#000000',
+	ghost: '#ffffff',
+	metal: '#969696' 
 };
 const main_types = Object.keys(colors);
 
