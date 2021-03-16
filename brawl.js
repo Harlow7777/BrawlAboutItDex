@@ -50,11 +50,20 @@ function createCreatureCard(creature) {
 	const creatureElement = document.createElement('div');
 	creatureElement.classList.add('creature');
 
-    const name = creature.name;
+    	const name = creature.name;
+	const stats = creature.stats;
 
 	const creature_types = creature.types.map(type => type.name);
+	if(creature_types.length > 1) {
+		console.log("MULTIPLE TYPES FOR: " + creature.name);
+		console.log("TYPES: " + Object.values(creature_types));
+// 		creatureElement.style.backgroundColor = 
+		Object.values(creature_types).forEach(type => {
+			console.log(colors(type));
+		});
+// 		dom.style.backgroundImage = getCssValuePrefix() + 'linear-gradient(' + colorOne + ', ' + colorTwo + ')';
+	}	
 	const type = main_types.find(type => creature_types.indexOf(type) > -1);
-    const stats = creature.stats;
 	const color = colors[type];
 	creatureElement.style.backgroundColor = color;
 
@@ -75,6 +84,37 @@ function createCreatureCard(creature) {
 
 	creatureElement.innerHTML = innerHTML;
 	div_container.appendChild(creatureElement);
+}
+	
+// Detect which browser prefix to use for the specified CSS value
+// (e.g., background-image: -moz-linear-gradient(...);
+//        background-image:   -o-linear-gradient(...); etc).
+//
+
+function getCssValuePrefix()
+{
+    var rtrnVal = '';//default to standard syntax
+    var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
+
+    // Create a temporary DOM object for testing
+    var dom = document.createElement('div');
+
+    for (var i = 0; i < prefixes.length; i++)
+    {
+        // Attempt to set the style
+        dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
+
+        // Detect if the style was successfully set
+        if (dom.style.background)
+        {
+            rtrnVal = prefixes[i];
+        }
+    }
+
+    dom = null;
+    delete dom;
+
+    return rtrnVal;
 }
 
 fetchCreatures();
