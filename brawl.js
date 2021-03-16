@@ -52,7 +52,7 @@ function createCreatureCard(creature) {
 
     	const name = creature.name;
 	const stats = creature.stats;
-	const typeSymbol;
+	const typeSymbol = '';
 
 	const creature_types = creature.types.map(type => type.name);
 	if(creature_types.length > 1) {
