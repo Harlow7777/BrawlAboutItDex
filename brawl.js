@@ -59,7 +59,7 @@ function createCreatureCard(creature) {
 			if(index > 0)
 				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="margin-left: 0px">'
 			else		
-				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '">';
+				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="margin-left: 100px">';
 		});
 		colorGradient = colorGradient.slice(0, -1);
 		colorGradient += ')';
