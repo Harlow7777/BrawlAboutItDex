@@ -56,8 +56,6 @@ function createCreatureCard(creature) {
 
 	const creature_types = creature.types.map(type => type.name);
 	if(creature_types.length > 1) {
-		console.log("MULTIPLE TYPES FOR: " + creature.name);
-		console.log("TYPES: " + Object.values(creature_types));
 		const colorGradient = getCssValuePrefix() + 'linear-gradient(';
 		creatureElement.style.backgroundColor = getCssValuePrefix() + 'linear-gradient(';
 		Object.values(creature_types).forEach(type => {
