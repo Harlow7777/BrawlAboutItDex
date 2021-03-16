@@ -57,15 +57,13 @@ function createCreatureCard(creature) {
 	const creature_types = creature.types.map(type => type.name);
 	if(creature_types.length > 1) {
 		var colorGradient = getCssValuePrefix() + 'linear-gradient(';
-		creatureElement.style.backgroundColor = getCssValuePrefix() + 'linear-gradient(';
 		Object.values(creature_types).forEach(type => {
 			colorGradient += colors[type] + ',';
 			typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '">';
 		});
 		colorGradient = colorGradient.slice(0, -1);
 		colorGradient += ')';
-		console.log(colorGradient);
-		creatureElement.style.backgroundColor = colorGradient;
+		creatureElement.style.background = colorGradient;
 	} else {	
 		const type = main_types.find(type => creature_types.indexOf(type) > -1);
 		creatureElement.style.backgroundColor = colors[type];
