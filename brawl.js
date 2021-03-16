@@ -57,15 +57,21 @@ function createCreatureCard(creature) {
 	if(creature_types.length > 1) {
 		console.log("MULTIPLE TYPES FOR: " + creature.name);
 		console.log("TYPES: " + Object.values(creature_types));
-// 		creatureElement.style.backgroundColor = 
+		const colorGradient = getCssValuePrefix() + 'linear-gradient(';
+		creatureElement.style.backgroundColor = getCssValuePrefix() + 'linear-gradient(';
 		Object.values(creature_types).forEach(type => {
-			console.log(colors(type));
+			console.log(colors[type]);
+			colorGradient += colors[type] + ', ';
 		});
+		colorGradient = colorGradient.slice(0, -1);
+		colorGradient += ')';
+		console.log(colorGradient);
+		creatureElement.style.backgroundColor = colorGradient;
 // 		dom.style.backgroundImage = getCssValuePrefix() + 'linear-gradient(' + colorOne + ', ' + colorTwo + ')';
+	} else {	
+		const type = main_types.find(type => creature_types.indexOf(type) > -1);
+		creatureElement.style.backgroundColor = colors[type];
 	}	
-	const type = main_types.find(type => creature_types.indexOf(type) > -1);
-	const color = colors[type];
-	creatureElement.style.backgroundColor = color;
 
 	const innerHTML = `
 	<img class="type-symbol" src="./images/types/${type}.png" alt="${type}">
