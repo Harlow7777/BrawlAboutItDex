@@ -54,7 +54,7 @@ function createCreatureCard(creature) {
 	const creature_types = creature.types.map(type => type.name);
 	if(creature_types.length > 1) {
 		var colorGradient = getCssValuePrefix() + 'linear-gradient(';
-		Object.values(creature_types).forEach((type, index) => => {
+		Object.values(creature_types).forEach((type, index) => {
 			colorGradient += colors[type] + ',';
 			if(index > 0)
 				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + ' margin-left="0px">'
