@@ -60,7 +60,7 @@ function createCreatureCard(creature) {
 		creatureElement.style.backgroundColor = getCssValuePrefix() + 'linear-gradient(';
 		Object.values(creature_types).forEach(type => {
 			colorGradient += colors[type] + ', ';
-			typeSymbol += '<img class="type-symbol" src="./images/types/${type}.png" alt="${type}">';
+			typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '">';
 		});
 		colorGradient = colorGradient.slice(0, -1);
 		colorGradient += ')';
@@ -69,7 +69,7 @@ function createCreatureCard(creature) {
 	} else {	
 		const type = main_types.find(type => creature_types.indexOf(type) > -1);
 		creatureElement.style.backgroundColor = colors[type];
-		typeSymbol += '<img class="type-symbol" src="./images/types/${type}.png" alt="${type}">';
+		typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '">';
 	}	
 
 	const innerHTML = typeSymbol + `
