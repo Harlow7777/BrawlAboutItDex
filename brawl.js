@@ -8,7 +8,7 @@ const colors = {
 	ground: '#E1B48C',
 	sound: '#FFAFFF',
 	air: '#9DE3FF',
-	muscle: '#E6E0D4',
+	muscle: '#FFEFD6',
 	mind: '#B268FF',
 	space: '#000000',
 	ghost: '#ffffff',
@@ -70,7 +70,7 @@ function createCreatureCard(creature) {
 		creatureElement.style.color = '#ffffff';
 
 	const innerHTML = typeSymbol + `
-	<div class="img-container" style='width: 100%;text-align:center;'>
+	<div class="img-container" style='text-align:center;'>
             <img src="./images/${name}.jpg" alt="${name}" style='width:50px; height:100px;margin:0px auto;'/>
         </div>
         <div class="info">
