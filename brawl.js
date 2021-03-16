@@ -5,14 +5,14 @@ const colors = {
 	nature: '#DEFDE0',
 	electric: '#FCF7DE',
 	water: '#DEF3FD',
-	ground: '#823e00',
+	ground: '#B05400',
 	sound: '#eaeda1',
 	air: '#F5F5F5',
 	muscle: '#E6E0D4',
-	mind: '#E73DFF',
+	mind: '#EA58FF',
 	space: '#000000',
 	ghost: '#ffffff',
-	metal: '#969696' 
+	metal: '#B0B0B0' 
 };
 const main_types = Object.keys(colors);
 
