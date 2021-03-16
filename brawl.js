@@ -5,11 +5,11 @@ const colors = {
 	nature: '#DEFDE0',
 	electric: '#FCF7DE',
 	water: '#DEF3FD',
-	ground: '#B05400',
-	sound: '#eaeda1',
-	air: '#F5F5F5',
+	ground: '#DE791E',
+	sound: '#FF3AFE',
+	air: '#50C9FA',
 	muscle: '#E6E0D4',
-	mind: '#EA58FF',
+	mind: '#B268FF',
 	space: '#000000',
 	ghost: '#ffffff',
 	metal: '#B0B0B0' 
@@ -65,7 +65,9 @@ function createCreatureCard(creature) {
 		const type = main_types.find(type => creature_types.indexOf(type) > -1);
 		creatureElement.style.backgroundColor = colors[type];
 		typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '">';
-	}	
+	}
+	if(creature_types.indexOf('space') > -1)
+		creatureElement.style.color = '#ffffff';
 
 	const innerHTML = typeSymbol + `
         <div class="img-container">
