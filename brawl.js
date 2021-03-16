@@ -59,10 +59,10 @@ function createCreatureCard(creature) {
 	creatureElement.style.backgroundColor = color;
 
 	const innerHTML = `
+	<img class="type-symbol" src="./images/types/${type}.png" alt="${type}">
         <div class="img-container">
             <img src="./images/${name}.jpg" alt="${name}" />
         </div>
-        <img class="type-symbol" src="./images/types/${type}.png" alt="${type}">
         <div class="info">
             <span class="number">#${creature.id
 							.toString()
