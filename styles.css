@@ -28,6 +28,9 @@ body {
 }
 
 .creature {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 	background-color: #eee;
 	border-radius: 20px;
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
