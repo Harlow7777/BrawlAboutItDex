@@ -70,7 +70,7 @@ function createCreatureCard(creature) {
 		creatureElement.style.color = '#ffffff';
 
 	const innerHTML = typeSymbol + `
-        <div class="img-container">
+	<div class="img-container" style='width: 100%;text-align:center;'>
             <img src="./images/${name}.jpg" alt="${name}" />
         </div>
         <div class="info">
