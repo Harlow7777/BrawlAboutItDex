@@ -73,7 +73,7 @@ function createCreatureCard(creature) {
 		creatureElement.style.color = '#ffffff';
 
 	const innerHTML = `
-	<div style='text-align:right;' max-width:100%'>`
+	<div style='display: flex; justify-content: right; text-align:right; max-width:100%;'>`
 	      + typeSymbol + `
 	</div>
 	<div class="img-container" style='text-align:center;'>
