@@ -1,5 +1,5 @@
 const divContainer = document.getElementById('div_container');
-const creature_number = 3;
+const creature_number = 13;
 const colors = {
 	fire: '#FDDFDF',
 	nature: '#DEFDE0',
