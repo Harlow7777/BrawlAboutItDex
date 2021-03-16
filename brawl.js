@@ -19,7 +19,7 @@ const colors = {
 };
 const main_types = Object.keys(colors);
 
-const fetchCreatures = () => {
+const fetchCreatures = async () => {
 	for (let i = 0; i < creature_number; i++) {
 		getCreatures(i);
 	}
@@ -39,7 +39,7 @@ function loadJSON(callback) {
         xobj.send();
 }
 
-const getCreatures = id => {
+const getCreatures = async id => {
     loadJSON(function(response) {
     var creatures = JSON.parse(response);
     createCreatureCard(creatures[id]);
