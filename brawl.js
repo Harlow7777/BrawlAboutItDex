@@ -5,7 +5,7 @@ const colors = {
 	grass: '#DEFDE0',
 	electric: '#FCF7DE',
 	water: '#DEF3FD',
-	ground: '#f4e7da',
+	ground: '#8E2711',
 	rock: '#d5d5d4',
 	fairy: '#fceaff',
 	poison: '#98d7a5',
