@@ -72,7 +72,10 @@ function createCreatureCard(creature) {
 	if(creature_types.indexOf('space') > -1)
 		creatureElement.style.color = '#ffffff';
 
-	const innerHTML = typeSymbol + `
+	const innerHTML = `
+	<div style='text-align:right;' max-width:100%'>`
+	      + typeSymbol + `
+	</div>
 	<div class="img-container" style='text-align:center;'>
             <img src="./images/${name}.jpg" alt="${name}" style='width:50px; height:100px;margin:0px auto;'/>
         </div>
@@ -85,7 +88,6 @@ function createCreatureCard(creature) {
             <small class="stats"><span>HP ${stats.health} Atk ${stats.attack} Def ${stats.defense} Spd ${stats.speed}</span>
         </div>
     `;
-	console.log("INNER HTML: " + innerHTML);
 	creatureElement.innerHTML = innerHTML;
 	div_container.appendChild(creatureElement);
 }
