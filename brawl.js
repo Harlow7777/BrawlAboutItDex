@@ -52,6 +52,7 @@ function createCreatureCard(creature) {
 
     	const name = creature.name;
 	const stats = creature.stats;
+	const typeSymbol;
 
 	const creature_types = creature.types.map(type => type.name);
 	if(creature_types.length > 1) {
@@ -62,6 +63,7 @@ function createCreatureCard(creature) {
 		Object.values(creature_types).forEach(type => {
 			console.log(colors[type]);
 			colorGradient += colors[type] + ', ';
+			typeSymbol += '<img class="type-symbol" src="./images/types/${type}.png" alt="${type}">';
 		});
 		colorGradient = colorGradient.slice(0, -1);
 		colorGradient += ')';
@@ -71,10 +73,10 @@ function createCreatureCard(creature) {
 	} else {	
 		const type = main_types.find(type => creature_types.indexOf(type) > -1);
 		creatureElement.style.backgroundColor = colors[type];
+		typeSymbol += '<img class="type-symbol" src="./images/types/${type}.png" alt="${type}">';
 	}	
 
-	const innerHTML = `
-	<img class="type-symbol" src="./images/types/${type}.png" alt="${type}">
+	const innerHTML = typeSymbol + `
         <div class="img-container">
             <img src="./images/${name}.jpg" alt="${name}" />
         </div>
