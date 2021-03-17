@@ -43,6 +43,7 @@ function getCreatures()
 {
     loadJSON(function(response) 
     {
+	console.log(JSON.parse(response).length);
 	return JSON.parse(response);
 //     createCreatureCard(creatures[id]);
     });
