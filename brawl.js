@@ -44,7 +44,7 @@ function getCreatures()
 	console.log('Array before loading: ' + creatureElementArray.length);
 	creatureElementArray = JSON.parse(response);
 	console.log('Added json to array: ' + creatureElementArray.length);
-	sortByIdReverse();
+	sortById();
 	console.log('SORTED ARRAY: ' + creatureElementArray.length);
     });
 };
@@ -55,28 +55,33 @@ function addElementsToDiv() {
 	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name));
 }	
 
-function sortById() {
-	creatureElementArray.sort((a, b) => {
-		return a.id - b.id;	
-	});	
+function sortByValue(key, order = 'asc') {
+	creatureElementArray.sort(compareValues(key));
 	addElementsToDiv();
-}	
+}
 
-function sortByIdReverse() {
-	creatureElementArray.sort((a, b) => {
-		return b.id - a.id;
-	});
-	addElementsToDiv();
-}				  
+function compareValues(key, order = 'asc') {
+  return function innerSort(a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      // property doesn't exist on either object
+      return 0;
+    }
 
-function sortByName() {
-	creatureElementArray.sort((a, b) => {
-    		if(a.name < b.name) { return -1; }
-    		if(a.name > b.name) { return 1; }
-    		return 0;
-	});
-	addElementsToDiv();
-}	
+    const varA = (typeof a[key] === 'string')
+      ? a[key].toUpperCase() : a[key];
+    const varB = (typeof b[key] === 'string')
+      ? b[key].toUpperCase() : b[key];
+
+    let comparison = 0;
+    if (varA > varB) {
+      comparison = 1;
+    } else if (varA < varB) {
+      comparison = -1;
+    }
+    return (
+      (order === 'desc') ? (comparison * -1) : comparison
+    );
+  };
 
 function createCreatureCard(creature) 
 {
