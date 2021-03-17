@@ -17,11 +17,12 @@ const colors = {
 const main_types = Object.keys(colors);
 var creatureElementArray = new Array();
 
-function fetchCreatures() 
+function populateDex() 
 {
-// 	for (let i = 0; i < creature_number; i++) {
-		getCreatures();
-// 	}
+	getCreatures();
+	console.log('FETCHED: ' + creatureElementArray.length);
+	sortCreaturesById();
+	addCreaturesToDiv();
 };
 
 function loadJSON(callback) 
@@ -46,7 +47,6 @@ function getCreatures()
 	console.log(JSON.parse(response).length);
 	creatureElementArray = JSON.parse(response);
 	console.log(creatureElementArray.length);
-	addCreaturesToDiv();
     });
 };
 
@@ -136,10 +136,6 @@ function sortCreaturesById()
 function addCreaturesToDiv()
 {
 	creatureElementArray.forEach(creature => createCreatureCard(creature));
-// 	creatureElementArray.forEach(creatureElement => 	
-// 		div_container.appendChild(creatureElement));
 }
 
-getCreatures();
-console.log("CREATURES FETCHED: " + creatureElementArray.length);
-// sortCreaturesById();
+populateDex();
