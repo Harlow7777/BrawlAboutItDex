@@ -138,8 +138,8 @@ function addCreaturesToDiv()
 		div_container.appendChild(creatureElement));
 }
 
-console.log(fetchCreatures().length);
-creatureElementArray = fetchCreatures();
+console.log(getCreatures().length);
+creatureElementArray = getCreatures();
 console.log("CREATURES FETCHED: " + creatureElementArray.length);
 creatureElementArray.forEach(creatureElement => console.log(Object.values(creatureElement)));
 // sortCreaturesById();
