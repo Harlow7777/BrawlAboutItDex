@@ -82,6 +82,7 @@ function compareValues(key, order = 'asc') {
       (order === 'desc') ? (comparison * -1) : comparison
     );
   };
+}	
 
 function createCreatureCard(creature) 
 {
