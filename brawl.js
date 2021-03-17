@@ -46,14 +46,13 @@ function getCreatures()
 	console.log('Added json to array: ' + creatureElementArray.length);
 	sortByIdReverse();
 	console.log('SORTED ARRAY: ' + creatureElementArray.length);
-	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name));
-
     });
 };
 
 function addElementsToDiv() {
   	div_container.textContent = '';
 	creatureElementArray.forEach(creature => createCreatureCard(creature));
+	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name));
 }	
 
 function sortById() {
