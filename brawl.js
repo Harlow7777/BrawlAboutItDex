@@ -139,5 +139,6 @@ function addCreaturesToDiv()
 }
 
 fetchCreatures();
+creatureElementArray.forEach(creatureElement => Object.values(creatureElement).forEach(val => console.log(val)));
 // sortCreatures();
 addCreaturesToDiv();
