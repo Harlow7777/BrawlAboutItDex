@@ -20,9 +20,9 @@ var creatureElementArray = new Array();
 function populateDex() 
 {
 	getCreatures();
-	console.log('FETCHED: ' + creatureElementArray.length);
+	console.log('FETCHED: ' + this.creatureElementArray.length);
 	sortCreaturesById();
-	creatureElementArray.forEach(creature => createCreatureCard(creature));
+	this.creatureElementArray.forEach(creature => createCreatureCard(creature));
 };
 
 function loadJSON(callback) 
@@ -45,8 +45,8 @@ function getCreatures()
     loadJSON(function(response) 
     {
 	console.log(JSON.parse(response).length);
-	creatureElementArray = JSON.parse(response);
-	console.log(creatureElementArray.length);
+	this.creatureElementArray = JSON.parse(response);
+	console.log(this.creatureElementArray.length);
     });
 };
 
@@ -128,7 +128,7 @@ function getCssValuePrefix()
 
 function sortCreaturesById() 
 {
-	creatureElementArray.sort((a, b) => {
+	this.creatureElementArray.sort((a, b) => {
     		return a.id - b.id;
 	});					
 }	
