@@ -17,13 +17,15 @@ const colors = {
 const main_types = Object.keys(colors);
 var creatureElementArray = new Array();
 
-function fetchCreatures() {
+function fetchCreatures() 
+{
 // 	for (let i = 0; i < creature_number; i++) {
 		getCreatures();
 // 	}
 };
 
-function loadJSON(callback) {
+function loadJSON(callback) 
+{
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
         xobj.open('GET', 'dex.json', true);
@@ -37,15 +39,17 @@ function loadJSON(callback) {
         xobj.send();
 }
 
-function getCreatures() {
-    loadJSON(function(response) {
-	JSON.parse(response).forEach(creature => console.log(creature.name));
-    	creatureElementArray.push(JSON.parse(response));
+function getCreatures() 
+{
+    loadJSON(function(response) 
+    {
+	JSON.parse(response).forEach(creature => creatureElementArray.push(creature));
 //     createCreatureCard(creatures[id]);
     });
 };
 
-function createCreatureCard(creature) {
+function createCreatureCard(creature) 
+{
 	const creatureElement = document.createElement('div');
 	creatureElement.classList.add('creature');
 
@@ -121,7 +125,8 @@ function getCssValuePrefix()
     return rtrnVal;
 }
 
-function sortCreaturesById() {
+function sortCreaturesById() 
+{
 	creatureElementArray.sort((a, b) => {
     		return a.id - b.id;
 	});					
