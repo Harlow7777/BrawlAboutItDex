@@ -51,7 +51,7 @@ function getCreatures()
     		return 0;
 	});
 	console.log('SORTED ARRAY: ' + creatureElementArray.length);
-	creatureElementArray.forEach(creature => console.log(creature.id));
+	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name));
 	creatureElementArray.forEach(creature => createCreatureCard(creature));
 
     });
