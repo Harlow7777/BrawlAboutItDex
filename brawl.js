@@ -39,8 +39,8 @@ function loadJSON(callback) {
 
 const getCreatures = async id => {
     loadJSON(function(response) {
-    var creatures = JSON.parse(response);
-    createCreatureCard(creatures[id]);
+    creatureElementArray.push(JSON.parse(response));
+//     createCreatureCard(creatures[id]);
     });
 };
 
@@ -93,11 +93,6 @@ function createCreatureCard(creature) {
 	creatureElementArray.push(creatureElement);
 // 	div_container.appendChild(creatureElement);
 }
-	
-// Detect which browser prefix to use for the specified CSS value
-// (e.g., background-image: -moz-linear-gradient(...);
-//        background-image:   -o-linear-gradient(...); etc).
-//
 
 function getCssValuePrefix()
 {
@@ -142,4 +137,4 @@ fetchCreatures();
 console.log("CREATURES FETCHED: " + creatureElementArray.length);
 creatureElementArray.forEach(creatureElement => console.log(Object.values(creatureElement)));
 // sortCreatures();
-addCreaturesToDiv();
+// addCreaturesToDiv();
