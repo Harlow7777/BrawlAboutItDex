@@ -52,6 +52,18 @@ function getCreatures()
     });
 };
 
+function sortById() {
+	creatureElementArray.sort((a, b) => {
+		return a.id - b.id;	
+	}	
+}	
+
+function sortByIdReverse() {
+	creatureElementArray.sort((a, b) => {
+		return b.id - a.id;
+	}
+}				  
+
 function sortByName() {
 	creatureElementArray.sort((a, b) => {
     		if(a.name < b.name) { return -1; }
