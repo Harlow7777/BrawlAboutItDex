@@ -18,9 +18,9 @@ const main_types = Object.keys(colors);
 var creatureElementArray = new Array();
 
 function fetchCreatures() {
-	for (let i = 0; i < creature_number; i++) {
+// 	for (let i = 0; i < creature_number; i++) {
 		getCreatures();
-	}
+// 	}
 };
 
 function loadJSON(callback) {
