@@ -20,9 +20,7 @@ var creatureElementArray = new Array();
 function populateDex() 
 {
 	getCreatures();
-	console.log('FETCHED: ' + this.creatureElementArray.length);
-	sortCreaturesById();
-	this.creatureElementArray.forEach(creature => createCreatureCard(creature));
+	console.log('FETCHED: ' + creatureElementArray.length);
 };
 
 function loadJSON(callback) 
@@ -44,9 +42,16 @@ function getCreatures()
 {
     loadJSON(function(response) 
     {
-	console.log(JSON.parse(response).length);
-	this.creatureElementArray = JSON.parse(response);
-	console.log(this.creatureElementArray.length);
+	console.log('Array before loading: ' + creatureElementArray.length);
+	creatureElementArray = JSON.parse(response);
+	console.log('Added json to array: ' + creatureElementArray.length);
+	creatureElementArray.sort((a, b) => {
+    		return a.id - b.id;
+	});
+	console.log('SORTED ARRAY: ' + creatureElementArray.length);
+	creatureElementArray.forEach(creature => console.log(creature.id));
+	creatureElementArray.forEach(creature => createCreatureCard(creature));
+
     });
 };
 
@@ -125,12 +130,5 @@ function getCssValuePrefix()
 
     return rtrnVal;
 }
-
-function sortCreaturesById() 
-{
-	this.creatureElementArray.sort((a, b) => {
-    		return a.id - b.id;
-	});					
-}	
 
 populateDex();
