@@ -46,7 +46,7 @@ function getCreatures()
 	console.log(JSON.parse(response).length);
 	creatureElementArray = JSON.parse(response);
 	console.log(creatureElementArray.length);
-//     createCreatureCard(creatures[id]);
+	addCreaturesToDiv();
     });
 };
 
@@ -97,8 +97,7 @@ function createCreatureCard(creature)
         </div>
     `;
 	creatureElement.innerHTML = innerHTML;
-	creatureElementArray.push(creatureElement);
-// 	div_container.appendChild(creatureElement);
+	div_container.appendChild(creatureElement);
 }
 
 function getCssValuePrefix()
@@ -136,12 +135,11 @@ function sortCreaturesById()
 
 function addCreaturesToDiv()
 {
-	creatureElementArray.forEach(creatureElement => 	
-		div_container.appendChild(creatureElement));
+	creatureElementArray.forEach(creature => createCreatureCard(creature));
+// 	creatureElementArray.forEach(creatureElement => 	
+// 		div_container.appendChild(creatureElement));
 }
 
 getCreatures();
 console.log("CREATURES FETCHED: " + creatureElementArray.length);
-creatureElementArray.forEach(creatureElement => console.log(Object.values(creatureElement)));
 // sortCreaturesById();
-// addCreaturesToDiv();
