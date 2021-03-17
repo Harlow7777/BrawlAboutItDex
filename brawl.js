@@ -46,7 +46,7 @@ function getCreatures()
 	creatureElementArray = JSON.parse(response);
 	console.log('Added json to array: ' + creatureElementArray.length);
 	creatureElementArray.sort((a, b) => {
-    		return a.id - b.id;
+    		return a.name - b.name;
 	});
 	console.log('SORTED ARRAY: ' + creatureElementArray.length);
 	creatureElementArray.forEach(creature => console.log(creature.id));
