@@ -39,7 +39,7 @@ function loadJSON(callback) {
 
 function getCreatures() {
     loadJSON(function(response) {
-	console.log("Pushing: " + Object.values(JSON.parse(response)));
+	JSON.parse(response).forEach(creature => console.log(creature.name));
     	creatureElementArray.push(JSON.parse(response));
 //     createCreatureCard(creatures[id]);
     });
