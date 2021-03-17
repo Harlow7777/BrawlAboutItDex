@@ -20,7 +20,6 @@ var creatureElementArray = new Array();
 function populateDex() 
 {
 	getCreatures();
-	console.log('FETCHED: ' + creatureElementArray.length);
 };
 
 function loadJSON(callback) 
@@ -45,17 +44,21 @@ function getCreatures()
 	console.log('Array before loading: ' + creatureElementArray.length);
 	creatureElementArray = JSON.parse(response);
 	console.log('Added json to array: ' + creatureElementArray.length);
-	creatureElementArray.sort((a, b) => {
-    		if(a.name < b.name) { return -1; }
-    		if(a.name > b.name) { return 1; }
-    		return 0;
-	});
+	sortByName();
 	console.log('SORTED ARRAY: ' + creatureElementArray.length);
 	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name));
 	creatureElementArray.forEach(creature => createCreatureCard(creature));
 
     });
 };
+
+function sortByName() {
+	creatureElementArray.sort((a, b) => {
+    		if(a.name < b.name) { return -1; }
+    		if(a.name > b.name) { return 1; }
+    		return 0;
+	});
+}	
 
 function createCreatureCard(creature) 
 {
