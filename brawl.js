@@ -44,7 +44,8 @@ function getCreatures()
     loadJSON(function(response) 
     {
 	console.log(JSON.parse(response).length);
-	return JSON.parse(response);
+	creatureElementArray = JSON.parse(response);
+	console.log(creatureElementArray.length);
 //     createCreatureCard(creatures[id]);
     });
 };
@@ -139,8 +140,7 @@ function addCreaturesToDiv()
 		div_container.appendChild(creatureElement));
 }
 
-console.log(getCreatures().length);
-creatureElementArray = getCreatures();
+getCreatures();
 console.log("CREATURES FETCHED: " + creatureElementArray.length);
 creatureElementArray.forEach(creatureElement => console.log(Object.values(creatureElement)));
 // sortCreaturesById();
