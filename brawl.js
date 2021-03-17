@@ -44,7 +44,7 @@ function getCreatures()
 	console.log('Array before loading: ' + creatureElementArray.length);
 	creatureElementArray = JSON.parse(response);
 	console.log('Added json to array: ' + creatureElementArray.length);
-	sortByName();
+	sortByIdReverse();
 	console.log('SORTED ARRAY: ' + creatureElementArray.length);
 	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name));
 	creatureElementArray.forEach(creature => createCreatureCard(creature));
