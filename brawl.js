@@ -56,11 +56,13 @@ function addElementsToDiv() {
 }	
 
 function sortByValue(key, order = 'asc') {
-	creatureElementArray.sort(compareValues(key));
+	creatureElementArray.sort(compareValues(key, order));
 	addElementsToDiv();
 }
 
 function compareValues(key, order = 'asc') {
+  key = key.toLowerCase();	
+  console.log("SORTING " + order + " by " + key);
   return function innerSort(a, b) {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
       // property doesn't exist on either object
