@@ -22,7 +22,7 @@ function populateDex()
 	getCreatures();
 	console.log('FETCHED: ' + creatureElementArray.length);
 	sortCreaturesById();
-	addCreaturesToDiv();
+	creatureElementArray.forEach(creature => createCreatureCard(creature));
 };
 
 function loadJSON(callback) 
@@ -132,10 +132,5 @@ function sortCreaturesById()
     		return a.id - b.id;
 	});					
 }	
-
-function addCreaturesToDiv()
-{
-	creatureElementArray.forEach(creature => createCreatureCard(creature));
-}
 
 populateDex();
