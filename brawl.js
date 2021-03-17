@@ -17,9 +17,9 @@ const colors = {
 const main_types = Object.keys(colors);
 var creatureElementArray = new Array();
 
-const fetchCreatures = () => {
+function fetchCreatures() {
 	for (let i = 0; i < creature_number; i++) {
-		getCreatures(i);
+		getCreatures();
 	}
 };
 
@@ -37,7 +37,7 @@ function loadJSON(callback) {
         xobj.send();
 }
 
-const getCreatures = id => {
+function getCreatures() {
     loadJSON(function(response) {
 	console.log("Pushing: " + Object.values(JSON.parse(response)));
     	creatureElementArray.push(JSON.parse(response));
@@ -121,12 +121,11 @@ function getCssValuePrefix()
     return rtrnVal;
 }
 
-// function sortCreatures() {
-// 	var sortedArray = new Array();
-// 	creatureElementArray.forEach(creatureElement =>	{
-			
-// 	}					
-// }	
+function sortCreaturesById() {
+	creatureElementArray.sort((a, b) => {
+    		return a.id - b.id;
+	});					
+}	
 
 function addCreaturesToDiv()
 {
@@ -137,5 +136,5 @@ function addCreaturesToDiv()
 fetchCreatures();
 console.log("CREATURES FETCHED: " + creatureElementArray.length);
 creatureElementArray.forEach(creatureElement => console.log(Object.values(creatureElement)));
-// sortCreatures();
+// sortCreaturesById();
 // addCreaturesToDiv();
