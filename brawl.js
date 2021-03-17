@@ -39,7 +39,8 @@ function loadJSON(callback) {
 
 const getCreatures = async id => {
     loadJSON(function(response) {
-    creatureElementArray.push(JSON.parse(response));
+	console.log("Pushing: " + JSON.parse(response));
+    	creatureElementArray.push(JSON.parse(response));
 //     createCreatureCard(creatures[id]);
     });
 };
