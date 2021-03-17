@@ -46,7 +46,6 @@ function getCreatures()
 	console.log('Added json to array: ' + creatureElementArray.length);
 	sortByIdReverse();
 	console.log('SORTED ARRAY: ' + creatureElementArray.length);
-	addElementsToDiv();
 	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name));
 
     });
@@ -61,12 +60,14 @@ function sortById() {
 	creatureElementArray.sort((a, b) => {
 		return a.id - b.id;	
 	});	
+	addElementsToDiv();
 }	
 
 function sortByIdReverse() {
 	creatureElementArray.sort((a, b) => {
 		return b.id - a.id;
 	});
+	addElementsToDiv();
 }				  
 
 function sortByName() {
@@ -75,6 +76,7 @@ function sortByName() {
     		if(a.name > b.name) { return 1; }
     		return 0;
 	});
+	addElementsToDiv();
 }	
 
 function createCreatureCard(creature) 
