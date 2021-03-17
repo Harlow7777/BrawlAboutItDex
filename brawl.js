@@ -121,7 +121,7 @@ function createCreatureCard(creature)
 	      + typeSymbol + `
 	</div>
 	<div class="img-container" style='text-align:center;'>
-            <img src="./images/${name}.png" alt="${name}" style='width:50px; height:100px;margin:0px auto;'/>
+            <img src="./images/${name}.png" alt="${name}" style='width:100px; height:auto;margin:0px auto;'/>
         </div>
         <div class="info">
             <span class="number">#${creature.id
