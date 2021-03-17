@@ -15,6 +15,7 @@ const colors = {
 	metal: '#B0B0B0' 
 };
 const main_types = Object.keys(colors);
+var creatureElementArray = new Array();
 
 const fetchCreatures = async () => {
 	for (let i = 0; i < creature_number; i++) {
@@ -89,7 +90,8 @@ function createCreatureCard(creature) {
         </div>
     `;
 	creatureElement.innerHTML = innerHTML;
-	div_container.appendChild(creatureElement);
+	creatureElementArray.push(creatureElement);
+// 	div_container.appendChild(creatureElement);
 }
 	
 // Detect which browser prefix to use for the specified CSS value
@@ -123,4 +125,19 @@ function getCssValuePrefix()
     return rtrnVal;
 }
 
+// function sortCreatures() {
+// 	var sortedArray = new Array();
+// 	creatureElementArray.forEach(creatureElement =>	{
+			
+// 	}					
+// }	
+
+function addCreaturesToDiv()
+{
+	creatureElementArray.forEach(creatureElement => 	
+		div_container.appendChild(creatureElement));
+}
+
 fetchCreatures();
+// sortCreatures();
+addCreaturesToDiv();
