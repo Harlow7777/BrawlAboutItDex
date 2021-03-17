@@ -43,6 +43,7 @@ function getCreatures()
 {
     loadJSON(function(response) 
     {
+	JSON.parse(response).forEach(creature => console.log(creature.name));
 	JSON.parse(response).forEach(creature => creatureElementArray.push(creature));
 //     createCreatureCard(creatures[id]);
     });
