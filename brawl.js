@@ -56,9 +56,21 @@ function addElementsToDiv() {
 }	
 
 function listQ(){
-    console.log(this.value);
+    console.log(this.id);
 }
-document.getElementById("sort-drop-down").onchange = listQ;
+
+function sort() {
+	var id = this.id;
+	console.log(id);
+	var btnText = id.includes('.') ? id.split(".",2)[1] : id;
+	console.log("Changing " + document.getElementById('drop-down-button').textContent + " to " + btnText);
+	document.getElementById('drop-down-button').textContent = btnText;
+	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
+	sortByValue(id, sortOrder);
+	sortField = id;
+}
+
+document.getElementById("sort-drop-down").onchange = sort;
 
 // document.getElementById('sort-drop-down').childNodes.forEach(child => {
 // 	child.addEventListener("click",
