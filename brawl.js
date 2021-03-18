@@ -129,7 +129,7 @@ function createCreatureCard(creature)
 							.padStart(3, '0')}</span>
             <h3 class="name">${name}</h3>
             <hr>
-            <small class="stats"><span>HP ${stats.health} Atk ${stats.attack} Def ${stats.defense} Spd ${stats.speed}</span>
+            <small class="stats"><span>H ${stats.health} A ${stats.attack} D ${stats.defense} S ${stats.speed}</span>
         </div>
     `;
 	creatureElement.innerHTML = innerHTML;
