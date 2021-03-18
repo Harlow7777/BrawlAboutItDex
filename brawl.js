@@ -60,11 +60,9 @@ function listQ(){
 }
 
 function sort() {
-	var id = this.id;
+	var id = this.key;
 	console.log(id);
 	var btnText = id.includes('.') ? id.split(".",2)[1] : id;
-	console.log("Changing " + document.getElementById('drop-down-button').textContent + " to " + btnText);
-	document.getElementById('drop-down-button').textContent = btnText;
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 	sortByValue(id, sortOrder);
 	sortField = id;
