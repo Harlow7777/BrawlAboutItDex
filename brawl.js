@@ -64,10 +64,10 @@ function compareValues(key, order = 'asc') {
   key = key.toLowerCase();	
   console.log("SORTING " + order + " by " + key);
   return function innerSort(a, b) {
-    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-      // property doesn't exist on either object
-      return 0;
-    }
+//    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+//      // property doesn't exist on either object
+//      return 0;
+//    }
 
     const varA = (typeof a[key] === 'string')
       ? a[key].toUpperCase() : a[key];
