@@ -65,18 +65,6 @@ function sort() {
 
 document.getElementById("sort-drop-down").onchange = sort;
 
-// document.getElementById('sort-drop-down').childNodes.forEach(child => {
-// 	child.addEventListener("click",
-// 	    function sort() {
-// 		var btnText = child.id.includes('.') ? child.id.split(".",2)[1] : child.id;
-// 		console.log("Changing " + document.getElementById('drop-down-button').textContent + " to " + btnText);
-// 		document.getElementById('drop-down-button').textContent = btnText;
-// 		var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
-// 		sortByValue(child.id, sortOrder);
-// 		sortField = child.id;
-// 	});
-// });	
-
 function sortByValue(key, order = 'asc') {
 	creatureElementArray.sort(compareValues(key, order));
 	addElementsToDiv();
@@ -185,26 +173,6 @@ function getCssValuePrefix()
 
     return rtrnVal;
 }
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-// function showDropDown() {
-//   document.getElementById("sort-drop-down").classList.toggle("show");
-// }
-
-// Close the dropdown menu if the user clicks outside of it
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
 
 document.getElementById('arrow').addEventListener("click",
     function flipArrow() {
