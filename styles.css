@@ -127,28 +127,34 @@ body {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
-.fa-arrow-down{
-  transform: rotate(0deg);
-  transition: transform 1s linear;
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
 }
 
-.fa-arrow-down.open{
-  transform: rotate(180deg);
-  transition: transform 1s linear;
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 (function(document){
-  var div = document.getElementById('container');
-  var icon = document.getElementById('icon');
+  var div = document.getElementById('sort-order');
+  var arrow = document.getElementById('arrow');
   var open = false;
 
   div.addEventListener('click', function(){
     if(open){
-      icon.className = 'fa fa-arrow-down';  
+      icon.className = 'arrow down';
     } else{
-      icon.className = 'fa fa-arrow-down open';
+      icon.className = 'arrow up open';
     }
-
     open = !open;
     console.log("Switching arrow");
   });
