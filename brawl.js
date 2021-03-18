@@ -57,9 +57,10 @@ function addElementsToDiv() {
 }	
 
 document.getElementById('sort-drop-down').childNodes.forEach(child => {
+	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 	child.addEventListener("click",
 	    function sort() {
-		sortByValue(child.id);
+		sortByValue(child.id, sortOrder);
 	});
 });	
 
