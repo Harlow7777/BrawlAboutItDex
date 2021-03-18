@@ -71,7 +71,7 @@ function compareValues(key, order = 'asc') {
         keyArr = key.split(".",2);
         aVal = a[keyArr[0]][keyArr[1]];
         bVal = b[keyArr[0]][keyArr[1]];
-        console.log("keyArr: " + keyArr[0] + ", " + keyArr[1])''
+        console.log("keyArr: " + keyArr[0] + ", " + keyArr[1]);
         console.log("A.stats: " + a[keyArr[0]] + ", stats.* " + a[keyArr[1]]);
     }
     console.log("SORTING " + aVal + " against " + bVal);
