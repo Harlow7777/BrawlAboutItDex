@@ -55,6 +55,11 @@ function addElementsToDiv() {
 	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name + ', health ' + creature.stats.health));
 }	
 
+function listQ(){
+    console.log(this.value);
+}
+document.getElementById("list").onchange = listQ;
+
 document.getElementById('sort-drop-down').childNodes.forEach(child => {
 	child.addEventListener("click",
 	    function sort() {
