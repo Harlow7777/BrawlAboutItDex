@@ -54,7 +54,9 @@ function addElementsToDiv() {
 }	
 
 document.getElementById('sort-drop-down').childNodes.forEach(child => {
+	console.log("Arrow class: " + document.getElementById('arrow').className);
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
+	console.log("sortOrder: " + sortOrder);
 	child.addEventListener("click",
 	    function sort() {
 		sortByValue(child.id, sortOrder);
