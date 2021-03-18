@@ -61,7 +61,7 @@ document.getElementById('sort-drop-down').childNodes.forEach(child => {
 	    function sort() {
 		sortByValue(child.id);
 	});
-};	
+});	
 
 function sortByValue(key, order = 'asc') {
 	creatureElementArray.sort(compareValues(key, order));
