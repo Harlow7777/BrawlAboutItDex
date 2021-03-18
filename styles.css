@@ -77,6 +77,11 @@ body {
 	letter-spacing: 1px;
 }
 
+.filter-container {
+	display: flex;
+	flex-direction: row;
+}	
+
 /* Dropdown Button */
 .dropbtn {
   background-color: #3498DB;
