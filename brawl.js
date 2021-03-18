@@ -190,10 +190,10 @@ document.getElementById('arrow').addEventListener("click",
         var arrow = document.getElementById('arrow');
         console.log("Flipping arrow from " + arrow.className);
 
-        if(arrow.className === "arrow-down"){
-          arrow.className = "arrow-up";
+        if(arrow.className === "arrow down"){
+          arrow.className = "arrow up";
         } else {
-          arrow.className = "arrow-down";
+          arrow.className = "arrow down";
         }
 });
 
