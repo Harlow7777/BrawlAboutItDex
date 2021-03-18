@@ -127,35 +127,46 @@ body {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
+.arrow{
+    width:20px;
+    height:20px;
+    position:relative;
+}
+.arrow:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:0px solid transparent;
+    border-top:10px solid black;
 }
 
-.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+.arrow up{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid black;
+    border-top:0px solid transparent;
 }
 
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+.arrow down{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:0px solid transparent;
+    border-top:10px solid black;
 }
-
-(function(document){
-  var div = document.getElementById('sort-order');
-  var arrow = document.getElementById('arrow');
-  var open = false;
-
-  div.addEventListener('click', function(){
-    if(open){
-      icon.className = 'arrow down';
-    } else{
-      icon.className = 'arrow up open';
-    }
-    open = !open;
-    console.log("Switching arrow");
-  });
-})(document);

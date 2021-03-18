@@ -15,6 +15,7 @@ const colors = {
 	metal: '#B0B0B0' 
 };
 const main_types = Object.keys(colors);
+
 var creatureElementArray = new Array();
 
 function populateDex() 
@@ -62,7 +63,6 @@ function sortByValue(key, order = 'asc') {
 
 function compareValues(key, order = 'asc') {
   key = key.toLowerCase();	
-  console.log("SORTING " + order + " by " + key);
   return function innerSort(a, b) {
     var keyArr = new Array();
     var aVal = a[key];
@@ -71,10 +71,7 @@ function compareValues(key, order = 'asc') {
         keyArr = key.split(".",2);
         aVal = a[keyArr[0]][keyArr[1]];
         bVal = b[keyArr[0]][keyArr[1]];
-        console.log("keyArr: " + keyArr[0] + ", " + keyArr[1]);
-        console.log("A.stats: " + a[keyArr[0]] + ", stats.* " + a[keyArr[1]]);
     }
-    console.log("SORTING " + aVal + " against " + bVal);
     const varA = (typeof aVal === 'string')
       ? aVal.toUpperCase() : aVal;
     const varB = (typeof bVal === 'string')
@@ -187,5 +184,19 @@ window.onclick = function(event) {
     }
   }
 }
+
+var open = false;
+document.getElementById('arrow').addEventListener("click",
+    function flipArrow() {
+        var arrow = document.getElementById('arrow');
+        console.log("Flipping arrow from " + arrow.className);
+
+        if(open){
+          arrow.className = "arrow up";
+        } else {
+          arrow.className = "arrow down";
+        }
+        open = !open;
+});
 
 populateDex();
