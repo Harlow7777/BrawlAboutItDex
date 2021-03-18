@@ -57,7 +57,6 @@ function addElementsToDiv() {
 
 function sort() {
 	var id = this.value;
-	console.log(id);
 	var btnText = id.includes('.') ? id.split(".",2)[1] : id;
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 	sortByValue(id, sortOrder);
@@ -84,7 +83,6 @@ function sortByValue(key, order = 'asc') {
 }
 
 function compareValues(key, order = 'asc') {
-  console.log("SORTING by " + key + " " + order);
   key = key.toLowerCase();	
   return function innerSort(a, b) {
     var keyArr = new Array();
