@@ -67,7 +67,7 @@ function compareValues(key, order = 'asc') {
     var keyArr = new Array();
     var aVal = a[key];
     var bVal = b[key];
-    if(key.contains('.')) {
+    if(key.includes('.')) {
         keyArr = key.split(".",2);
         aVal = a[keyArr[0]][keyArr[1]];
         bVal = b[keyArr[0]][keyArr[1]];
