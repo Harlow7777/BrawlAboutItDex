@@ -60,7 +60,7 @@ function listQ(){
 }
 
 function sort() {
-	var id = this.key;
+	var id = this.children(":selected").attr("id");;
 	console.log(id);
 	var btnText = id.includes('.') ? id.split(".",2)[1] : id;
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
