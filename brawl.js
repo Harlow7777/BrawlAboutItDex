@@ -56,6 +56,13 @@ function addElementsToDiv() {
 	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name + ', health ' + creature.stats.health));
 }	
 
+document.getElementById('sort-drop-down').childNodes.forEach(child => {
+	child.addEventListener("click",
+	    function sort() {
+		sortByValue(child.id);
+	});
+};	
+
 function sortByValue(key, order = 'asc') {
 	creatureElementArray.sort(compareValues(key, order));
 	addElementsToDiv();
