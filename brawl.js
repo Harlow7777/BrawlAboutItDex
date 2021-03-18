@@ -52,7 +52,7 @@ function getCreatures()
 function addElementsToDiv() {
   	div_container.textContent = '';
 	creatureElementArray.forEach(creature => createCreatureCard(creature));
-	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name + ', stats ' + Object.keys(creature.stats)));
+	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name + ', health ' + creature.stats.health));
 }	
 
 function sortByValue(key, order = 'asc') {
