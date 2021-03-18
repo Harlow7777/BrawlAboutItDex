@@ -17,6 +17,7 @@ const colors = {
 const main_types = Object.keys(colors);
 
 var creatureElementArray = new Array();
+var sortField = '';
 
 function populateDex() 
 {
@@ -58,6 +59,7 @@ document.getElementById('sort-drop-down').childNodes.forEach(child => {
 	    function sort() {
 		var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 		sortByValue(child.id, sortOrder);
+		sortField = child.id;
 	});
 });	
 
@@ -194,6 +196,7 @@ window.onclick = function(event) {
 document.getElementById('arrow').addEventListener("click",
     function flipArrow() {
         var arrow = document.getElementById('arrow');
+	var sortOrder = arrow.className.includes("up") ? "asc" : "desc";
         console.log("Flipping arrow from " + arrow.className);
 
         if(arrow.className === "arrow down"){
@@ -201,6 +204,7 @@ document.getElementById('arrow').addEventListener("click",
         } else {
           arrow.className = "arrow down";
         }
+	sortByValue(sortField, sortOrder);
 });
 
 populateDex();
