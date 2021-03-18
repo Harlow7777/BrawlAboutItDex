@@ -68,7 +68,7 @@ function compareValues(key, order = 'asc') {
 //      // property doesn't exist on either object
 //      return 0;
 //    }
-
+    console.log("SORTING " + a[key] + " against " + b[key]);
     const varA = (typeof a[key] === 'string')
       ? a[key].toUpperCase() : a[key];
     const varB = (typeof b[key] === 'string')
