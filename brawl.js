@@ -58,19 +58,19 @@ function addElementsToDiv() {
 function listQ(){
     console.log(this.value);
 }
-document.getElementById("list").onchange = listQ;
+document.getElementById("sort-drop-down").onchange = listQ;
 
-document.getElementById('sort-drop-down').childNodes.forEach(child => {
-	child.addEventListener("click",
-	    function sort() {
-		var btnText = child.id.includes('.') ? child.id.split(".",2)[1] : child.id;
-		console.log("Changing " + document.getElementById('drop-down-button').textContent + " to " + btnText);
-		document.getElementById('drop-down-button').textContent = btnText;
-		var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
-		sortByValue(child.id, sortOrder);
-		sortField = child.id;
-	});
-});	
+// document.getElementById('sort-drop-down').childNodes.forEach(child => {
+// 	child.addEventListener("click",
+// 	    function sort() {
+// 		var btnText = child.id.includes('.') ? child.id.split(".",2)[1] : child.id;
+// 		console.log("Changing " + document.getElementById('drop-down-button').textContent + " to " + btnText);
+// 		document.getElementById('drop-down-button').textContent = btnText;
+// 		var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
+// 		sortByValue(child.id, sortOrder);
+// 		sortField = child.id;
+// 	});
+// });	
 
 function sortByValue(key, order = 'asc') {
 	creatureElementArray.sort(compareValues(key, order));
