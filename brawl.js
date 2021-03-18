@@ -185,18 +185,16 @@ window.onclick = function(event) {
   }
 }
 
-var open = false;
 document.getElementById('arrow').addEventListener("click",
     function flipArrow() {
         var arrow = document.getElementById('arrow');
         console.log("Flipping arrow from " + arrow.className);
 
-        if(open){
-          arrow.className = "arrow up";
+        if(arrow.className === "arrow-down"){
+          arrow.className = "arrow-up";
         } else {
-          arrow.className = "arrow down";
+          arrow.className = "arrow-down";
         }
-        open = !open;
 });
 
 populateDex();
