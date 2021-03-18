@@ -127,46 +127,20 @@ body {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
-.arrow{
-    width:20px;
-    height:20px;
-    position:relative;
-}
-.arrow:before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:0;
-    height:0;
-    border-left:10px solid transparent;
-    border-right:10px solid transparent;
-    border-bottom:0px solid transparent;
-    border-top:10px solid black;
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  
+  border-bottom: 5px solid black;
 }
 
-.arrow up{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:0;
-    height:0;
-    border-left:10px solid transparent;
-    border-right:10px solid transparent;
-    border-bottom:10px solid black;
-    border-top:0px solid transparent;
-}
-
-.arrow down{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:0;
-    height:0;
-    border-left:10px solid transparent;
-    border-right:10px solid transparent;
-    border-bottom:0px solid transparent;
-    border-top:10px solid black;
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid #f00;
 }
