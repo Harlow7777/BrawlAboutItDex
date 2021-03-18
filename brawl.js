@@ -165,7 +165,7 @@ function getCssValuePrefix()
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function showDropDown() {
-  document.getElementById("sortDropDown").classList.toggle("show");
+  document.getElementById("sort-drop-down").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
