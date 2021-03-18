@@ -58,8 +58,8 @@ function addElementsToDiv() {
 document.getElementById('sort-drop-down').childNodes.forEach(child => {
 	child.addEventListener("click",
 	    function sort() {
-		console.log("Changing " + document.getElementById('drop-down-button').value + " to " + child.id);
-		document.getElementById('drop-down-button').value = child.id;
+		console.log("Changing " + document.getElementById('drop-down-button').textContent + " to " + child.id);
+		document.getElementById('drop-down-button').textContent = child.id;
 		var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 		sortByValue(child.id, sortOrder);
 		sortField = child.id;
