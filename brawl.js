@@ -42,11 +42,8 @@ function getCreatures()
 {
     loadJSON(function(response) 
     {
-	console.log('Array before loading: ' + creatureElementArray.length);
 	creatureElementArray = JSON.parse(response);
-	console.log('Added json to array: ' + creatureElementArray.length);
 	sortByValue('id');
-	console.log('SORTED ARRAY: ' + creatureElementArray.length);
     });
 };
 
