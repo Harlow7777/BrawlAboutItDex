@@ -64,15 +64,19 @@ function compareValues(key, order = 'asc') {
   key = key.toLowerCase();	
   console.log("SORTING " + order + " by " + key);
   return function innerSort(a, b) {
-//    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-//      // property doesn't exist on either object
-//      return 0;
-//    }
-    console.log("SORTING " + a[key] + " against " + b[key]);
-    const varA = (typeof a[key] === 'string')
-      ? a[key].toUpperCase() : a[key];
-    const varB = (typeof b[key] === 'string')
-      ? b[key].toUpperCase() : b[key];
+    var keyArr = new Array();
+    var aVal = a[key];
+    var bVal = b[key];
+    if(key.contains('.')) {
+        keyArr = key.split(".",2);
+        aVal = a[keyArr[0]][keyArr[1]];
+        bVal = b[keyArr[0]][keyArr[1]];
+    }
+    console.log("SORTING " + aVal + " against " + bVal);
+    const varA = (typeof aVal === 'string')
+      ? aVal.toUpperCase() : aVal;
+    const varB = (typeof bVal === 'string')
+      ? bVal.toUpperCase() : bVal;
 
     let comparison = 0;
     if (varA > varB) {
