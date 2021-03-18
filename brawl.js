@@ -45,6 +45,7 @@ function getCreatures()
     {
 	creatureElementArray = JSON.parse(response);
 	sortByValue('id');
+	sortField = 'id';
     });
 };
 
