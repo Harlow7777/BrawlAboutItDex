@@ -134,10 +134,10 @@ body {
   border-right: 10px solid transparent;
 }	
 	
-.arrow up {  
+.up {  
   border-bottom: 10px solid black;
 }
 
-.arrow down {
+.down {
   border-top: 10px solid black;
 }
