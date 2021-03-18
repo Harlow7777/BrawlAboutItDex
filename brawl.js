@@ -70,6 +70,7 @@ function sortByValue(key, order = 'asc') {
 }
 
 function compareValues(key, order = 'asc') {
+  console.log("SORTING by " + key + " " + order);
   key = key.toLowerCase();	
   return function innerSort(a, b) {
     var keyArr = new Array();
