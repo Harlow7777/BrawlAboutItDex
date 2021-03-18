@@ -55,12 +55,8 @@ function addElementsToDiv() {
 	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name + ', health ' + creature.stats.health));
 }	
 
-function listQ(){
-    console.log(this.id);
-}
-
 function sort() {
-	var id = this.children(":selected").attr("id");;
+	var id = this.value;
 	console.log(id);
 	var btnText = id.includes('.') ? id.split(".",2)[1] : id;
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
