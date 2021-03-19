@@ -116,17 +116,8 @@ function filter(value) {
     	});
 	creatureElementArray = creatureElementArray.filter(function(creature) {
 		var creatureVal = keyArr.length > 0 ? creature[keyArr[0]][keyArr[1]] : creature[filterField];
-		return creatureVal.toString().includes(value);
+		return creatureVal.toString().toLowerCase().includes(value.toLowerCase());
 	});	
-
-// 	creatureElementArray.forEach(function(item, index, object) {
-// 		var creatureVal = keyArr.length > 0 ? item[keyArr[0]][keyArr[1]] : item[filterField];
-// 		console.log("Creature value " + creatureVal + " comparing against " + value);
-// 		if(!creatureVal.toString().includes(value)) {
-// 			console.log("Removing " + creatureVal);
-//     			object.splice(index, 1);
-//   		}
-// 	});
 	addElementsToDiv();
 }	
 
