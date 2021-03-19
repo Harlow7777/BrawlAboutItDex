@@ -59,6 +59,7 @@ function sort() {
 document.getElementById("sort-drop-down").onchange = sort;
 
 function sortByValue(key, order = 'asc') {
+	creatureElementArray.forEach(c => console.log(c.id));
 	creatureElementArray.sort(compareValues(key.toLowerCase(), order));
 	addElementsToDiv();
 }
