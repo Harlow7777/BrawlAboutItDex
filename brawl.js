@@ -114,9 +114,7 @@ function filter(value) {
 	loadJSON(function(response) {
 		creatureElementArray = JSON.parse(response);
     	});
-	console.log("Filtering: ");
-	creatureElementArray.forEach(creature => console.log(creature.id + ": " + creature.name));
-	creatureElementArray = creatureElementArray.filter(creature => function() {
+	creatureElementArray = creatureElementArray.filter(function(creature) {
 		var creatureVal = keyArr.length > 0 ? creature[keyArr[0]][keyArr[1]] : creature[filterField];
 		return creatureVal.toString().includes(value);
 	});	
