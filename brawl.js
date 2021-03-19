@@ -44,6 +44,7 @@ function getCreatures()
     loadJSON(function(response) 
     {
 	creatureElementArray = JSON.parse(response);
+	sortByValue('id');
 	sortField = 'id';
     });
 };
@@ -119,7 +120,7 @@ function filter() {
 document.getElementById("filter-drop-down").onchange = filter;
 
 document.getElementById('filter').addEventListener('input', function (evt) {
-    filter(this.value);
+    console.log("Filtering by " + this.value);
 });
 
 function createCreatureCard(creature) 
