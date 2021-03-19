@@ -17,7 +17,7 @@ const colors = {
 const main_types = Object.keys(colors);
 
 var creatureElementArray = new Array();
-var sortField = 'id', filterField = 'id';
+var sortField = 'id', filterField = 'id', filterValue = '';
 
 function loadJSON(callback) 
 {
@@ -61,6 +61,7 @@ document.getElementById("sort-drop-down").onchange = sort;
 
 function sortByValue(key, order = 'asc') {
 	creatureElementArray.sort(compareValues(key.toLowerCase(), order));
+	filter(filterValue);
 	addElementsToDiv();
 }
 
@@ -119,7 +120,6 @@ function filter(value) {
 		var creatureVal = keyArr.length > 0 ? creature[keyArr[0]][keyArr[1]] : creature[filterField];
 		return creatureVal.toString().toLowerCase().includes(value.toLowerCase());
 	});	
-	creatureElementArray.forEach(c => console.log(c.id));
 	addElementsToDiv();
 }	
 
@@ -131,6 +131,7 @@ document.getElementById("filter-drop-down").onchange = setFilterField;
 
 document.getElementById('filter').addEventListener('input', function (evt) {
 	filter(this.value);
+	filterValue = this.value;
 });
 
 function createCreatureCard(creature) 
