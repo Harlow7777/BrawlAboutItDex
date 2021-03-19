@@ -27,7 +27,18 @@
     <form>
         <label for="filter">Filter by:</label>
         <input type="text" id="filter" name="filter">
-    </form>    
+    </form> 
+    on:
+    <select id="filter-drop-down" class="dropdown-content">
+        <optgroup label="Stats">
+            <option value="id">Id</option>
+            <option value="name">Name</option>
+            <option value="stats.health">HP</option>
+            <option value="stats.attack">Attack</option>
+            <option value="stats.defense">Defense</option>
+            <option value="stats.speed">Speed</option>
+        </optgroup>
+    </select>
 </div>
 <div id="div_container" class="div-container"></div>
 <script type="text/javascript" src="dex.json"></script>
