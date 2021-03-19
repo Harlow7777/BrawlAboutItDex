@@ -109,7 +109,7 @@ function filter(value) {
 	console.log("Filtering by " + value + " on " + filterField);
 	var keyArr = new Array();
 	if(filterField.includes('.')) {
-        	keyArr = key.split(".",2);
+        	keyArr = value.split(".",2);
         	console.log("Filter fields include " + keyArr[0] + " and " + keyArr[1]);
     	}
 	loadJSON(function(response) {
@@ -117,8 +117,8 @@ function filter(value) {
     	});
 	creatureElementArray.forEach(function(item, index, object) {
 		var creatureVal = keyArr.length > 0 ? item[keyArr[0]][keyArr[1]] : item[filterField];
-		console.log("Creature value " + creatureVal);
-		if(!creatureVal.toString().includes(value.toString())) {
+		console.log("Creature value " + creatureVal + " comparing against " + value);
+		if(!creatureVal.toString().includes(value)) {
 			console.log("Removing " + creatureVal);
     			object.splice(index, 1);
   		}
