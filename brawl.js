@@ -107,9 +107,15 @@ document.getElementById('arrow').addEventListener("click",
 
 function filter(value) {
 	console.log("Filtering by " + value + " on " + filterField);
+	var keyArr = new Array();
+	if(filterField.includes('.')) {
+        	keyArr = key.split(".",2);
+        	console.log("Filter fields include " + keyArr[0] + " and " + keyArr[1]);
+    	}
 	creatureElementArray.forEach(function(item, index, object) {
-		if(!item[filterField].includes(value)) {
-			console.log("Removing " + item[filterField]);
+		var creatureVal = keyArr.length > 0 ? item[keyArr[0]][keyArr[1]] : item[filterField];
+		if(!creatureVal.includes(value)) {
+			console.log("Removing " + creatureVal);
     			object.splice(index, 1);
   		}
 	});		
