@@ -17,7 +17,7 @@ const colors = {
 const main_types = Object.keys(colors);
 
 var creatureElementArray = new Array();
-var sortField = '', filterField = '';
+var sortField = 'id', filterField = 'id';
 
 function loadJSON(callback) 
 {
@@ -40,7 +40,6 @@ function getCreatures()
     {
 	creatureElementArray = JSON.parse(response);
 	sortByValue('id');
-	sortField = 'id';
     });
 };
 
@@ -110,7 +109,7 @@ function filter(value) {
 	console.log("Filtering by " + value + " on " + filterField);
 	creatureElementArray.forEach(function(item, index, object) {
 		if(!item[filterField].includes(value)) {
-			console.log("Removing " + item[id]);
+			console.log("Removing " + item[filterField]);
     			object.splice(index, 1);
   		}
 	});		
