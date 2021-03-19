@@ -50,6 +50,7 @@ function addElementsToDiv() {
 }	
 
 function sort() {
+	creatureElementArray.forEach(c => console.log(c.id));
 	var id = this.value;
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 	sortByValue(id, sortOrder);
@@ -59,7 +60,6 @@ function sort() {
 document.getElementById("sort-drop-down").onchange = sort;
 
 function sortByValue(key, order = 'asc') {
-	creatureElementArray.forEach(c => console.log(c.id));
 	creatureElementArray.sort(compareValues(key.toLowerCase(), order));
 	addElementsToDiv();
 }
@@ -119,15 +119,15 @@ function filter(value) {
 		var creatureVal = keyArr.length > 0 ? creature[keyArr[0]][keyArr[1]] : creature[filterField];
 		return creatureVal.toString().toLowerCase().includes(value.toLowerCase());
 	});	
+	creatureElementArray.forEach(c => console.log(c.id));
 	addElementsToDiv();
 }	
 
-function setFilter() {
-	console.log("Filtering on " + this.value);
+function setFilterField() {
 	filterField = this.value;
 }	
 				     
-document.getElementById("filter-drop-down").onchange = setFilter;
+document.getElementById("filter-drop-down").onchange = setFilterField;
 
 document.getElementById('filter').addEventListener('input', function (evt) {
 	filter(this.value);
