@@ -19,11 +19,6 @@ const main_types = Object.keys(colors);
 var creatureElementArray = new Array();
 var sortField = '', filterField = '';
 
-function populateDex() 
-{
-	getCreatures();
-};
-
 function loadJSON(callback) 
 {
     var xobj = new XMLHttpRequest();
@@ -111,9 +106,14 @@ document.getElementById('arrow').addEventListener("click",
 	sortByValue(sortField, sortOrder);
 });
 
-function filter() {
-	console.log("Filtering by " + this.value);
-	
+function filter(value) {
+	console.log("Filtering by " + value + " on " + filterField);
+	creatureElementArray.forEach(function(item, index, object) {
+		if(!item[filterField].includes(value)) {
+			console.log("Removing " + item[id]);
+    			object.splice(index, 1);
+  		}
+	});		
 }	
 
 function setFilter() {
@@ -124,7 +124,6 @@ function setFilter() {
 document.getElementById("filter-drop-down").onchange = setFilter;
 
 document.getElementById('filter').addEventListener('input', function (evt) {
-    console.log("Filtering by " + this.value);
 	filter(this.value);
 });
 
@@ -204,4 +203,4 @@ function getCssValuePrefix()
     return rtrnVal;
 }
 
-populateDex();
+getCreatures();
