@@ -116,14 +116,19 @@ function filter(value) {
     	});
 	console.log("Filtering: ");
 	creatureElementArray.forEach(creature => console.log(creature.id + ": " + creature.name);
-	creatureElementArray.forEach(function(item, index, object) {
-		var creatureVal = keyArr.length > 0 ? item[keyArr[0]][keyArr[1]] : item[filterField];
-		console.log("Creature value " + creatureVal + " comparing against " + value);
-		if(!creatureVal.toString().includes(value)) {
-			console.log("Removing " + creatureVal);
-    			object.splice(index, 1);
-  		}
-	});
+	creatureElementArray = creatureElementArray.filter(creature => function() {
+		var creatureVal = keyArr.length > 0 ? creature[keyArr[0]][keyArr[1]] : creature[filterField];
+		return creatureVal.toString().includes(value));
+	});	
+
+// 	creatureElementArray.forEach(function(item, index, object) {
+// 		var creatureVal = keyArr.length > 0 ? item[keyArr[0]][keyArr[1]] : item[filterField];
+// 		console.log("Creature value " + creatureVal + " comparing against " + value);
+// 		if(!creatureVal.toString().includes(value)) {
+// 			console.log("Removing " + creatureVal);
+//     			object.splice(index, 1);
+//   		}
+// 	});
 	addElementsToDiv();
 }	
 
