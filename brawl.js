@@ -59,12 +59,11 @@ function sort() {
 document.getElementById("sort-drop-down").onchange = sort;
 
 function sortByValue(key, order = 'asc') {
-	creatureElementArray.sort(compareValues(key, order));
+	creatureElementArray.sort(compareValues(key.toLowerCase(), order));
 	addElementsToDiv();
 }
 
 function compareValues(key, order = 'asc') {
-  key = key.toLowerCase();	
   return function innerSort(a, b) {
     var keyArr = new Array();
     var aVal = a[key];
@@ -109,12 +108,14 @@ function filter(value) {
 	console.log("Filtering by " + value + " on " + filterField);
 	var keyArr = new Array();
 	if(filterField.includes('.')) {
-        	keyArr = value.split(".",2);
+        	keyArr = filterField.split(".",2);
         	console.log("Filter fields include " + keyArr[0] + " and " + keyArr[1]);
     	}
 	loadJSON(function(response) {
 		creatureElementArray = JSON.parse(response);
     	});
+	console.log("Filtering: ");
+	creatureElementArray.forEach(creature => console.log(creature.id + ": " + creature.name);
 	creatureElementArray.forEach(function(item, index, object) {
 		var creatureVal = keyArr.length > 0 ? item[keyArr[0]][keyArr[1]] : item[filterField];
 		console.log("Creature value " + creatureVal + " comparing against " + value);
