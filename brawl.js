@@ -181,7 +181,7 @@ function createCreatureCard(creature)
         <div class="info">
             <span class="number">#${creature.id
 							.toString()
-							.padStart(3, '0')}</span>
+							.padStart(2, '0')}</span>
             <h3 class="name">${name}</h3>
             <hr>
             <small class="stats"><span>H ${stats.health} A ${stats.attack} D ${stats.defense} S ${stats.speed}</span>
