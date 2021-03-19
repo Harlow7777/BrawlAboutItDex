@@ -112,15 +112,20 @@ document.getElementById('arrow').addEventListener("click",
 });
 
 function filter() {
-	document.getElementById('filter-drop-down');
+	console.log("Filtering by " + this.value);
+	
+}	
+
+function setFilter() {
 	console.log("Filtering on " + this.value);
 	filterField = this.value;
 }	
 				     
-document.getElementById("filter-drop-down").onchange = filter;
+document.getElementById("filter-drop-down").onchange = setFilter;
 
 document.getElementById('filter').addEventListener('input', function (evt) {
     console.log("Filtering by " + this.value);
+	filter(this.value);
 });
 
 function createCreatureCard(creature) 
