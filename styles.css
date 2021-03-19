@@ -83,6 +83,12 @@ body {
 	align-items: flex-start;
 }	
 
+.sort-container {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
 .arrow {
   width: 0; 
   height: 0; 
