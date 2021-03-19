@@ -17,7 +17,7 @@ const colors = {
 const main_types = Object.keys(colors);
 
 var creatureElementArray = new Array();
-var sortField = '';
+var sortField = '', filterField = '';
 
 function populateDex() 
 {
@@ -44,7 +44,6 @@ function getCreatures()
     loadJSON(function(response) 
     {
 	creatureElementArray = JSON.parse(response);
-	sortByValue('id');
 	sortField = 'id';
     });
 };
@@ -57,7 +56,6 @@ function addElementsToDiv() {
 
 function sort() {
 	var id = this.value;
-	var btnText = id.includes('.') ? id.split(".",2)[1] : id;
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 	sortByValue(id, sortOrder);
 	sortField = id;
@@ -97,6 +95,32 @@ function compareValues(key, order = 'asc') {
     );
   };
 }	
+
+document.getElementById('arrow').addEventListener("click",
+    function flipArrow() {
+        var arrow = document.getElementById('arrow');
+	var sortOrder = arrow.className.includes("up") ? "asc" : "desc";
+        console.log("Flipping arrow from " + arrow.className);
+
+        if(arrow.className === "arrow down"){
+          arrow.className = "arrow up";
+        } else {
+          arrow.className = "arrow down";
+        }
+	sortByValue(sortField, sortOrder);
+});
+
+function filter() {
+	document.getElementById('filter-drop-down');
+	console.log("Filtering on " + this.value);
+	filterField = this.value;
+}	
+				     
+document.getElementById("filter-drop-down").onchange = filter;
+
+document.getElementById('filter').addEventListener('input', function (evt) {
+    filter(this.value);
+});
 
 function createCreatureCard(creature) 
 {
@@ -173,19 +197,5 @@ function getCssValuePrefix()
 
     return rtrnVal;
 }
-
-document.getElementById('arrow').addEventListener("click",
-    function flipArrow() {
-        var arrow = document.getElementById('arrow');
-	var sortOrder = arrow.className.includes("up") ? "asc" : "desc";
-        console.log("Flipping arrow from " + arrow.className);
-
-        if(arrow.className === "arrow down"){
-          arrow.className = "arrow up";
-        } else {
-          arrow.className = "arrow down";
-        }
-	sortByValue(sortField, sortOrder);
-});
 
 populateDex();
