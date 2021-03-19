@@ -112,7 +112,9 @@ function filter(value) {
         	keyArr = key.split(".",2);
         	console.log("Filter fields include " + keyArr[0] + " and " + keyArr[1]);
     	}
-	creatureElementArray = JSON.parse(response);
+	loadJSON(function(response) {
+		creatureElementArray = JSON.parse(response);
+    	});
 	creatureElementArray.forEach(function(item, index, object) {
 		var creatureVal = keyArr.length > 0 ? item[keyArr[0]][keyArr[1]] : item[filterField];
 		console.log("Creature value " + creatureVal);
