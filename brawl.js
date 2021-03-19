@@ -118,7 +118,7 @@ function filter(value) {
 	creatureElementArray.forEach(creature => console.log(creature.id + ": " + creature.name));
 	creatureElementArray = creatureElementArray.filter(creature => function() {
 		var creatureVal = keyArr.length > 0 ? creature[keyArr[0]][keyArr[1]] : creature[filterField];
-		return creatureVal.toString().includes(value));
+		return creatureVal.toString().includes(value);
 	});	
 
 // 	creatureElementArray.forEach(function(item, index, object) {
