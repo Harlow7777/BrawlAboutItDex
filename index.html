@@ -5,45 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Brawl About It</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
 <h1>BrawlDex</h1>
-<div id="sort-container" class="sort-container">
-    Sort by: 
-    <select id="sort-drop-down" class="dropdown-content">
-        <optgroup label="Stats">
-            <option value="id">Id</option>
-            <option value="name">Name</option>
-            <option value="stats.health">HP</option>
-            <option value="stats.attack">Attack</option>
-            <option value="stats.defense">Defense</option>
-            <option value="stats.speed">Speed</option>
-        </optgroup>
-    </select>
-    <div id="arrow" class="arrow down">
+<button id="btn-login" disabled="true" class="hidden" onclick="login()">Log in</button>
+<button id="btn-logout" disabled="true" class="hidden" onclick="logout()">Logout</button>
+<button id="redeem" onclick="retrieveAuthAPIToken()">Redeem</button>
+<div id="gated-content" class="hidden">
+    <div id="sort-container" class="sort-container">
+        Sort by:
+        <select id="sort-drop-down" class="dropdown-content">
+            <optgroup label="Stats">
+                <option value="id">Id</option>
+                <option value="name">Name</option>
+                <option value="stats.health">HP</option>
+                <option value="stats.attack">Attack</option>
+                <option value="stats.defense">Defense</option>
+                <option value="stats.speed">Speed</option>
+            </optgroup>
+        </select>
+        <div id="arrow" class="arrow down">
+        </div>
     </div>
+    <div id="filter-container" class="filter-container">
+        <form>
+            <label for="filter">Filter by:</label>
+            <input type="text" id="filter" name="filter">
+        </form>
+         on:
+        <select id="filter-drop-down" class="dropdown-content">
+            <optgroup label="Stats">
+                <option value="id">Id</option>
+                <option value="name">Name</option>
+                <option value="stats.health">HP</option>
+                <option value="stats.attack">Attack</option>
+                <option value="stats.defense">Defense</option>
+                <option value="stats.speed">Speed</option>
+            </optgroup>
+        </select>
+    </div>
+    <div id="div_container" class="div-container"></div>
 </div>
-<div id="filter-container" class="filter-container">
-    <form>
-        <label for="filter">Filter by:</label>
-        <input type="text" id="filter" name="filter">
-    </form> 
-     on: 
-    <select id="filter-drop-down" class="dropdown-content">
-        <optgroup label="Stats">
-            <option value="id">Id</option>
-            <option value="name">Name</option>
-            <option value="stats.health">HP</option>
-            <option value="stats.attack">Attack</option>
-            <option value="stats.defense">Defense</option>
-            <option value="stats.speed">Speed</option>
-        </optgroup>
-    </select>
-</div>
-<div id="div_container" class="div-container"></div>
-<script type="text/javascript" src="dex.json"></script>
-<script type="text/javascript" src="brawl.js"></script>
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="js/auth.js"></script>
 </body>
 </html>
