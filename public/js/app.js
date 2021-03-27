@@ -81,6 +81,32 @@ const logout = async () => {
     }
 }
 
+function redeemCode(code) {
+    const authToken = retrieveAuthAPIToken();
+    const user = auth0.getUser();
+    console.log("METADATA for " + user.user_id + ": " + user.metadata);
+    //lookup card id based on redemption code
+    addCardToUserMetadata(user);
+}    
+
+function addCardToUserMetadata(user) {
+    var options = {
+        method: 'PATCH',
+        url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.user_id,
+        headers: {'content-type': 'application/json'},
+        data: {
+            user_metadata: {
+                'creature_collection':'1000'
+            }
+        }
+    };
+    axios.request(options).then(function (response) {
+        console.log(response.data);
+    }).catch(function(error) {
+        console.error(error);
+    }); 
+}    
+
 function retrieveAuthAPIToken() {
     var options = {
         method: 'POST',
@@ -95,7 +121,9 @@ function retrieveAuthAPIToken() {
     };
     axios.request(options).then(function (response) {
         console.log(response.data);
+        return response.data.access_token;
     }).catch(function(error) {
         console.error(error);
+        return null;
     });
 }
