@@ -67,7 +67,7 @@ const login = async () => {
         console.log("Logging in");
 
         await auth0.loginWithRedirect({
-            redirect_uri: window.location.toString()
+            redirect_uri: window.location.origin + "/BrawlAboutIt"
         });
     } catch(err) {
         console.log("Log in failed", err);
@@ -78,7 +78,7 @@ const logout = async () => {
     try {
         console.log("Logging out");
         auth0.logout({
-            returnTo: window.location.toString()
+            returnTo: window.location.origin + "/BrawlAboutIt"
         });
     } catch(err) {
         console.log("Log out failed", err);
