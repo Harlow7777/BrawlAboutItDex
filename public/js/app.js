@@ -90,7 +90,7 @@ function retrieveAuthAPIToken() {
             grant_type: 'client_credentials',
             client_id: 'fiEPVos93440A4u7lROfpUZ3tXTGEP7W',
             client_secret: '4-0MCwufuwx5Ouc-w2lUQ4FtX46YJFh-zMzIg0MdMRLbNV4auZuOvaRh_PmnrYFd',
-            audience: 'https://harlow777.us.auth0.com/api/v2'
+            audience: 'https://harlow777.us.auth0.com/api/v2/'
         }
     };
     axios.request(options).then(function (response) {
