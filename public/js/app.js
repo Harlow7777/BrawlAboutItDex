@@ -86,7 +86,7 @@ const logout = async () => {
 }
 
 document.getElementById('redeem-button').addEventListener("click",
-    function redeemCode() {
+    async function redeemCode() {
         var code = document.getElementById('redeem-input').value;
 	const authToken = retrieveAuthAPIToken();
         const user = await auth0.getUser();
