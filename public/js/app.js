@@ -53,7 +53,7 @@ const updateUI = async () => {
 
         document.getElementById("gated-content").classList.remove("hidden");
 
-        var user = auth0.getUser();
+        var user = await auth0.getUser();
         console.log("Authenticated as: " + user.user_id);
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
@@ -89,7 +89,7 @@ document.getElementById('redeem-button').addEventListener("click",
     function redeemCode() {
         var code = document.getElementById('redeem-input').value;
 	const authToken = retrieveAuthAPIToken();
-        const user = auth0.getUser();
+        const user = await auth0.getUser();
         console.log("METADATA for " + user.user_id + ": " + user.metadata);
         console.log("Redemption code: " + code);
         //lookup card id based on redemption code
