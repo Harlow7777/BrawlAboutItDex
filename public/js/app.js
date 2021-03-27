@@ -16,7 +16,7 @@ window.addEventListener ?
 window.addEventListener("load",yourFunction,false) : 
 window.attachEvent && window.attachEvent("onload",load);
 
-function asyncLoad() {
+async function asyncLoad() {
     await configureClient();
 
     updateUI();
