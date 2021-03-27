@@ -13,8 +13,8 @@ const configureClient = async () => {
 };
 
 window.addEventListener ? 
-window.addEventListener("load",load,false) :
-window.attachEvent && window.attachEvent("onload",load);
+window.addEventListener("load",asyncLoad,false) :
+window.attachEvent && window.attachEvent("onload",asyncLoad);
 
 async function asyncLoad() {
     await configureClient();
