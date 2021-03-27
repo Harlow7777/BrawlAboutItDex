@@ -12,7 +12,11 @@ const configureClient = async () => {
     });
 };
 
-window.onload = async () => {
+window.addEventListener ? 
+window.addEventListener("load",yourFunction,false) : 
+window.attachEvent && window.attachEvent("onload",load);
+
+function load = async () => {
     await configureClient();
 
     updateUI();
