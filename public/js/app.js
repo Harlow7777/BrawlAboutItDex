@@ -88,19 +88,19 @@ const logout = async () => {
 document.getElementById('redeem-button').addEventListener("click",
     function redeemCode() {
         var code = document.getElementById('redeem-input').value;
-	    const authToken = retrieveAuthAPIToken();
+	const authToken = retrieveAuthAPIToken();
         const user = auth0.getUser();
         console.log("METADATA for " + user.user_id + ": " + user.metadata);
         console.log("Redemption code: " + code);
         //lookup card id based on redemption code
-        addCardToUserMetadata(user);
+        addCardToUserMetadata(user, authToken);
 });
 
-function addCardToUserMetadata(user) {
+function addCardToUserMetadata(user, authToken) {
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.user_id,
-        headers: {'content-type': 'application/json'},
+        headers: {'authentication': '+ authToken +','content-type': 'application/json'},
         data: {
             user_metadata: {
                 'creature_collection':'1000'
