@@ -81,13 +81,16 @@ const logout = async () => {
     }
 }
 
-function redeemCode(code) {
-    const authToken = retrieveAuthAPIToken();
-    const user = auth0.getUser();
-    console.log("METADATA for " + user.user_id + ": " + user.metadata);
-    //lookup card id based on redemption code
-    addCardToUserMetadata(user);
-}    
+document.getElementById('redeem-button').addEventListener("click",
+    function redeemCode() {
+        var code = document.getElementById('redeem-input').value;
+	    const authToken = retrieveAuthAPIToken();
+        const user = auth0.getUser();
+        console.log("METADATA for " + user.user_id + ": " + user.metadata);
+        console.log("Redemption code: " + code);
+        //lookup card id based on redemption code
+        addCardToUserMetadata(user);
+});
 
 function addCardToUserMetadata(user) {
     var options = {
