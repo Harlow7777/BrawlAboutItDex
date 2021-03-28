@@ -54,6 +54,7 @@ const updateUI = async () => {
         document.getElementById("gated-content").classList.remove("hidden");
 
         var user = await auth0.getUser();
+	console.log("User Authenticated as: " + user.sub);
 	Object.keys(user).forEach(key => console.log(key + ": " + user[key]));
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
@@ -90,7 +91,7 @@ document.getElementById('redeem-button').addEventListener("click",
         var code = document.getElementById('redeem-input').value;
 	const authToken = retrieveAuthAPIToken();
         const user = await auth0.getUser();
-        console.log("METADATA for " + user.user_id + ": " + user.metadata);
+        console.log("METADATA for " + user.sub + ": " + user.metadata);
         console.log("Redemption code: " + code);
         //lookup card id based on redemption code
         addCardToUserMetadata(user, authToken);
@@ -99,7 +100,7 @@ document.getElementById('redeem-button').addEventListener("click",
 function addCardToUserMetadata(user, authToken) {
     var options = {
         method: 'PATCH',
-        url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.user_id,
+        url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
         headers: {'authentication': '+ authToken +','content-type': 'application/json'},
         data: {
             user_metadata: {
