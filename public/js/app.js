@@ -101,10 +101,10 @@ function addCardToUserMetadata(user, authToken) {
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
-        headers: {'authentication': '+ authToken +','content-type': 'application/json'},
+        headers: {'authorization': '+ authToken +','content-type': 'application/json'},
         data: {
             user_metadata: {
-                'creature_collection':'1000'
+                creature_collection:'1000'
             }
         }
     };
