@@ -91,7 +91,7 @@ document.getElementById('redeem-button').addEventListener("click",
         var code = document.getElementById('redeem-input').value;
 	const authToken = retrieveAuthAPIToken();
         const user = await auth0.getUser();
-        console.log("METADATA for " + user.sub + ": " + user.metadata);
+        console.log("METADATA for " + user.sub + ": " + user.user_metadata);
         console.log("Redemption code: " + code);
         //lookup card id based on redemption code
         addCardToUserMetadata(user, authToken);
