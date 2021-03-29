@@ -98,10 +98,11 @@ document.getElementById('redeem-button').addEventListener("click",
 });
 
 function addCardToUserMetadata(user, authToken) {
+// 	curl -H "Authorization: Bearer " -X PATCH  -H "Content-Type: application/json" -d '{"user_metadata":{"profileCode":777}}' https://harlow777.us.auth0.com/api/v2/users/google-oauth2%7C107083672195276515346
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
-        headers: {'authorization': 'Bearer ' + authToken,'content-type': 'application/json'},
+        headers: {'Authorization': 'Bearer ' + authToken,'Content-Type': 'application/json'},
         data: {
             user_metadata: {
                 creature_collection:'1000'
