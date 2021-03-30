@@ -98,6 +98,7 @@ document.getElementById('redeem-button').addEventListener("click",
 
 async function addCardToUserMetadata(user) {
     const authToken = await retrieveAuthAPIToken();
+    console.log("AUTH TOKEN: " + authToken);
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
@@ -128,7 +129,7 @@ async function retrieveAuthAPIToken() {
         }
     };
     axios.request(options).then(function (response) {
-        console.log(response.data);
+	Object.keys(response.data).forEach(key => console.log(key + ": " + response.data[key]));
         return response.data.access_token;
     }).catch(function(error) {
         console.error(error);
