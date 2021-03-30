@@ -133,6 +133,7 @@ async function retrieveAuthAPIToken() {
 	Object.keys(response.data).forEach(key => function() {
 		key === 'access_token' ? authToken = response.data[key] : console.log(key + ": " + response.data[key]);
 	});
+	console.log("AUTH TOKEN INSIDE: " + authToken);
 	return authToken;
     }).catch(function(error) {
         console.error(error);
