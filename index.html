@@ -10,13 +10,13 @@
 </head>
 <body>
 <h1>BrawlDex</h1>
-<button id="btn-login" disabled="true" class="hidden" onclick="login()">Log in</button>
-<button id="btn-logout" disabled="true" class="hidden" onclick="logout()">Logout</button>
+<button id="btn-login" disabled="true" class="hidden auth" onclick="login()">Log in</button>
+<button id="btn-logout" disabled="true" class="hidden auth" onclick="logout()">Logout</button>
 <div id="gated-content" class="hidden">
-    <input type="text" id="redeem-input">
-    <button id="redeem-button" class="disabled">Redeem</button>
     <a id="collection-link" onclick="loadCollection()">My Collection</a>
     <a id="dex-link" onclick="loadDex()">Full Dex</a>
+    <input type="text" id="redeem-input">
+    <button id="redeem-button" class="disabled">Redeem</button>
     <div id="dex-container">
         <div id="sort-container" class="sort-container">
             Sort by:
