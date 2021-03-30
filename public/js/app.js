@@ -44,7 +44,6 @@ async function asyncLoad() {
 
 const updateUI = async () => {
     const isAuthenticated = await auth0.isAuthenticated();
-    console.log("USER AUTHENTICATED: " + isAuthenticated);
     document.getElementById("btn-logout").disabled = !isAuthenticated;
     document.getElementById("btn-login").disabled = isAuthenticated;
 
@@ -55,7 +54,6 @@ const updateUI = async () => {
         document.getElementById("gated-content").classList.remove("hidden");
 
         var user = await auth0.getUser();
-	console.log("User Authenticated as: " + user.sub);
 	Object.keys(user).forEach(key => console.log(key + ": " + user[key]));
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
@@ -91,7 +89,6 @@ document.getElementById('redeem-button').addEventListener("click",
     async function redeemCode() {
         var code = document.getElementById('redeem-input').value;
         const user = await auth0.getUser();
-        console.log("METADATA for " + user.sub + ": " + user.user_metadata);
         console.log("Redemption code: " + code);
         //lookup card id based on redemption code
         addCardToUserMetadata(user);
@@ -99,7 +96,6 @@ document.getElementById('redeem-button').addEventListener("click",
 
 async function addCardToUserMetadata(user) {
     await retrieveAuthAPIToken();
-    console.log("AUTH TOKEN: " + authToken);
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
@@ -130,7 +126,6 @@ async function retrieveAuthAPIToken() {
         }
     };
     axios.request(options).then(function (response) {
-	console.log("RETURNING: " + response.data['access_token']);
 	authToken = response.data['access_token'];
     }).catch(function(error) {
         console.error(error);
