@@ -129,9 +129,11 @@ async function retrieveAuthAPIToken() {
         }
     };
     axios.request(options).then(function (response) {
+	const authToken = null;
 	Object.keys(response.data).forEach(key => function() {
-		key === 'access_token' ? return response.data[key] : console.log(key + ": " + response.data[key])
+		key === 'access_token' ? authToken = response.data[key] : console.log(key + ": " + response.data[key]);
 	});
+	return authToken;
     }).catch(function(error) {
         console.error(error);
         return null;
