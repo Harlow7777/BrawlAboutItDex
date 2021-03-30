@@ -1,4 +1,5 @@
 let auth0 = null;
+let authToken = null;
 
 const fetchAuthConfig = () => fetch("/BrawlAboutItDex/auth_config.json");
 
@@ -97,7 +98,7 @@ document.getElementById('redeem-button').addEventListener("click",
 });
 
 async function addCardToUserMetadata(user) {
-    const authToken = await retrieveAuthAPIToken();
+    await retrieveAuthAPIToken();
     console.log("AUTH TOKEN: " + authToken);
     var options = {
         method: 'PATCH',
@@ -130,9 +131,9 @@ async function retrieveAuthAPIToken() {
     };
     axios.request(options).then(function (response) {
 	console.log("RETURNING: " + response.data['access_token']);
-	return response.data['access_token'];
+	authToken = response.data['access_token'];
     }).catch(function(error) {
         console.error(error);
-        return null;
+        authToken = null;
     });
 }
