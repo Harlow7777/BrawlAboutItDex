@@ -97,10 +97,11 @@ document.getElementById('redeem-button').addEventListener("click",
 });
 
 function addCardToUserMetadata(user) {
+    const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
-        headers: {authorization: 'Bearer ' + retrieveAuthAPIToken(),'content-type': 'application/json'},
+        headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
         data: {
             user_metadata: {
                 creature_collection:'1000'
@@ -114,7 +115,7 @@ function addCardToUserMetadata(user) {
     }); 
 }    
 
-function retrieveAuthAPIToken() {
+async function retrieveAuthAPIToken() {
     var options = {
         method: 'POST',
         url: 'https://harlow777.us.auth0.com/oauth/token',
