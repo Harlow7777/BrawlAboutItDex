@@ -16,39 +16,45 @@
     <input type="text" id="redeem-input">
     <button id="redeem-button" class="disabled">Redeem</button>
     <a id="collection-link" onclick="loadCollection()">My Collection</a>
-    <div id="sort-container" class="sort-container">
-        Sort by:
-        <select id="sort-drop-down" class="dropdown-content">
-            <optgroup label="Stats">
-                <option value="id">Id</option>
-                <option value="name">Name</option>
-                <option value="stats.health">HP</option>
-                <option value="stats.attack">Attack</option>
-                <option value="stats.defense">Defense</option>
-                <option value="stats.speed">Speed</option>
-            </optgroup>
-        </select>
-        <div id="arrow" class="arrow down">
+    <a id="dex-link" onclick="loadDex()">Full Dex</a>
+    <div id="dex-container">
+        <div id="sort-container" class="sort-container">
+            Sort by:
+            <select id="sort-drop-down" class="dropdown-content">
+                <optgroup label="Stats">
+                    <option value="id">Id</option>
+                    <option value="name">Name</option>
+                    <option value="stats.health">HP</option>
+                    <option value="stats.attack">Attack</option>
+                    <option value="stats.defense">Defense</option>
+                    <option value="stats.speed">Speed</option>
+                </optgroup>
+            </select>
+            <div id="arrow" class="arrow down">
+            </div>
         </div>
+        <div id="filter-container" class="filter-container">
+            <form>
+                <label for="filter">Filter by:</label>
+                <input type="text" id="filter" name="filter">
+            </form>
+             on:
+            <select id="filter-drop-down" class="dropdown-content">
+                <optgroup label="Stats">
+                    <option value="id">Id</option>
+                    <option value="name">Name</option>
+                    <option value="stats.health">HP</option>
+                    <option value="stats.attack">Attack</option>
+                    <option value="stats.defense">Defense</option>
+                    <option value="stats.speed">Speed</option>
+                </optgroup>
+            </select>
+        </div>
+        <div id="div_container" class="div-container"></div>
     </div>
-    <div id="filter-container" class="filter-container">
-        <form>
-            <label for="filter">Filter by:</label>
-            <input type="text" id="filter" name="filter">
-        </form>
-         on:
-        <select id="filter-drop-down" class="dropdown-content">
-            <optgroup label="Stats">
-                <option value="id">Id</option>
-                <option value="name">Name</option>
-                <option value="stats.health">HP</option>
-                <option value="stats.attack">Attack</option>
-                <option value="stats.defense">Defense</option>
-                <option value="stats.speed">Speed</option>
-            </optgroup>
-        </select>
+    <div id="collection-container" class="hidden">
+        <div id="card-container">CARDS HERE</div>
     </div>
-    <div id="div_container" class="div-container"></div>
 </div>
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
