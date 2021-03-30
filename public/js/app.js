@@ -89,20 +89,18 @@ const logout = async () => {
 document.getElementById('redeem-button').addEventListener("click",
     async function redeemCode() {
         var code = document.getElementById('redeem-input').value;
-	const authToken = retrieveAuthAPIToken();
         const user = await auth0.getUser();
         console.log("METADATA for " + user.sub + ": " + user.user_metadata);
         console.log("Redemption code: " + code);
         //lookup card id based on redemption code
-        addCardToUserMetadata(user, authToken);
+        addCardToUserMetadata(user);
 });
 
-function addCardToUserMetadata(user, authToken) {
-// 	curl -H "Authorization: Bearer " -X PATCH  -H "Content-Type: application/json" -d '{"user_metadata":{"profileCode":777}}' https://harlow777.us.auth0.com/api/v2/users/google-oauth2%7C107083672195276515346
+function addCardToUserMetadata(user) {
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
-        headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
+        headers: {authorization: 'Bearer ' + retrieveAuthAPIToken(),'content-type': 'application/json'},
         data: {
             user_metadata: {
                 creature_collection:'1000'
