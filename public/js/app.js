@@ -13,6 +13,13 @@ const configureClient = async () => {
     });
 };
 
+document.getElementById("redeem-input").onchange = toggleRedeemButton;
+
+function toggleRedeemButton() {
+	const redeemButton = document.getElementById("redeem-button");
+	redeemButton.disabled = !this.value;
+}
+
 window.addEventListener ? 
 window.addEventListener("load",asyncLoad,false) :
 window.attachEvent && window.attachEvent("onload",asyncLoad);
