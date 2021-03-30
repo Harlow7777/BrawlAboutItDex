@@ -129,7 +129,7 @@ async function retrieveAuthAPIToken() {
         }
     };
     axios.request(options).then(function (response) {
-	console.log("RETURNING: " + response.data['access_token'];
+	console.log("RETURNING: " + response.data['access_token']);
 	return response.data['access_token'];
     }).catch(function(error) {
         console.error(error);
