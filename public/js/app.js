@@ -96,7 +96,7 @@ document.getElementById('redeem-button').addEventListener("click",
         addCardToUserMetadata(user);
 });
 
-function addCardToUserMetadata(user) {
+async function addCardToUserMetadata(user) {
     const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'PATCH',
