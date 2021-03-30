@@ -33,6 +33,7 @@ body {
 
 .auth {
     align-self: right;
+    justify-self: start;
 }	
 
 a:link {
