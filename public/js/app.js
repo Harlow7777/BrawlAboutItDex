@@ -13,13 +13,6 @@ const configureClient = async () => {
     });
 };
 
-document.getElementById("redeem-input").onchange = toggleRedeemButton;
-
-function toggleRedeemButton() {
-	const redeemButton = document.getElementById("redeem-button");
-	redeemButton.disabled = !this.value;
-}
-
 window.addEventListener ? 
 window.addEventListener("load",asyncLoad,false) :
 window.attachEvent && window.attachEvent("onload",asyncLoad);
@@ -90,6 +83,23 @@ const logout = async () => {
     } catch(err) {
         console.log("Log out failed", err);
     }
+}
+
+function loadDex() {
+	document.getElementById("dex-container").classList.remove("hidden");
+	document.getElementById("collection-container").classList.add("hidden");
+}
+
+function loadCollection() {
+	document.getElementById("collection-container").classList.remove("hidden");
+	document.getElementById("dex-container").classList.add("hidden");
+}
+
+document.getElementById("redeem-input").onchange = toggleRedeemButton;
+
+function toggleRedeemButton() {
+	const redeemButton = document.getElementById("redeem-button");
+	redeemButton.disabled = !this.value;
 }
 
 document.getElementById('redeem-button').addEventListener("click",
