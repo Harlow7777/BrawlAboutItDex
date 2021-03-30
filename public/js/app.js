@@ -129,11 +129,11 @@ async function retrieveAuthAPIToken() {
         }
     };
     axios.request(options).then(function (response) {
-	const authToken = null;
-	Object.keys(response.data).forEach(key => function() {
+	const authToken = response.data['access_token'];
+	console.log("ISNT THE TOKEN: " + authToken);
+	Object.keys(response.data).forEach(function(key) {
 		key === 'access_token' ? authToken = response.data[key] : console.log(key + ": " + response.data[key]);
 	});
-	console.log("AUTH TOKEN INSIDE: " + authToken);
 	return authToken;
     }).catch(function(error) {
         console.error(error);
