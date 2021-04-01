@@ -107,9 +107,22 @@ document.getElementById('redeem-button').addEventListener("click",
         var code = document.getElementById('redeem-input').value;
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
-        //lookup card id based on redemption code
+	await validateRedemptionCode(code);
         addCardToUserMetadata(user);
 });
+
+async function validateRedemptionCode(code) {
+   var options = {
+        method: 'GET',
+        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes/' + code,
+        headers: {'content-type': 'application/json'}
+    };
+    axios.request(options).then(function (response) {
+        console.log("VALID REDEMPTION CODE: " + response.data);
+    }).catch(function(error) {
+        console.error(error);
+    }); 
+}	
 
 async function addCardToUserMetadata(user) {
     await retrieveAuthAPIToken();
