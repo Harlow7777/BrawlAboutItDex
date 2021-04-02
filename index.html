@@ -13,10 +13,12 @@
 <button id="btn-login" disabled="true" class="hidden right" onclick="login()">Log in</button>
 <button id="btn-logout" disabled="true" class="hidden right" onclick="logout()">Logout</button>
 <div id="gated-content" class="hidden">
-    <a href="#" id="collection-link" class="center" onclick="loadCollection()">My Collection</a>
-    <a href="#" id="dex-link" class="center" onclick="loadDex()">Full Dex</a>
-    <input type="text" id="redeem-input" class="right">
-    <button id="redeem-button" class="disabled right">Redeem</button>
+    <div id="navigation-container">
+        <a href="#" id="collection-link" class="center" onclick="loadCollection()">My Collection</a>
+        <a href="#" id="dex-link" class="center" onclick="loadDex()">Full Dex</a>
+        <input type="text" id="redeem-input" class="right">
+        <button id="redeem-button" class="disabled right">Redeem</button>
+    </div>
     <div id="dex-container">
         <div id="sort-container" class="sort-container">
             Sort by:

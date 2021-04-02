@@ -27,6 +27,11 @@ body {
 	max-width: 1200px;
 }
 
+.navigation-container {
+    display: flex;
+    margin: 0 auto;
+}
+
 .hidden {
     display: none;
 }
