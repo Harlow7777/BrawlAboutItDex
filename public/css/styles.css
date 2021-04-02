@@ -125,6 +125,12 @@ a:active {
 	letter-spacing: 1px;
 }
 
+.dex-container {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+}
+
 .filter-container {
 	display: flex;
 	flex-direction: row;
