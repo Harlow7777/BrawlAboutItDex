@@ -37,8 +37,8 @@ body {
 }
 
 .right {
-    align-self: right;
-    justify-self: start;
+    align-self: end;
+    justify-self: end;
 }
 
 .center {
