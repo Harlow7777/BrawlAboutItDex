@@ -31,10 +31,14 @@ body {
     display: none;
 }
 
-.auth {
+.right {
     align-self: right;
     justify-self: start;
-}	
+}
+
+.center {
+    align-self: center;
+}
 
 button {
   background-color: #4CAF50;

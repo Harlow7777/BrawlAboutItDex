@@ -1,8 +1,8 @@
 const cardContainer = document.getElementById('card-collection-container');
 
-async function addElementsToDiv() {
+async function addElementsToDiv(user) {
     cardContainer.textContent = '';
-    const collectionIds = await getCollectionIds();
+    const collectionIds = await getCollectionIds(user);
     console.log("Retrieved collection id array: " + Object.values(collectionIds));
 	collectionIds.forEach(cardId => getCardImages(cardId));
 }
@@ -15,8 +15,7 @@ function getCardImages(cardId) {
     cardContainer.appendChild(cardElement);
 }
 
-async function getCollectionIds() {
-    const user = await auth0.getUser();
+async function getCollectionIds(user) {
     await retrieveAuthAPIToken();
     var options = {
         method: 'GET',
@@ -30,5 +29,3 @@ async function getCollectionIds() {
         console.error(error);
     });
 }
-
-addElementsToDiv();

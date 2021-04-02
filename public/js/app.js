@@ -25,6 +25,7 @@ async function asyncLoad() {
     const isAuthenticated = await auth0.isAuthenticated();
 
     if(isAuthenticated) {
+        addElementsToDiv(user);
         return;
     }
 
