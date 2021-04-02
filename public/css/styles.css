@@ -43,6 +43,7 @@ body {
 
 .center {
     align-self: center;
+    justify-self:center;
 }
 
 button {
