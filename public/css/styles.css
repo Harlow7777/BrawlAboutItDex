@@ -37,13 +37,14 @@ body {
 }
 
 .right {
-    align-self: end;
-    justify-self: end;
+    float:right;
+    margin-right:50px;
+    clear:both;
 }
 
 .center {
     align-self: center;
-    justify-self:center;
+    justify-self: center;
 }
 
 button {
@@ -123,24 +124,6 @@ a:active {
 .creature .name {
 	margin: 15px 0 7px;
 	letter-spacing: 1px;
-}
-
-.dex-container {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-}
-
-.filter-container {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-}	
-
-.sort-container {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
 }
 
 .arrow {
