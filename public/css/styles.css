@@ -32,6 +32,11 @@ body {
     margin: 0 auto;
 }
 
+.dex-container {
+    display: flex;
+    margin: 0 auto;
+}
+
 .hidden {
     display: none;
 }
