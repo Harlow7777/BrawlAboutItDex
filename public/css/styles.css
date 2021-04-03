@@ -32,6 +32,18 @@ body {
     margin: 0 auto;
 }
 
+.sort-container {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.filter-container {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+
 .dex-container {
     display: flex;
     margin: 0 auto;
