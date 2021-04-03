@@ -54,7 +54,8 @@ const updateUI = async () => {
         document.getElementById("gated-content").classList.remove("hidden");
 
         var user = await auth0.getUser();
-	    addElementsToDiv(user);
+	console.log("RETRIEVED USER: " + user);
+	addElementsToCollectionDiv(user);
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
         document.getElementById("btn-logout").classList.add("hidden");
