@@ -1,4 +1,4 @@
-const cardContainer = document.getElementById('card-collection-container');
+const cardContainer = document.getElementById('collection-container');
 
 async function addElementsToDiv(user) {
     cardContainer.textContent = '';
