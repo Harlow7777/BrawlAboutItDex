@@ -35,13 +35,11 @@ body {
 .sort-container {
     display: flex;
     margin: 0 auto;
-    align-items: center;
 }
 
 .filter-container {
     display: flex;
     margin: 0 auto;
-    align-items: center;
 }
 
 .dex-container {
