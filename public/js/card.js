@@ -1,6 +1,7 @@
 const cardContainer = document.getElementById('collection-container');
 
-async function addElementsToDiv(user) {
+async function addElementsToCollectionDiv(user) {
+    console.log("ADDING CARDS TO COLLECTION DIV");
     cardContainer.textContent = '';
     const collectionIds = await getCollectionIds(user);
     console.log("Retrieved collection id array: " + Object.values(collectionIds));
