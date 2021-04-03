@@ -32,6 +32,13 @@ body {
     margin: 0 auto;
 }
 
+.auth-container {
+    display: flex;
+    margin: 0 auto;
+    align-items: end;
+    justify-content: end;
+}
+
 .sort-container {
     display: flex;
     margin: 0 auto;
@@ -51,9 +58,8 @@ body {
 }
 
 .right {
-    float:right;
-    margin-right:50px;
-    clear:both;
+    align-self: end;
+    justify-self: end;
 }
 
 .center {
