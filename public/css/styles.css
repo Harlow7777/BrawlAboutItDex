@@ -35,16 +35,15 @@ body {
 .sort-container {
     display: flex;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .filter-container {
     display: flex;
     margin: 0 auto;
-}
-
-.dex-container {
-    display: flex;
-    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .hidden {
