@@ -9,18 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>BrawlDex</h1>
-<div id="navigation-container" class="navigation-container">
-    <a href="#" id="collection-link" onclick="loadCollection()">My Collection</a>
-    <a href="#" id="dex-link" onclick="loadDex()" style="margin-left:2.5em">Full Dex</a>
-</div>
-<div id="auth-container" class="auth-container">    
-    <button id="btn-login" disabled="true" class="hidden right" onclick="login()">Log in</button>
-    <button id="btn-logout" disabled="true" class="hidden right" onclick="logout()">Logout</button>
-</div>
-<input type="text" id="redeem-input" class="right">
-<button id="redeem-button" class="disabled right">Redeem</button>
+<h1>BrawlAboutIt</h1>
 <div id="gated-content" class="hidden">
+    <div id="navigation-container" class="navigation-container">
+        <a href="#" id="collection-link" onclick="loadCollection()">My Collection</a>
+        <a href="#" id="dex-link" onclick="loadDex()" style="margin-left:2.5em">Full Dex</a>
+    </div>
+    <div id="auth-container" class="auth-container">    
+        <button id="btn-login" disabled="true" class="hidden" onclick="login()">Log in</button>
+        <button id="btn-logout" disabled="true" class="hidden" onclick="logout()">Logout</button>
+    </div>
+    <input type="text" id="redeem-input" class="right">
+    <button id="redeem-button" class="disabled right">Redeem</button>
     <div id="dex-container">
         <div id="sort-container" class="sort-container">
             Sort by:
@@ -56,9 +56,7 @@
         </div>
         <div id="div_container" class="div-container"></div>
     </div>
-    <div id="collection-container" class="hidden">
-        <div id="card-collection-container"></div>
-    </div>
+    <div id="collection-container" class="hidden"></div>
 </div>
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
