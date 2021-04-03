@@ -162,4 +162,5 @@ async function retrieveAuthAPIToken() {
         console.error(error);
         authToken = null;
     });
+    return authToken;
 }
