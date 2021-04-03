@@ -17,7 +17,7 @@ function getCardImages(cardId) {
 }
 
 async function getCollectionIds(user) {
-    await retrieveAuthAPIToken();
+    const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'GET',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
