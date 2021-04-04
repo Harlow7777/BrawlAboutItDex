@@ -68,12 +68,18 @@ const cardContainer = document.getElementById('collection-container');
 function addElementsToCollectionDiv(idToken) {
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     Object.keys(user_metadata).forEach(key => console.log(key + ": " + user_metadata[key]));
-    const collectionIds = [user_metadata['creature_collection']];
-    console.log("COLLECTION IDS: " + collectionIds);
-    cardContainer.textContent = '';
-    //get all names from card table
-    //for each cardId, match name and send to addCardImage
-    collectionIds.forEach(cardId => addCardImage(cardId, name));
+    if(Object.keys(user_metadata).includes('creature_collection')) {
+        const collectionIds = [user_metadata['creature_collection']];
+        console.log("COLLECTION IDS: " + collectionIds);
+        cardContainer.textContent = '';
+        //get all names from card table
+        //for each cardId, match name and send to addCardImage
+        collectionIds.forEach(cardId => addCardImage(cardId, name));
+    } else {
+        cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
+    }
+
+
 }
 
 function addCardImage(cardId, name) {
@@ -108,12 +114,17 @@ const logout = async () => {
 }
 
 function loadDex() {
-	document.getElementById("dex-container").classList.remove("hidden");
+    const dexContainer = document.getElementById("dex-container");
+	dexContainer.classList.remove("hidden");
+	dexContainer.disabled = true;
 	document.getElementById("collection-container").classList.add("hidden");
+
 }
 
 function loadCollection() {
-	document.getElementById("collection-container").classList.remove("hidden");
+    const collectionContainer = document.getElementById("collection-container");
+	collectionContainer.classList.remove("hidden");
+	collectionContainer.disabled = true;
 	document.getElementById("dex-container").classList.add("hidden");
 }
 
