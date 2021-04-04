@@ -114,17 +114,15 @@ const logout = async () => {
 }
 
 function loadDex() {
-    const dexContainer = document.getElementById("dex-container");
-	dexContainer.classList.remove("hidden");
-	dexContainer.disabled = true;
+	document.getElementById("dex-container").classList.remove("hidden");
+	document.getElementById("dex-link").disabled = true;
 	document.getElementById("collection-container").classList.add("hidden");
 
 }
 
 function loadCollection() {
-    const collectionContainer = document.getElementById("collection-container");
-	collectionContainer.classList.remove("hidden");
-	collectionContainer.disabled = true;
+	document.getElementById("collection-container").classList.remove("hidden");
+	document.getElementById("collection-link").disabled = true;
 	document.getElementById("dex-container").classList.add("hidden");
 }
 
