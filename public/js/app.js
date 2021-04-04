@@ -69,18 +69,19 @@ function addElementsToCollectionDiv(idToken) {
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     Object.keys(user_metadata).forEach(key => console.log(key + ": " + user_metadata[key]));
     if(Object.keys(user_metadata).includes('creature_collection')) {
-        const collectionIds = [user_metadata['creature_collection']];
-        console.log("COLLECTION IDS: " + collectionIds);
-        cardContainer.textContent = '';
-        const cardDetails = getCardDetails();
-        collectionIds.forEach(cardId => function() {
-            if(Object.keys(cardDetails).includes(cardId)) {
-                console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
-                addCardImage(cardDetails[key]);
-            } else {
-                console.log("NO NAME FOR CARDID: " + cardId);
-            }
-        });
+//        const collectionIds = [user_metadata['creature_collection']];
+//        console.log("COLLECTION IDS: " + collectionIds);
+//        cardContainer.textContent = '';
+//        const cardDetails = getCardDetails();
+//        collectionIds.forEach(cardId => function() {
+//            if(Object.keys(cardDetails).includes(cardId)) {
+//                console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
+//                addCardImage(cardDetails[key]);
+//            } else {
+//                console.log("NO NAME FOR CARDID: " + cardId);
+//            }
+//        });
+          addCardImage('potito');
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
     }
