@@ -67,7 +67,7 @@ const cardContainer = document.getElementById('collection-container');
 
 function addElementsToCollectionDiv(idToken) {
     console.log("ADDING CARDS TO COLLECTION DIV for: " + idToken);
-    Object.keys(idToken).forEach("KEY,VAL: " + key => console.log(key + ", " + idToken[key]));
+    Object.keys(idToken).forEach(key => console.log("KEY,VAL: " + key + ", " + idToken[key]));
     cardContainer.textContent = '';
     const collectionIds = getCollectionIds(user);
     console.log("Retrieved collection id array: " + Object.values(collectionIds));
