@@ -69,13 +69,13 @@ function addElementsToCollectionDiv(idToken) {
     console.log("ADDING CARDS TO COLLECTION DIV for: " + idToken);
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     Object.keys(user_metadata).forEach(key => console.log(key + ": " + user_metadata[key]));
-    const collectionIds = user_metadata['creature_collection'];
+    const collectionIds = [user_metadata['creature_collection']];
     console.log("COLLECTION IDS: " + collectionIds);
     cardContainer.textContent = '';
-    collectionIds.forEach(cardId => getCardImages(cardId));
+    collectionIds.forEach(cardId => addCardImage(cardId));
 }
 
-function getCardImages(cardId) {
+function addCardImage(cardId) {
     //get name associate with cardId
     console.log("Getting image associated with " + cardId);
     const name = "potito"
