@@ -76,7 +76,7 @@ function addElementsToCollectionDiv(idToken) {
         collectionIds.forEach(cardId => function() {
             if(Object.keys(cardDetails).includes(cardId)) {
                 console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
-                addCardImage(cardId, cardDetails[key]));
+                addCardImage(cardId, cardDetails[key]);
             } else {
                 console.log("NO NAME FOR CARDID: " + cardId);
             }
