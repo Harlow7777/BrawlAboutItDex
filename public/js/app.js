@@ -78,9 +78,11 @@ function addElementsToCollectionDiv(idToken) {
 function addCardImage(cardId) {
     //get name associate with cardId
     console.log("Getting image associated with " + cardId);
-    const name = "potito"
+    const name = "potito";
+    var img = new Image();
+    img.src = name + '.png';
     const cardElement = "<img src=\"" + name + ".png\" alt=" + name + " width=\"500\" height=\"600\">";
-    cardContainer.appendChild(cardElement);
+    cardContainer.appendChild(img);
 }
 
 const login = async () => {
