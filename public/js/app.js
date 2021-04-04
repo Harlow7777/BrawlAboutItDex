@@ -72,19 +72,35 @@ function addElementsToCollectionDiv(idToken) {
         const collectionIds = [user_metadata['creature_collection']];
         console.log("COLLECTION IDS: " + collectionIds);
         cardContainer.textContent = '';
-        //get all names from card table
-        //for each cardId, match name and send to addCardImage
-        collectionIds.forEach(cardId => addCardImage(cardId, name));
+        const cardDetails = getCardDetails();
+        collectionIds.forEach(cardId => function() {
+            if(Object.keys(cardDetails).includes(cardId)) {
+                console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
+                addCardImage(cardId, cardDetails[key]));
+            } else {
+                console.log("NO NAME FOR CARDID: " + cardId);
+            }
+        });
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
     }
+}
 
-
+function getCardDetails() {
+    var options = {
+        method: 'GET',
+        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/card_details',
+        headers: {'content-type': 'application/json'}
+    };
+    axios.request(options).then(function (response) {
+        console.log("RETRIEVED CARD NAMES: " + Object.values(response.data));
+        return response.data;
+    }).catch(function(error) {
+        console.error(error);
+    });
 }
 
 function addCardImage(cardId, name) {
-    console.log("Getting image associated with " + cardId);
-    name = "potito";
     var img = new Image(200,300);
     img.src = './images/cards/' + name + '.png';
     cardContainer.appendChild(img);
