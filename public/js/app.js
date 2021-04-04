@@ -68,6 +68,9 @@ const cardContainer = document.getElementById('collection-container');
 function addElementsToCollectionDiv(idToken) {
     console.log("ADDING CARDS TO COLLECTION DIV for: " + idToken);
     Object.keys(idToken).forEach(key => console.log("KEY,VAL: " + key + ", " + idToken[key]));
+    console.log("METADATA");
+    const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
+    Object.keys(user_metadata).forEach(key => console.log(key + ": " + user_metadata[key]));
     cardContainer.textContent = '';
     const collectionIds = getCollectionIds(user);
     console.log("Retrieved collection id array: " + Object.values(collectionIds));
