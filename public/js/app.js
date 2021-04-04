@@ -72,16 +72,15 @@ function addElementsToCollectionDiv(idToken) {
         const collectionIds = [user_metadata['creature_collection']];
         console.log("COLLECTION IDS: " + collectionIds);
         cardContainer.textContent = '';
-//        const cardDetails = getCardDetails();
-//        collectionIds.forEach(cardId => function() {
-//            if(Object.keys(cardDetails).includes(cardId)) {
-//                console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
-//                addCardImage(cardId, cardDetails[key]);
-//            } else {
-//                console.log("NO NAME FOR CARDID: " + cardId);
-//            }
-//        });
-        addCardImage(cardId, "potito");
+        const cardDetails = getCardDetails();
+        collectionIds.forEach(cardId => function() {
+            if(Object.keys(cardDetails).includes(cardId)) {
+                console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
+                addCardImage(cardDetails[key]);
+            } else {
+                console.log("NO NAME FOR CARDID: " + cardId);
+            }
+        });
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
     }
@@ -101,7 +100,7 @@ function getCardDetails() {
     });
 }
 
-function addCardImage(cardId, name) {
+function addCardImage(name) {
     var img = new Image(200,300);
     img.src = './images/cards/' + name + '.png';
     cardContainer.appendChild(img);
