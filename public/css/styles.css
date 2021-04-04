@@ -30,21 +30,21 @@ body {
 .navigation-container {
     display: flex;
     margin: 0 auto;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .auth-container {
     display: flex;
     margin: 0 auto;
     flex-direction: row;
-    align-items: end;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .sort-container {
     display: flex;
     margin: 0 auto;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
 }
 
@@ -52,22 +52,11 @@ body {
     display: flex;
     margin: 0 auto;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
 }
 
 .hidden {
     display: none;
-}
-
-.right {
-    align-self: end;
-    justify-self: end;
-}
-
-.center {
-    align-self: center;
-    justify-self: center;
 }
 
 button {
