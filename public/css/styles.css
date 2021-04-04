@@ -84,7 +84,7 @@ button:hover {
 }
 
 a:link, a:visited, a:hover, a:focus, a:active {
-   color: #ffa2a2;text-decoration: none;
+   color: #8cd889;text-decoration: none;
    transition: 0.3s ease;text-decoration: none;
    -webkit-transition:color 0.5s ease-in;
    -moz-transition:color 0.5s ease-in;
