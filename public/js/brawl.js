@@ -149,9 +149,9 @@ function createCreatureCard(creature)
 		Object.values(creature_types).forEach((type, index) => {
 			colorGradient += colors[type] + ',';
 			if(index > 0)
-				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="width:100px; height:auto;margin-left: 0px;">'
+				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="width:30px;height:auto;margin-left: 0px;">'
 			else		
-				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="width:100px; height:auto;margin-left: 100px;">';
+				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="width:30px;height:auto;margin-left: 100px;">';
 		});
 		colorGradient = colorGradient.slice(0, -1);
 		colorGradient += ')';
@@ -159,7 +159,7 @@ function createCreatureCard(creature)
 	} else {	
 		const type = main_types.find(type => creature_types.indexOf(type) > -1);
 		creatureElement.style.backgroundColor = colors[type];
-		typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '">';
+		typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="width:30px;height:auto;">';
 	}
 	if(creature_types.indexOf('space') > -1)
 		creatureElement.style.color = '#ffffff';
