@@ -41,6 +41,13 @@ body {
     justify-content: flex-end;
 }
 
+.redeem-container {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
 .sort-container {
     display: flex;
     margin: 0 auto;
