@@ -72,15 +72,16 @@ function addElementsToCollectionDiv(idToken) {
         const collectionIds = [user_metadata['creature_collection']];
         console.log("COLLECTION IDS: " + collectionIds);
         cardContainer.textContent = '';
-        const cardDetails = getCardDetails();
-        collectionIds.forEach(cardId => function() {
-            if(Object.keys(cardDetails).includes(cardId)) {
-                console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
-                addCardImage(cardId, cardDetails[key]);
-            } else {
-                console.log("NO NAME FOR CARDID: " + cardId);
-            }
-        });
+//        const cardDetails = getCardDetails();
+//        collectionIds.forEach(cardId => function() {
+//            if(Object.keys(cardDetails).includes(cardId)) {
+//                console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
+//                addCardImage(cardId, cardDetails[key]);
+//            } else {
+//                console.log("NO NAME FOR CARDID: " + cardId);
+//            }
+//        });
+        addCardImage(cardId, "potito");
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
     }
