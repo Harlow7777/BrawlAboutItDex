@@ -12,19 +12,19 @@
 <h1>BrawlAboutIt</h1>
 <div id="gated-content" class="hidden">
     <div id="navigation-container" class="navigation-container">
-        <a href="#" id="collection-link" class="center" onclick="loadCollection()">My Collection</a>
-        <a href="#" id="dex-link" class="center" onclick="loadDex()" style="margin-left:2.5em">Full Dex</a>
+        <a href="#" id="collection-link" onclick="loadCollection()">My Collection</a>
+        <a href="#" id="dex-link" onclick="loadDex()" style="margin-left:2.5em">Full Dex</a>
     </div>
     <div id="auth-container" class="auth-container">    
-        <button id="btn-login" disabled="true" class="hidden right" onclick="login()">Log in</button>
-        <button id="btn-logout" disabled="true" class="hidden right" onclick="logout()">Logout</button>
+        <button id="btn-login" disabled="true" class="hidden" onclick="login()">Log in</button>
+        <button id="btn-logout" disabled="true" class="hidden" onclick="logout()">Logout</button>
     </div>
-    <input type="text" id="redeem-input" class="right">
-    <button id="redeem-button" class="disabled right">Redeem</button>
+    <input type="text" id="redeem-input">
+    <button id="redeem-button" class="disabled">Redeem</button>
     <div id="dex-container">
         <div id="sort-container" class="sort-container">
             Sort by:
-            <select id="sort-drop-down" class="dropdown-content center">
+            <select id="sort-drop-down" class="dropdown-content">
                 <optgroup label="Stats">
                     <option value="id">Id</option>
                     <option value="name">Name</option>
@@ -34,16 +34,16 @@
                     <option value="stats.speed">Speed</option>
                 </optgroup>
             </select>
-            <div id="arrow" class="arrow down center">
+            <div id="arrow" class="arrow down">
             </div>
         </div>
         <div id="filter-container" class="filter-container">
             <form>
-                <label for="filter" class="center">Filter by:</label>
-                <input type="text" id="filter" name="filter" class="center">
+                <label for="filter">Filter by:</label>
+                <input type="text" id="filter" name="filter">
             </form>
              on:
-            <select id="filter-drop-down" class="dropdown-content center">
+            <select id="filter-drop-down" class="dropdown-content">
                 <optgroup label="Stats">
                     <option value="id">Id</option>
                     <option value="name">Name</option>
