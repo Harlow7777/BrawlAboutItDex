@@ -79,10 +79,8 @@ function addElementsToCollectionDiv(idToken) {
 function addCardImage(cardId, name) {
     console.log("Getting image associated with " + cardId);
     name = "potito";
-    var img = new Image();
+    var img = new Image(200,300);
     img.src = './images/cards/' + name + '.png';
-    img.width = '100px';
-    img.height = 'auto';
     cardContainer.appendChild(img);
 }
 
