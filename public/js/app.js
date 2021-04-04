@@ -123,12 +123,13 @@ $(document).ready(function() {
 function loadDex() {
 	document.getElementById("dex-container").classList.remove("hidden");
 	document.getElementById("collection-container").classList.add("hidden");
-
+	document.getElementById("dex-link").classList.add("active");
 }
 
 function loadCollection() {
 	document.getElementById("collection-container").classList.remove("hidden");
 	document.getElementById("dex-container").classList.add("hidden");
+	document.getElementById("collection-link").classList.add("active");
 }
 
 document.getElementById("redeem-input").onchange = toggleRedeemButton;
