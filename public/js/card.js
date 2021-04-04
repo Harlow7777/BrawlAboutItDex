@@ -1,11 +1,11 @@
 const cardContainer = document.getElementById('collection-container');
 
-async function addElementsToCollectionDiv(user) {
+function addElementsToCollectionDiv(user) {
     console.log("ADDING CARDS TO COLLECTION DIV");
     cardContainer.textContent = '';
-    const collectionIds = await getCollectionIds(user);
+    const collectionIds = getCollectionIds(user);
     console.log("Retrieved collection id array: " + Object.values(collectionIds));
-	collectionIds.forEach(cardId => getCardImages(cardId));
+    collectionIds.forEach(cardId => getCardImages(cardId));
 }
 
 function getCardImages(cardId) {
@@ -16,17 +16,7 @@ function getCardImages(cardId) {
     cardContainer.appendChild(cardElement);
 }
 
-async function getCollectionIds(user) {
-    const authToken = await retrieveAuthAPIToken();
-    var options = {
-        method: 'GET',
-        url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
-        headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
-    };
-    axios.request(options).then(function (response) {
-        console.log("Returning collection ids: " + response.data['user_metadata']['creature_collection']);
-        return response.data['user_metadata']['creature_collection'];
-    }).catch(function(error) {
-        console.error(error);
-    });
+function getCollectionIds(user) {
+    console.log("Returning collection ids: " + user.user_metadata.creature_collection);
+    return user.user_metadata.creature_collection;
 }
