@@ -149,9 +149,9 @@ function createCreatureCard(creature)
 		Object.values(creature_types).forEach((type, index) => {
 			colorGradient += colors[type] + ',';
 			if(index > 0)
-				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="margin-left: 0px">'
+				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="width:100px; height:auto;margin-left: 0px;">'
 			else		
-				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="margin-left: 100px">';
+				typeSymbol += '<img class="type-symbol" src="./images/types/' + type + '.png" alt="' + type + '" style="width:100px; height:auto;margin-left: 100px;">';
 		});
 		colorGradient = colorGradient.slice(0, -1);
 		colorGradient += ')';
