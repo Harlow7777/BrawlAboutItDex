@@ -10,14 +10,14 @@
 </head>
 <body>
 <h1>BrawlAboutIt</h1>
+<div id="auth-container" class="auth-container">    
+    <button id="btn-login" disabled="true" class="hidden" onclick="login()">Log in</button>
+    <button id="btn-logout" disabled="true" class="hidden" onclick="logout()">Logout</button>
+</div>
 <div id="gated-content" class="hidden">
     <div id="navigation-container" class="navigation-container">
         <a href="#" id="collection-link" onclick="loadCollection()">My Collection</a>
         <a href="#" id="dex-link" onclick="loadDex()" style="margin-left:2.5em">Full Dex</a>
-    </div>
-    <div id="auth-container" class="auth-container">    
-        <button id="btn-login" disabled="true" class="hidden" onclick="login()">Log in</button>
-        <button id="btn-logout" disabled="true" class="hidden" onclick="logout()">Logout</button>
     </div>
     <input type="text" id="redeem-input">
     <button id="redeem-button" class="disabled">Redeem</button>
