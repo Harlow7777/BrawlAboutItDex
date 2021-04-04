@@ -67,13 +67,11 @@ const cardContainer = document.getElementById('collection-container');
 
 function addElementsToCollectionDiv(idToken) {
     console.log("ADDING CARDS TO COLLECTION DIV for: " + idToken);
-    Object.keys(idToken).forEach(key => console.log("KEY,VAL: " + key + ", " + idToken[key]));
-    console.log("METADATA");
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     Object.keys(user_metadata).forEach(key => console.log(key + ": " + user_metadata[key]));
+    const collectionIds = user_metadata['creature_collection'];
+    console.log("COLLECTION IDS: " + collectionIds);
     cardContainer.textContent = '';
-    const collectionIds = getCollectionIds(user);
-    console.log("Retrieved collection id array: " + Object.values(collectionIds));
     collectionIds.forEach(cardId => getCardImages(cardId));
 }
 
@@ -83,11 +81,6 @@ function getCardImages(cardId) {
     const name = "potito"
     const cardElement = "<img src=\"" + name + ".png\" alt=" + name + " width=\"500\" height=\"600\">";
     cardContainer.appendChild(cardElement);
-}
-
-function getCollectionIds(user) {
-    console.log("Returning collection ids: " + user.user_metadata.creature_collection);
-    return user.user_metadata.creature_collection;
 }
 
 const login = async () => {
