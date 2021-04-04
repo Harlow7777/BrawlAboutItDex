@@ -83,20 +83,24 @@ button:hover {
   opacity: 0.8;
 }
 
-a:link {
-  color: blue;
-}
+a:link, a:visited, a:hover, a:focus, a:active {
+   color: #dcdedd;text-decoration: none;
+   transition: 0.3s ease;text-decoration: none;
+   -webkit-transition:color 0.5s ease-in;
+   -moz-transition:color 0.5s ease-in;
+   -o-transition:color 0.5s ease-in;
+   transition:color 0.5s ease-in; }
+a:hover, a.active {color: red}
 
-a:visited {
-  color: purple;
-}
-
-a:hover {
-  color: hotpink;
-}
-
-a:active {
-  color: blue;
+#stickyheader {
+    width: 100%;
+    padding-top:10px;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    padding-bottom: 10px;
+    line-height: 24px;
+    position:relative;
 }
 
 .creature {

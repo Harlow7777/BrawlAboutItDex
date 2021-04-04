@@ -113,16 +113,21 @@ const logout = async () => {
     }
 }
 
+$(document).ready(function() {
+    $('#stickyheader a').on('click', function() {
+        $(".active").removeClass("active");
+        $(this).addClass("active");
+    });
+});
+
 function loadDex() {
 	document.getElementById("dex-container").classList.remove("hidden");
-	document.getElementById("dex-link").disabled = true;
 	document.getElementById("collection-container").classList.add("hidden");
 
 }
 
 function loadCollection() {
 	document.getElementById("collection-container").classList.remove("hidden");
-	document.getElementById("collection-link").disabled = true;
 	document.getElementById("dex-container").classList.add("hidden");
 }
 
