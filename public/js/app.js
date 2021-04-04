@@ -1,7 +1,7 @@
 let auth0 = null;
 let authToken = null;
 
-const fetchAuthConfig = () => fetch("/BrawlAboutItDex/auth_config.json");
+const fetchAuthConfig = () => fetch("./auth_config.json");
 
 const configureClient = async () => {
     const response = await fetchAuthConfig();
@@ -80,8 +80,7 @@ function addCardImage(cardId) {
     console.log("Getting image associated with " + cardId);
     const name = "potito";
     var img = new Image();
-    img.src = name + '.png';
-    const cardElement = "<img src=\"" + name + ".png\" alt=" + name + " width=\"500\" height=\"600\">";
+    img.src = './images/cards/' + name + '.png';
     cardContainer.appendChild(img);
 }
 
