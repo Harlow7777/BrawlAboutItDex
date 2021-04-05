@@ -52,6 +52,7 @@ body {
     margin: 0 auto;
     flex-direction: row;
     justify-content: flex-end;
+    width: 100%;
 }
 
 .redeem-container {
