@@ -103,6 +103,7 @@ function getCardDetails() {
 
 function addCardImage(name) {
     var img = new Image(200,300);
+    img.classList.add('card');
     img.src = './images/cards/' + name + '.png';
     cardContainer.appendChild(img);
 }
