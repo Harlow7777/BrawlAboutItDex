@@ -157,7 +157,7 @@ document.getElementById('redeem-button').addEventListener("click",
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
 	await validateRedemptionCode(code);
-        addCardToUserMetadata(user);
+        addCardToUserMetadata(user, code);
 });
 
 async function validateRedemptionCode(code) {
@@ -173,7 +173,7 @@ async function validateRedemptionCode(code) {
     }); 
 }	
 
-async function addCardToUserMetadata(user) {
+async function addCardToUserMetadata(user, cardId) {
     await retrieveAuthAPIToken();
     var options = {
         method: 'PATCH',
@@ -181,7 +181,7 @@ async function addCardToUserMetadata(user) {
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
         data: {
             user_metadata: {
-                creature_collection:'1000'
+                creature_collection: cardId
             }
         }
     };
