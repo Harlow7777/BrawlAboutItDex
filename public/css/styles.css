@@ -101,6 +101,13 @@ a:link, a:visited, a:hover, a:focus, a:active {
    transition:color 0.5s ease-in; }
 a:hover, a.active {color: green}
 
+.card {
+	border-radius: 20px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+	margin: 10px;
+	padding: 20px;
+}	
+	
 .creature {
 	display: flex;
 	flex-direction: column;
