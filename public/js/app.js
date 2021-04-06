@@ -65,13 +65,8 @@ const updateUI = async () => {
 const cardContainer = document.getElementById('collection-container');
 
 async function getCollectionIds() {
+    location.reload();
     var idToken = await auth0.getIdTokenClaims();
-    Object.keys(idToken).forEach(key => console.log("idToken key,val: " + key + ", " + idToken[key]));
-    auth0.checkSession({
-  	nonce: idToken['nonce']
-    }, function (err, authResult) {
-    	Object.keys(authResult).forEach(key => console.log("checkSession key,val: " + key + ", " + authResult[key]));
-    });
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     if(Object.keys(user_metadata).includes('creature_collection')) {
        console.log("Returning " + user_metadata['creature_collection']);
