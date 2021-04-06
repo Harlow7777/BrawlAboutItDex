@@ -183,7 +183,7 @@ async function validateRedemptionCode(code) {
 
 async function addCardToUserMetadata(user, cardId) {
     console.log("EXISTING COLLECTION IDS: " + getCollectionIds());
-    const authToken = retrieveAuthAPIToken();
+    const authToken = await retrieveAuthAPIToken();
     console.log("USING AUTH TOKEN: " + authToken);
     var options = {
         method: 'PATCH',
@@ -202,7 +202,7 @@ async function addCardToUserMetadata(user, cardId) {
     }); 
 }    
 
-function retrieveAuthAPIToken() {
+async function retrieveAuthAPIToken() {
     var options = {
         method: 'POST',
         url: 'https://harlow777.us.auth0.com/oauth/token',
