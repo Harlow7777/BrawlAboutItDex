@@ -94,10 +94,11 @@ async function addElementsToCollectionDiv(idToken) {
 // }
 
 async function getCollectionIds(userId) {
+    const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'GET',
         url: 'https://login.auth0.com/api/v2/users/' + userId,
-        headers: {'content-type': 'application/json'}
+        headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
     axios.request(options).then(function (response) {
         console.log("RETRIEVED Users Values: " + Object.values(response.data));
