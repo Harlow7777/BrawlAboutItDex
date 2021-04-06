@@ -209,6 +209,6 @@ async function retrieveAuthAPIToken() {
 	return response.data['access_token'];
     }).catch(function(error) {
         console.error(error);
-        return = null;
+        return null;
     });
 }
