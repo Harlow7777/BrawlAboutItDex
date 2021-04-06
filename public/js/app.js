@@ -214,11 +214,7 @@ async function retrieveAuthAPIToken() {
             audience: 'https://harlow777.us.auth0.com/api/v2/'
         }
     };
-    axios.request(options).then(function (response) {
-	console.log("RETURNING AUTH TOKEN: " + response.data['access_token']);
-	return response.data['access_token'];
-    }).catch(function(error) {
-        console.error(error);
-        return null;
-    });
+    const response = await axios.request(options);
+    console.log("RETURNING AUTH TOKEN: " + response.data['access_token']);
+    return response.data['access_token'];
 }
