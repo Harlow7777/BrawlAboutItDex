@@ -174,6 +174,7 @@ async function validateRedemptionCode(code) {
 
 async function addCardToUserMetadata(user, cardId) {
     const authToken = await retrieveAuthAPIToken();
+    console.log("USING AUTHTOKEN: " + authToken);
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
@@ -204,6 +205,7 @@ async function retrieveAuthAPIToken() {
         }
     };
     axios.request(options).then(function (response) {
+	console.log("RETURNING AUTH TOKEN: " + response.data['access_token']);
 	return response.data['access_token'];
     }).catch(function(error) {
         console.error(error);
