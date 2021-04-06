@@ -182,7 +182,9 @@ async function validateRedemptionCode(code) {
 }	
 
 async function addCardToUserMetadata(user, cardId) {
-    console.log("EXISTING COLLECTION IDS: " + getCollectionIds());
+    getCollectionIds().then(function(collectionIds) {
+	    console.log("EXISTING COLLECTION IDS: " + collectionIds);
+    });
     const authToken = await retrieveAuthAPIToken();
     console.log("USING AUTH TOKEN: " + authToken);
     var options = {
