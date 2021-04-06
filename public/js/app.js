@@ -66,7 +66,7 @@ const cardContainer = document.getElementById('collection-container');
 
 async function getCollectionIds() {
     var idToken = await auth0.getIdTokenClaims();
-    Object.keys(idToken).forEach(key => console.log("idToken key,val: " key + ", " + idToken[key]));
+    Object.keys(idToken).forEach(key => console.log("idToken key,val: " + key + ", " + idToken[key]));
     auth0.checkSession({
   	nonce: '1234',
     }, function (err, authResult) {
