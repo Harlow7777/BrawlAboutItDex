@@ -173,12 +173,10 @@ async function validateRedemptionCode(code) {
 }	
 
 async function addCardToUserMetadata(user, cardId) {
-    const authToken = await(retrieveAuthAPIToken());
-    console.log("USING AUTHTOKEN: " + authToken);
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
-        headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
+        headers: {authorization: 'Bearer ' + await retrieveAuthAPIToken(),'content-type': 'application/json'},
         data: {
             user_metadata: {
                 creature_collection: cardId
