@@ -68,7 +68,7 @@ async function getCollectionIds() {
     var idToken = await auth0.getIdTokenClaims();
     Object.keys(idToken).forEach(key => console.log("idToken key,val: " + key + ", " + idToken[key]));
     auth0.checkSession({
-  	nonce: '1234',
+  	nonce: idToken['nonce']
     }, function (err, authResult) {
     	Object.keys(authResult).forEach(key => console.log("checkSession key,val: " + key + ", " + authResult[key]));
     });
