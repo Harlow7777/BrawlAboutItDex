@@ -46,11 +46,9 @@ function getCreatures()
 function addElementsToDiv() {
   	div_container.textContent = '';
 	creatureElementArray.forEach(creature => createCreatureCard(creature));
-	creatureElementArray.forEach(creature => console.log(creature.id + ': ' + creature.name + ', health ' + creature.stats.health));
 }	
 
 function sort() {
-	creatureElementArray.forEach(c => console.log(c.id));
 	var id = this.value;
 	var sortOrder = document.getElementById('arrow').className === "arrow up" ? "desc" : "asc";
 	sortByValue(id, sortOrder);
