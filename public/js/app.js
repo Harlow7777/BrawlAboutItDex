@@ -54,7 +54,7 @@ const updateUI = async () => {
 
         var user = await auth0.getUser();
 	    var idToken = await auth0.getIdTokenClaims();
-	    addElementsToCollectionDiv(idToken);
+	    addElementsToCollectionDiv(idToken, user);
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
         document.getElementById("btn-logout").classList.add("hidden");
@@ -64,8 +64,8 @@ const updateUI = async () => {
 
 const cardContainer = document.getElementById('collection-container');
 
-async function addElementsToCollectionDiv(idToken) {
-    const collectionIds = await getCollectionIds();
+async function addElementsToCollectionDiv(idToken, user) {
+    const collectionIds = await getCollectionIds(user.sub);
     if(collectionIds != null) {
 	console.log("COLLECTION IDS: " + collectionIds);
 	cardContainer.textContent = '';
