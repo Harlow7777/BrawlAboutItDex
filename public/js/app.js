@@ -185,10 +185,10 @@ async function validateRedemptionCode(code) {
 async function addCardToUserMetadata(user, cardId) {
     await getCollectionIds().then(function(collectionIds) {
 	    console.log("EXISTING COLLECTION IDS: " + collectionIds);
+	    var cardIdArray = [];
+	    cardIdArray.push(cardId);
 	    if(collectionIds != null) {
-		    cardId = [cardId, collectionIds];
-	    } else {
-		    cardId = [cardId];
+	    	collectionIds.forEach(id => cardIdArray.push(id));
 	    }	    
     });
     const authToken = await retrieveAuthAPIToken();
@@ -199,7 +199,7 @@ async function addCardToUserMetadata(user, cardId) {
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
         data: {
             user_metadata: {
-                creature_collection: cardId
+                creature_collection: cardIdArray
             }
         }
     };
