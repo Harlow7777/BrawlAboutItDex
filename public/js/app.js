@@ -65,7 +65,7 @@ const updateUI = async () => {
 const cardContainer = document.getElementById('collection-container');
 
 async function getCollectionIds() {
-    location.reload();
+    window.location.reload();
     var idToken = await auth0.getIdTokenClaims();
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     if(Object.keys(user_metadata).includes('creature_collection')) {
