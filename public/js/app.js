@@ -198,7 +198,6 @@ async function addCardToUserMetadata(user, cardId) {
 	    }	    
     });
     const authToken = await retrieveAuthAPIToken();
-    console.log("USING AUTH TOKEN: " + authToken);
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
@@ -229,6 +228,5 @@ async function retrieveAuthAPIToken() {
         }
     };
     const response = await axios.request(options);
-    console.log("RETURNING AUTH TOKEN: " + response.data['access_token']);
     return response.data['access_token'];
 }
