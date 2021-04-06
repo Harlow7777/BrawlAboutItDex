@@ -97,7 +97,7 @@ async function getCollectionIds(userId) {
     const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'GET',
-        url: 'https://login.auth0.com/api/v2/users/' + userId,
+        url: 'https://harlow777.us.auth0.com/api/v2/users/' + userId,
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
     axios.request(options).then(function (response) {
