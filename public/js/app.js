@@ -100,7 +100,7 @@ async function getCollectionIds(userId) {
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + userId,
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
-    axios.request(options).then(function (response) {
+    await axios.request(options).then(function (response) {
 	console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
         return response.data['user_metadata']['creature_collection'];
     }).catch(function(error) {
