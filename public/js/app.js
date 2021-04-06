@@ -198,7 +198,7 @@ async function validateRedemptionCode(code) {
 async function addCardToUserMetadata(user, cardId) {
     var cardIdArray = [];
     cardIdArray.push(cardId);
-    await getCollectionIds(user.sub).then(function(collectionIds) {
+    getCollectionIds(user.sub).then(function(collectionIds) {
     	console.log("EXISTING COLLECTION IDS: " + collectionIds);
     	if(collectionIds != null) {
 		collectionIds.forEach(id => cardIdArray.push(id));
