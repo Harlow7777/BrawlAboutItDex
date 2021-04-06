@@ -176,7 +176,7 @@ async function addCardToUserMetadata(user, cardId) {
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
-        headers: {authorization: 'Bearer ' + await retrieveAuthAPIToken(),'content-type': 'application/json'},
+        headers: {authorization: 'Bearer ' + retrieveAuthAPIToken(),'content-type': 'application/json'},
         data: {
             user_metadata: {
                 creature_collection: cardId
@@ -190,7 +190,7 @@ async function addCardToUserMetadata(user, cardId) {
     }); 
 }    
 
-async function retrieveAuthAPIToken() {
+function retrieveAuthAPIToken() {
     var options = {
         method: 'POST',
         url: 'https://harlow777.us.auth0.com/oauth/token',
