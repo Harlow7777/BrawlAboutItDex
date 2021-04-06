@@ -64,16 +64,6 @@ const updateUI = async () => {
 
 const cardContainer = document.getElementById('collection-container');
 
-async function getCollectionIds() {
-    var idToken = await auth0.getIdTokenClaims();
-    const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
-    if(Object.keys(user_metadata).includes('creature_collection')) {
-       console.log("Returning " + user_metadata['creature_collection']);
-       return user_metadata['creature_collection'];
-    }
-    return null;
-}
-
 async function addElementsToCollectionDiv(idToken) {
     const collectionIds = await getCollectionIds();
     if(collectionIds != null) {
@@ -92,6 +82,31 @@ async function addElementsToCollectionDiv(idToken) {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
     }
 }
+
+// async function getCollectionIds() {
+//     var idToken = await auth0.getIdTokenClaims();
+//     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
+//     if(Object.keys(user_metadata).includes('creature_collection')) {
+//        console.log("Returning " + user_metadata['creature_collection']);
+//        return user_metadata['creature_collection'];
+//     }
+//     return null;
+// }
+
+async function getCollectionIds(userId) {
+    var options = {
+        method: 'GET',
+        url: 'https://login.auth0.com/api/v2/users/' + userId,
+        headers: {'content-type': 'application/json'}
+    };
+    axios.request(options).then(function (response) {
+        console.log("RETRIEVED Users Values: " + Object.values(response.data));
+	console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
+        return response.data['user_metadata']['creature_collection'];
+    }).catch(function(error) {
+        console.error(error);
+    });
+}	
 
 function getCardDetails() {
     var options = {
@@ -182,7 +197,7 @@ async function validateRedemptionCode(code) {
 
 async function addCardToUserMetadata(user, cardId) {
     var cardIdArray = [];
-    await getCollectionIds().then(function(collectionIds) {
+    await getCollectionIds(user.sub).then(function(collectionIds) {
 	    console.log("EXISTING COLLECTION IDS: " + collectionIds);
 	    cardIdArray.push(cardId);
 	    if(collectionIds != null) {
