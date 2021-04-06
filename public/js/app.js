@@ -68,7 +68,7 @@ async function getCollectionIds() {
     var idToken = await auth0.getIdTokenClaims();
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     if(Object.keys(user_metadata).includes('creature_collection')) {
-       return [user_metadata['creature_collection']];
+       return user_metadata['creature_collection'];
     }
     return null;
 }
@@ -184,6 +184,11 @@ async function validateRedemptionCode(code) {
 async function addCardToUserMetadata(user, cardId) {
     getCollectionIds().then(function(collectionIds) {
 	    console.log("EXISTING COLLECTION IDS: " + collectionIds);
+	    if(collectionIds != null) {
+		    cardId = [cardId, collectionIds];
+	    } else {
+		    cardId = [cardId];
+	    }	    
     });
     const authToken = await retrieveAuthAPIToken();
     console.log("USING AUTH TOKEN: " + authToken);
