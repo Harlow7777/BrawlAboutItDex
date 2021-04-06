@@ -75,7 +75,7 @@ async function getCollectionIds() {
     return null;
 }
 
-function addElementsToCollectionDiv(idToken) {
+async function addElementsToCollectionDiv(idToken) {
     const collectionIds = await getCollectionIds();
     if(collectionIds != null) {
 	console.log("COLLECTION IDS: " + collectionIds);
