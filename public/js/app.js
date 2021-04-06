@@ -52,9 +52,8 @@ const updateUI = async () => {
 
         document.getElementById("gated-content").classList.remove("hidden");
 
-        var user = await auth0.getUser();
 	    var idToken = await auth0.getIdTokenClaims();
-	    addElementsToCollectionDiv(idToken, user);
+	    addElementsToCollectionDiv(idToken);
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
         document.getElementById("btn-logout").classList.add("hidden");
@@ -64,7 +63,8 @@ const updateUI = async () => {
 
 const cardContainer = document.getElementById('collection-container');
 
-async function addElementsToCollectionDiv(idToken, user) {
+async function addElementsToCollectionDiv(idToken) {
+    var user = await auth0.getUser();
     const collectionIds = await getCollectionIds(user.sub);
     if(collectionIds != null) {
 	console.log("COLLECTION IDS: " + collectionIds);
