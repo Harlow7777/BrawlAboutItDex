@@ -173,7 +173,7 @@ async function validateRedemptionCode(code) {
 }	
 
 async function addCardToUserMetadata(user, cardId) {
-    const authToken = await retrieveAuthAPIToken();
+    const authToken = await(retrieveAuthAPIToken());
     console.log("USING AUTHTOKEN: " + authToken);
     var options = {
         method: 'PATCH',
