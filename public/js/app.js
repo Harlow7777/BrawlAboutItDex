@@ -64,6 +64,14 @@ const updateUI = async () => {
 
 const cardContainer = document.getElementById('collection-container');
 
+function getCollectionIds() {
+    const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
+    if(Object.keys(user_metadata).includes('creature_collection')) {
+       const collectionIds = [user_metadata['creature_collection']];
+    }
+    return collectionIds
+}
+
 function addElementsToCollectionDiv(idToken) {
     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
     Object.keys(user_metadata).forEach(key => console.log(key + ": " + user_metadata[key]));
@@ -173,6 +181,7 @@ async function validateRedemptionCode(code) {
 }	
 
 async function addCardToUserMetadata(user, cardId) {
+    console.log("EXISTING COLLECTION IDS: " + getCollectionIds());
     var options = {
         method: 'PATCH',
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
