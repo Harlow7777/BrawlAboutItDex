@@ -101,7 +101,6 @@ async function getCollectionIds(userId) {
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
     axios.request(options).then(function (response) {
-        console.log("RETRIEVED Users Values: " + Object.values(response.data));
 	console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
         return response.data['user_metadata']['creature_collection'];
     }).catch(function(error) {
@@ -198,13 +197,12 @@ async function validateRedemptionCode(code) {
 
 async function addCardToUserMetadata(user, cardId) {
     var cardIdArray = [];
-    await getCollectionIds(user.sub).then(function(collectionIds) {
-	    console.log("EXISTING COLLECTION IDS: " + collectionIds);
-	    cardIdArray.push(cardId);
-	    if(collectionIds != null) {
-	    	collectionIds.forEach(id => cardIdArray.push(id));
-	    }	    
-    });
+    const collectionIds = await getCollectionIds(user.sub);
+    console.log("EXISTING COLLECTION IDS: " + collectionIds);
+    cardIdArray.push(cardId);
+    if(collectionIds != null) {
+	collectionIds.forEach(id => cardIdArray.push(id));
+    }	    
     const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'PATCH',
