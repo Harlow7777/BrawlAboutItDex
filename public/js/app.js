@@ -197,12 +197,14 @@ async function validateRedemptionCode(code) {
 
 async function addCardToUserMetadata(user, cardId) {
     var cardIdArray = [];
-    const collectionIds = await getCollectionIds(user.sub);
-    console.log("EXISTING COLLECTION IDS: " + collectionIds);
     cardIdArray.push(cardId);
-    if(collectionIds != null) {
-	collectionIds.forEach(id => cardIdArray.push(id));
-    }	    
+    await getCollectionIds(user.sub).then(function(collectionIds) {
+    	console.log("EXISTING COLLECTION IDS: " + collectionIds);
+    	if(collectionIds != null) {
+		collectionIds.forEach(id => cardIdArray.push(id));
+    	}	    
+    });
+    
     const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'PATCH',
