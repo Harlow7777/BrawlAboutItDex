@@ -101,8 +101,8 @@ function getCardDetails() {
         headers: {'content-type': 'application/json'}
     };
     axios.request(options).then(function (response) {
-        Object.keys(response.data).forEach(key => console.log(key + ": " + response.data[key]));
-        return response.data;
+        Object.keys(response.data['Items']).forEach(key => console.log(key + ": " + response.data['Items'][key]));
+        return response.data['Items'];
     }).catch(function(error) {
         console.error(error);
     });
