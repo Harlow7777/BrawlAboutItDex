@@ -105,7 +105,7 @@ async function getCollectionIds() {
         return response.data['user_metadata']['creature_collection'];
     }, (error) => {
         console.error(error);
-    }
+    });
 }				
 
 function getCardDetails() {
