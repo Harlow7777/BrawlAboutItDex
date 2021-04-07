@@ -67,18 +67,18 @@ async function addElementsToCollectionDiv() {
     const response = await getCollectionIds();
     const collectionIds = response.data['user_metadata']['creature_collection'];
     if(collectionIds != null) {
-	console.log("COLLECTION IDS: " + collectionIds);
-	const cardDetails = getCardDetails();
-	collectionIds.forEach(cardId => function() {
-	    console.log("CHECKING details table FOR cardId: " + cardId);
-	    Object.values(cardDetails).forEach(function(cardDetail) {
-	        Object.keys(cardDetail).forEach(key => console.log(key + ": " + cardDetail[key]));
-	        if(cardDetail['card_id'] === cardId) {
-	            console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
-                addCardImage(cardDetail['name']);
-	        }
-	    });
-	});
+        console.log("COLLECTION IDS: " + collectionIds);
+        const cardDetails = getCardDetails();
+        collectionIds.forEach(function(cardId) {
+            console.log("CHECKING details table FOR cardId: " + cardId);
+            Object.values(cardDetails).forEach(function(cardDetail) {
+                Object.keys(cardDetail).forEach(key => console.log(key + ": " + cardDetail[key]));
+                if(cardDetail['card_id'] === cardId) {
+                    console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
+                    addCardImage(cardDetail['name']);
+                }
+            });
+        });
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
     }
