@@ -71,12 +71,12 @@ async function addElementsToCollectionDiv() {
 	console.log("COLLECTION IDS: " + collectionIds);
 	const cardDetails = getCardDetails();
 	collectionIds.forEach(cardId => function() {
-		if(Object.keys(cardDetails).includes(cardId)) {
-		      console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
-		      addCardImage(cardDetails[key]);
-		} else {
-		      console.log("NO NAME FOR CARDID: " + cardId);
-		}
+	    Object.values(cardDetails).forEach(function(cardDetail) {
+	        if(cardDetail['card_id'] === cardId) {
+	            console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
+                addCardImage(cardDetail['name']);
+	        }
+	    });
 	});
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
