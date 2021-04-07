@@ -97,7 +97,7 @@ async function getCollectionIds() {
 function getCardDetails() {
     var options = {
         method: 'GET',
-        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/card_details',
+        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/card-details',
         headers: {'content-type': 'application/json'}
     };
     axios.request(options).then(function (response) {
