@@ -100,12 +100,14 @@ async function getCollectionIds() {
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
-    axios.request(options).then((response) => {
-			console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
-        return response.data['user_metadata']['creature_collection'];
-    }, (error) => {
-        console.error(error);
-    });
+    const response = await axios.request(options);
+    return response.data['user_metadata']['creature_collection'];
+//     .then((response) => {
+// 			console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
+//         return response.data['user_metadata']['creature_collection'];
+//     }, (error) => {
+//         console.error(error);
+//     });
 }				
 
 function getCardDetails() {
