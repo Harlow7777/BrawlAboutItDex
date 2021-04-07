@@ -100,8 +100,8 @@ async function getCollectionIds() {
         url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
-    const response = await axios.request(options);
-    return response.data['user_metadata']['creature_collection'];
+    return axios.request(options);
+//     return response.data['user_metadata']['creature_collection'];
 //     .then((response) => {
 // 			console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
 //         return response.data['user_metadata']['creature_collection'];
@@ -200,8 +200,9 @@ async function validateRedemptionCode(code) {
 async function addCardToUserMetadata(user, cardId) {
     var cardIdArray = [];
     cardIdArray.push(cardId);
-    const collectionIds = await getCollectionIds();
-    
+    const response = await getCollectionIds();
+    const collectionIds = response.data['user_metadata']['creature_collection'];
+	
     console.log("EXISTING COLLECTION IDS: " + collectionIds);
     if(collectionIds != null) {
       collectionIds.forEach(id => cardIdArray.push(id));
