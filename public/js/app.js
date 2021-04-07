@@ -52,8 +52,7 @@ const updateUI = async () => {
 
         document.getElementById("gated-content").classList.remove("hidden");
 
-// 	    var idToken = await auth0.getIdTokenClaims();
-	addElementsToCollectionDiv();
+	    addElementsToCollectionDiv();
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
         document.getElementById("btn-logout").classList.add("hidden");
@@ -165,8 +164,12 @@ document.getElementById('redeem-button').addEventListener("click",
         var code = document.getElementById('redeem-input').value;
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
-	await validateRedemptionCode(code);
-        addCardToUserMetadata(user, code);
+	    const validCode = await validateRedemptionCode(code);
+        if(validCode) {
+            addCardToUserMetadata(user, validCode['card_id']);
+        } else {
+            console.log("Invalid Redemption code");
+        }
 });
 
 async function validateRedemptionCode(code) {
@@ -177,8 +180,10 @@ async function validateRedemptionCode(code) {
     };
     axios.request(options).then(function (response) {
         console.log("VALID REDEMPTION CODE: " + response.data);
+        return true;
     }).catch(function(error) {
         console.error(error);
+        return false;
     }); 
 }	
 
