@@ -65,7 +65,8 @@ const cardContainer = document.getElementById('collection-container');
 
 async function addElementsToCollectionDiv() {
     cardContainer.textContent = '';
-    const collectionIds = await getCollectionIds();
+    const response = await getCollectionIds();
+    const collectionIds = response.data['user_metadata']['creature_collection'];
     if(collectionIds != null) {
 	console.log("COLLECTION IDS: " + collectionIds);
 	const cardDetails = getCardDetails();
@@ -82,16 +83,6 @@ async function addElementsToCollectionDiv() {
     }
 }
 
-// async function getCollectionIds() {
-//     var idToken = await auth0.getIdTokenClaims();
-//     const user_metadata = idToken['https://harlow777.brawlaboutit.com/user_metadata'];
-//     if(Object.keys(user_metadata).includes('creature_collection')) {
-//        console.log("Returning " + user_metadata['creature_collection']);
-//        return user_metadata['creature_collection'];
-//     }
-//     return null;
-// }
-
 async function getCollectionIds() {
     var user = await auth0.getUser();
     const authToken = await retrieveAuthAPIToken();
@@ -101,13 +92,6 @@ async function getCollectionIds() {
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
     return axios.request(options);
-//     return response.data['user_metadata']['creature_collection'];
-//     .then((response) => {
-// 			console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
-//         return response.data['user_metadata']['creature_collection'];
-//     }, (error) => {
-//         console.error(error);
-//     });
 }				
 
 function getCardDetails() {
