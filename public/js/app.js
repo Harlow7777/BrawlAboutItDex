@@ -52,8 +52,8 @@ const updateUI = async () => {
 
         document.getElementById("gated-content").classList.remove("hidden");
 
-	    var idToken = await auth0.getIdTokenClaims();
-	    addElementsToCollectionDiv(idToken);
+// 	    var idToken = await auth0.getIdTokenClaims();
+	addElementsToCollectionDiv();
     } else {
         document.getElementById("btn-login").classList.remove("hidden");
         document.getElementById("btn-logout").classList.add("hidden");
@@ -63,20 +63,19 @@ const updateUI = async () => {
 
 const cardContainer = document.getElementById('collection-container');
 
-async function addElementsToCollectionDiv(idToken) {
-    var user = await auth0.getUser();
-    const collectionIds = await getCollectionIds(user.sub);
+async function addElementsToCollectionDiv() {
+    cardContainer.textContent = '';
+    const collectionIds = await getCollectionIds();
     if(collectionIds != null) {
 	console.log("COLLECTION IDS: " + collectionIds);
-	cardContainer.textContent = '';
 	const cardDetails = getCardDetails();
 	collectionIds.forEach(cardId => function() {
-	   if(Object.keys(cardDetails).includes(cardId)) {
-	       console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
-	       addCardImage(cardDetails[key]);
-	   } else {
-	       console.log("NO NAME FOR CARDID: " + cardId);
-	   }
+		if(Object.keys(cardDetails).includes(cardId)) {
+		      console.log("FOUND NAME FOR " + cardId + ": " + cardDetails[key]);
+		      addCardImage(cardDetails[key]);
+		} else {
+		      console.log("NO NAME FOR CARDID: " + cardId);
+		}
 	});
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
@@ -93,20 +92,21 @@ async function addElementsToCollectionDiv(idToken) {
 //     return null;
 // }
 
-async function getCollectionIds(userId) {
+async function getCollectionIds() {
+    var user = await auth0.getUser();
     const authToken = await retrieveAuthAPIToken();
     var options = {
         method: 'GET',
-        url: 'https://harlow777.us.auth0.com/api/v2/users/' + userId,
+        url: 'https://harlow777.us.auth0.com/api/v2/users/' + user.sub,
         headers: {authorization: 'Bearer ' + authToken,'content-type': 'application/json'},
     };
-    await axios.request(options).then(function (response) {
-	console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
+    axios.request(options).then((response) => {
+			console.log("USER METADATA: " + response.data['user_metadata']['creature_collection']);
         return response.data['user_metadata']['creature_collection'];
-    }).catch(function(error) {
+    }, (error) => {
         console.error(error);
-    });
-}	
+    }
+}				
 
 function getCardDetails() {
     var options = {
@@ -198,12 +198,12 @@ async function validateRedemptionCode(code) {
 async function addCardToUserMetadata(user, cardId) {
     var cardIdArray = [];
     cardIdArray.push(cardId);
-    getCollectionIds(user.sub).then(function(collectionIds) {
-    	console.log("EXISTING COLLECTION IDS: " + collectionIds);
-    	if(collectionIds != null) {
-		collectionIds.forEach(id => cardIdArray.push(id));
-    	}	    
-    });
+    const collectionIds = await getCollectionIds();
+    
+    console.log("EXISTING COLLECTION IDS: " + collectionIds);
+    if(collectionIds != null) {
+      collectionIds.forEach(id => cardIdArray.push(id));
+    }	    
     
     const authToken = await retrieveAuthAPIToken();
     var options = {
