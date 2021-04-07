@@ -101,7 +101,7 @@ function getCardDetails() {
         headers: {'content-type': 'application/json'}
     };
     axios.request(options).then(function (response) {
-        console.log("RETRIEVED CARD NAMES: " + Object.values(response.data));
+        Object.keys(response.data).forEach(key => console.log(key + ": " + response.data[key]));
         return response.data;
     }).catch(function(error) {
         console.error(error);
