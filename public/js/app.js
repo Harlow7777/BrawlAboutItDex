@@ -114,7 +114,7 @@ const login = async () => {
         console.log(window.location.origin);
 
         await auth0.loginWithRedirect({
-            redirect_uri: window.location.origin + "/BrawlAboutItDex"
+            redirect_uri: window.location.href
         });
     } catch(err) {
         console.log("Log in failed", err);
@@ -125,7 +125,7 @@ const logout = async () => {
     try {
         console.log("Logging out");
         auth0.logout({
-            returnTo: window.location.origin + "/BrawlAboutItDex"
+            returnTo: window.location.href
         });
     } catch(err) {
         console.log("Log out failed", err);
