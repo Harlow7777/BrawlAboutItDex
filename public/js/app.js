@@ -78,7 +78,6 @@ async function addElementsToCollectionDiv() {
     } else {
         cardContainer.textContent = 'You currently have 0 cards, visit the shop to buy some!';
     }
-    window.location.reload(true);
 }
 
 async function getCollectionIds() {
