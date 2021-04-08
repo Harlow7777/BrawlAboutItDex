@@ -72,7 +72,8 @@ async function addElementsToCollectionDiv() {
         collectionIds.forEach(function(cardId) {
             console.log("CHECKING details table FOR cardId: " + cardId);
             Object.values(cardDetails.data['Items']).forEach(function(cardDetail) {
-                if(parseInt(cardDetail['card_id']) === cardId) {
+		console.log("Card Detail Id: " + parseInt(cardDetail['card_id'])+ ", cardId: " + parseInt(cardId));
+                if(parseInt(cardDetail['card_id']) === parseInt(cardId)) {
                     console.log("FOUND NAME FOR " + cardId + ": " + cardDetail[key]);
                     addCardImage(cardDetail['name']);
                 }
