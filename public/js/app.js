@@ -131,17 +131,30 @@ const logout = async () => {
 }
 
 function loadDex() {
+    document.getElementById("home-container").classList.add("hidden");
 	document.getElementById("dex-container").classList.remove("hidden");
 	document.getElementById("collection-container").classList.add("hidden");
 	document.getElementById("collection-link").classList.remove("active");
 	document.getElementById("dex-link").classList.add("active");
+	document.getElementById("home-link").classList.remove("active");
 }
 
 function loadCollection() {
+    document.getElementById("home-container").classList.add("hidden");
 	document.getElementById("collection-container").classList.remove("hidden");
 	document.getElementById("dex-container").classList.add("hidden");
 	document.getElementById("dex-link").classList.remove("active");
 	document.getElementById("collection-link").classList.add("active");
+	document.getElementById("home-link").classList.remove("active");
+}
+
+function loadHome() {
+    document.getElementById("home-container").classList.remove("hidden");
+	document.getElementById("collection-container").classList.add("hidden");
+	document.getElementById("dex-container").classList.add("hidden");
+	document.getElementById("dex-link").classList.remove("active");
+	document.getElementById("collection-link").classList.remove("active");
+    document.getElementById("home-link").classList.add("active");
 }
 
 document.getElementById("redeem-input").onchange = toggleRedeemButton;
