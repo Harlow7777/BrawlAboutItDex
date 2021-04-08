@@ -67,14 +67,10 @@ async function addElementsToCollectionDiv() {
     const response = await getCollectionIds();
     const collectionIds = response.data['user_metadata']['creature_collection'];
     if(collectionIds != null) {
-        console.log("COLLECTION IDS: " + collectionIds);
         const cardDetails = await getCardDetails();
         collectionIds.forEach(function(cardId) {
-            console.log("CHECKING details table FOR cardId: " + cardId);
             Object.values(cardDetails.data['Items']).forEach(function(cardDetail) {
-		console.log("Card Detail Id: " + parseInt(cardDetail['card_id'])+ ", cardId: " + parseInt(cardId));
                 if(parseInt(cardDetail['card_id']) === parseInt(cardId)) {
-                    console.log("FOUND NAME FOR " + cardId + ": " + cardDetail['name']);
                     addCardImage(cardDetail['name']);
                 }
             });
@@ -189,7 +185,6 @@ async function addCardToUserMetadata(user, cardId) {
     const response = await getCollectionIds();
     const collectionIds = response.data['user_metadata']['creature_collection'];
 	
-    console.log("EXISTING COLLECTION IDS: " + collectionIds);
     if(collectionIds != null) {
       collectionIds.forEach(id => cardIdArray.push(id));
     }	    
