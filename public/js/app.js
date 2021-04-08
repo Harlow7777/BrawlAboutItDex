@@ -67,10 +67,14 @@ async function addElementsToCollectionDiv() {
     const response = await getCollectionIds();
     const collectionIds = response.data['user_metadata']['creature_collection'];
     if(collectionIds != null) {
-        const cardDetails = getCardDetails();
+        console.log("COLLECTION IDS: " + collectionIds);
+        const cardDetails = await getCardDetails();
         collectionIds.forEach(function(cardId) {
-            Object.values(cardDetails).forEach(function(cardDetail) {
-                if(cardDetail['card_id'] === cardId) {
+            console.log("CHECKING details table FOR cardId: " + cardId);
+            Object.values(cardDetails.data['Items']).forEach(function(cardDetail) {
+		console.log("Card Detail Id: " + parseInt(cardDetail['card_id'])+ ", cardId: " + parseInt(cardId));
+                if(parseInt(cardDetail['card_id']) === parseInt(cardId)) {
+                    console.log("FOUND NAME FOR " + cardId + ": " + cardDetail['name']);
                     addCardImage(cardDetail['name']);
                 }
             });
@@ -91,17 +95,13 @@ async function getCollectionIds() {
     return axios.request(options);
 }				
 
-function getCardDetails() {
+async function getCardDetails() {
     var options = {
         method: 'GET',
         url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/card-details',
         headers: {'content-type': 'application/json'}
     };
-    axios.request(options).then(function (response) {
-        return response.data['Items'];
-    }).catch(function(error) {
-        console.error(error);
-    });
+    return axios.request(options);
 }
 
 function addCardImage(name) {
