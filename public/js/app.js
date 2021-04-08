@@ -74,7 +74,7 @@ async function addElementsToCollectionDiv() {
             Object.values(cardDetails.data['Items']).forEach(function(cardDetail) {
 		console.log("Card Detail Id: " + parseInt(cardDetail['card_id'])+ ", cardId: " + parseInt(cardId));
                 if(parseInt(cardDetail['card_id']) === parseInt(cardId)) {
-                    console.log("FOUND NAME FOR " + cardId + ": " + cardDetail[key]);
+                    console.log("FOUND NAME FOR " + cardId + ": " + cardDetail['name']);
                     addCardImage(cardDetail['name']);
                 }
             });
