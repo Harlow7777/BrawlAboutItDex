@@ -69,11 +69,10 @@ async function addElementsToCollectionDiv() {
     if(collectionIds != null) {
         console.log("COLLECTION IDS: " + collectionIds);
         const cardDetails = await getCardDetails();
-	Object.keys(cardDetails.data).forEach(key => console.log(key + ": " + cardDetails[key]));
         collectionIds.forEach(function(cardId) {
             console.log("CHECKING details table FOR cardId: " + cardId);
             Object.values(cardDetails.data['Items']).forEach(function(cardDetail) {
-                Object.keys(cardDetail).forEach(key => console.log(key + ": " + cardDetail[key]));
+		console.log("Checking Equality between cardId: " + cardId + " and cardDetail id: " + cardDetail['card_id']);
                 if(cardDetail['card_id'] === cardId) {
                     console.log("FOUND NAME FOR " + cardId + ": " + cardDetail[key]);
                     addCardImage(cardDetail['name']);
