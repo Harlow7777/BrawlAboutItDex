@@ -69,7 +69,7 @@ async function addElementsToCollectionDiv() {
     if(collectionIds != null) {
         console.log("COLLECTION IDS: " + collectionIds);
         const cardDetails = await getCardDetails();
-	cardDetails.forEach(key => console.log(key + ": " + cardDetails[key]));
+	Object.keys(cardDetails).forEach(key => console.log(key + ": " + cardDetails[key]));
         collectionIds.forEach(function(cardId) {
             console.log("CHECKING details table FOR cardId: " + cardId);
             Object.values(cardDetails['Items']).forEach(function(cardDetail) {
