@@ -34,7 +34,7 @@ async function asyncLoad() {
 
             updateUI();
 
-            window.history.replaceState({}, document.title, "/");
+            window.history.replaceState({}, document.title, "/BrawlAboutItDex");
         } catch(err) {
             console.log("Redirect callback failed", err);
         }
@@ -115,7 +115,6 @@ const login = async () => {
         await auth0.loginWithRedirect({
             redirect_uri: window.location.href
         });
-        this.history.replace("/BrawlAboutItDex");
     } catch(err) {
         console.log("Log in failed", err);
     }
