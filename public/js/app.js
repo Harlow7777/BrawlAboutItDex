@@ -115,6 +115,7 @@ const login = async () => {
         await auth0.loginWithRedirect({
             redirect_uri: window.location.href
         });
+        this.history.replace("/BrawlAboutItDex");
     } catch(err) {
         console.log("Log in failed", err);
     }
