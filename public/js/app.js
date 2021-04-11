@@ -110,7 +110,6 @@ function addCardImage(name) {
 const login = async () => {
     try {
         console.log("Logging in");
-        console.log(window.location.href);
 
         await auth0.loginWithRedirect({
             redirect_uri: window.location.href
@@ -123,8 +122,9 @@ const login = async () => {
 const logout = async () => {
     try {
         console.log("Logging out");
+        console.log("Headed to " + window.location.href);
         auth0.logout({
-            returnTo: window.location.origin
+            returnTo: window.location.href
         });
     } catch(err) {
         console.log("Log out failed", err);
