@@ -124,7 +124,7 @@ const logout = async () => {
     try {
         console.log("Logging out");
         auth0.logout({
-            returnTo: window.location.href
+            returnTo: window.location.origin
         });
     } catch(err) {
         console.log("Log out failed", err);
