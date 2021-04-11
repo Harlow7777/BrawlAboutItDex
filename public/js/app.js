@@ -122,13 +122,13 @@ const login = async () => {
 const logout = async () => {
     try {
         console.log("Logging out");
-        console.log("Headed to " + window.location.href);
         auth0.logout({
             returnTo: window.location.href
         });
     } catch(err) {
         console.log("Log out failed", err);
     }
+    window.history.replaceState({}, document.title, "/BrawlAboutItDex");
 }
 
 function loadDex() {
