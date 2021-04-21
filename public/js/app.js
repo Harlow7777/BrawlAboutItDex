@@ -181,10 +181,15 @@ document.getElementById('redeem-button').addEventListener("click",
 async function validateRedemptionCode(code) {
    var options = {
         method: 'GET',
-        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes/' + code,
+        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes/',
         headers: {'content-type': 'application/json'}
     };
     axios.request(options).then(function (response) {
+        console.log("REDEMPTION CODES: " + response.data);
+        Object.keys(response.data).forEach(key => console.log("KEY " + key + ": " + response.data[key]));
+        if(response.data.includes(code)) {
+            console.log("CODE FOUND IN RESPONSE DATA");
+        }
         console.log("VALID REDEMPTION CODE: " + response.data);
         return true;
     }).catch(function(error) {
