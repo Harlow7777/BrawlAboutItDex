@@ -188,7 +188,7 @@ async function validateRedemptionCode(code) {
         var items = response.data['Items'];
         Object.values(items).forEach(item =>
             Object.keys(item).forEach(itemKey => console.log(itemKey + ": " + item[itemKey])));
-        console.log("REDEMPTION CODES: " + items);
+        Object.values(Object.values(items)).forEach(val => console.log("VAL: " + val));
         if(Object.values(Object.values(items)).includes(code)) {
             console.log("CODE FOUND IN RESPONSE DATA");
             console.log("VALID REDEMPTION CODE: " + code);
