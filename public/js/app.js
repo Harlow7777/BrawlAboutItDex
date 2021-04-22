@@ -181,7 +181,7 @@ document.getElementById('redeem-button').addEventListener("click",
 async function validateRedemptionCode(code) {
    var options = {
         method: 'GET',
-        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes/',
+        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
         headers: {'content-type': 'application/json'}
     };
     axios.request(options).then(function (response) {
