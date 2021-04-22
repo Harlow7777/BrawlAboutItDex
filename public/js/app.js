@@ -188,8 +188,8 @@ async function validateRedemptionCode(code) {
         var items = response.data['Items'];
         Object.values(items).forEach(item =>
         {
-            console.log("COMPARING ", item['code']);
-            console.log("TO ", code);
+            console.log("COMPARING ", typeof(item['code']));
+            console.log("TO ", typeof(code));
             if(item['code'] === code) {
                 console.log("VALID REDEMPTION CODE: " + code);
                 return true;
