@@ -187,13 +187,14 @@ async function validateRedemptionCode(code) {
     axios.request(options).then(function (response) {
         var items = response.data['Items'];
         Object.values(items).forEach(item =>
+        {
             console.log("COMPARING ", item['code']);
             console.log("TO ", code);
             if(item['code'] === code) {
                 console.log("VALID REDEMPTION CODE: " + code);
                 return true;
             }
-        ));
+        });
         console.log("INVALID REDEMPTION CODE: " + code);
         return false;
     }).catch(function(error) {
