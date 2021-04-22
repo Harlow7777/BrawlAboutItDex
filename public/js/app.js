@@ -185,13 +185,15 @@ async function validateRedemptionCode(code) {
         headers: {'content-type': 'application/json'}
     };
     axios.request(options).then(function (response) {
-        console.log("REDEMPTION CODES: " + response.data);
-        Object.keys(response.data).forEach(key => console.log("KEY " + key + ": " + response.data[key]));
-        if(response.data.includes(code)) {
+        var items = response.data['Items'];
+        Object.keys(items).forEach(key => console.log(key + ": " + items[key]));
+        console.log("REDEMPTION CODES: " + items);
+        if(Object.values(items).includes(code)) {
             console.log("CODE FOUND IN RESPONSE DATA");
+            console.log("VALID REDEMPTION CODE: " + code);
+            return true;
         }
-        console.log("VALID REDEMPTION CODE: " + response.data);
-        return true;
+        return false;
     }).catch(function(error) {
         console.error(error);
         return false;
