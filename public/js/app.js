@@ -189,11 +189,12 @@ async function validateRedemptionCode(code) {
         Object.values(items).forEach(item =>
             Object.keys(item).forEach(itemKey => {
                 console.log(itemKey + ": " + item[itemKey]);
-                if(item[itemKey].equals(code)) {
+                if(item[itemKey].str === code) {
                         console.log("VALID REDEMPTION CODE: " + code);
                         return true;
                 }
             }));
+        console.log("INVALID REDEMPTION CODE: " + code);
         return false;
     }).catch(function(error) {
         console.error(error);
