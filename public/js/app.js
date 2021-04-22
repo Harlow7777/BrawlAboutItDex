@@ -190,7 +190,7 @@ async function validateRedemptionCode(code) {
         {
             console.log("COMPARING " + item['code']);
             console.log("TO " + code);
-            if(item['code'] == code) {
+            if(item['code'].trim == code.trim) {
                 console.log("VALID REDEMPTION CODE: " + code);
                 return true;
             }
