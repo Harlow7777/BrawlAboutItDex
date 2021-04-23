@@ -167,6 +167,7 @@ function toggleRedeemButton() {
 
 document.getElementById('redeem-button').addEventListener("click",
     async function redeemCode() {
+        const redeemMsg = document.getElementById("redeem-message");
         var code = document.getElementById('redeem-input').value;
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
@@ -181,14 +182,14 @@ document.getElementById('redeem-button').addEventListener("click",
                 console.log("FOUND CARD ID: " + cardId);
                 addCardToUserMetadata(user, cardId);
                 //TODO: subtract 1 from supply
-                //TODO: add message showing redeem was successful
+                redeemMsg.innerText = "Successfully Redeemed " + code;
                 addElementsToCollectionDiv();
                 loadCollection();
             }
         });
         if(!cardId) {
              console.log("Invalid Redemption Code");
-             //TODO: add message to show invalid code
+             redeemMsg.innerText = "Invalid Redemption Code";
         }
 });
 
