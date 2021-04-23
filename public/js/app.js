@@ -182,9 +182,9 @@ document.getElementById('redeem-button').addEventListener("click",
                 console.log("FOUND CARD ID: " + cardId);
                 addCardToUserMetadata(user, cardId);
                 //TODO: subtract 1 from supply
-                addElementsToCollectionDiv();
                 redeemMsg.innerText = "Successfully Redeemed " + code;
                 fadeout();
+                addElementsToCollectionDiv();
             }
         });
         if(!cardId) {
