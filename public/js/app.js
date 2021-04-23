@@ -196,10 +196,11 @@ async function retrieveRedemptionCardId(code) {
                 cardId = item['cardId'];
             }
         });
+        return cardId;
     }).catch(function(error) {
         console.error(error);
     });
-    return cardId;
+
 }	
 
 async function addCardToUserMetadata(user, cardId) {
