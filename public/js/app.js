@@ -158,13 +158,6 @@ function loadHome() {
     document.getElementById("home-link").classList.add("active");
 }
 
-document.getElementById("redeem-input").onchange = toggleRedeemButton;
-
-function toggleRedeemButton() {
-	const redeemButton = document.getElementById("redeem-button");
-	redeemButton.disabled = !this.value;
-}
-
 document.getElementById('redeem-button').addEventListener("click",
     async function redeemCode() {
         const redeemMsg = document.getElementById("redeem-message");
