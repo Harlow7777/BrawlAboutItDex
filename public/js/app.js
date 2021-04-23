@@ -171,6 +171,7 @@ document.getElementById('redeem-button').addEventListener("click",
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
 	    const cardId = await retrieveRedemptionCardId(code);
+	    console.log("FOUND CARD ID: " + cardId);
         if(cardId) {
             addCardToUserMetadata(user, cardId);
         } else {
@@ -191,10 +192,10 @@ async function retrieveRedemptionCardId(code) {
         {
             if(item['code'].trim() == code.trim()) {
                 console.log("VALID REDEMPTION CODE: " + code);
-                return item['cardId'];
+                cardId = item['cardId'];
             }
         });
-        console.log("INVALID REDEMPTION CODE: " + code);
+        return cardId
     }).catch(function(error) {
         console.error(error);
     });
