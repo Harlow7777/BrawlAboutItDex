@@ -171,9 +171,10 @@ document.getElementById('redeem-button').addEventListener("click",
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
 	    const cardId = await retrieveRedemptionCardId(code);
-	    console.log("FOUND CARD ID: " + cardId);
         if(cardId) {
+        	console.log("FOUND CARD ID: " + cardId);
             addCardToUserMetadata(user, cardId);
+            //TODO: subtract 1 from supply
         } else {
             console.log("Invalid Redemption code");
         }
@@ -206,6 +207,8 @@ async function addCardToUserMetadata(user, cardId) {
     cardIdArray.push(cardId);
     const response = await getCollectionIds();
     const collectionIds = response.data['user_metadata']['creature_collection'];
+
+    console.log("ADDING CARD " + cardId);
 	
     if(collectionIds != null) {
       collectionIds.forEach(id => cardIdArray.push(id));
