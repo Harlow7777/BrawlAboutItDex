@@ -172,16 +172,21 @@ document.getElementById('redeem-button').addEventListener("click",
         console.log("Redemption code: " + code);
 	    const response = await retrieveRedemptionCardIds(code);
 	    var items = response.data['Items'];
+	    var cardId;
         Object.values(items).forEach(item =>
         {
             if(item['code'].trim() == code.trim()) {
                 console.log("VALID REDEMPTION CODE: " + code);
-                var cardId = item['cardId'];
+                cardId = item['cardId'];
                 console.log("FOUND CARD ID: " + cardId);
                 addCardToUserMetadata(user, cardId);
                 //TODO: subtract 1 from supply
             }
         });
+        if(!cardId) {
+             console.log("Invalid Redemption Code");
+             //TODO: add message to show invalid code
+        }
 });
 
 async function retrieveRedemptionCardIds(code) {
@@ -190,12 +195,7 @@ async function retrieveRedemptionCardIds(code) {
         url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
         headers: {'content-type': 'application/json'}
     };
-    await axios.request(options).then(
-        return response;
-    ).catch(function(error) {
-        console.error(error);
-    });
-
+    return await axios.request(options);
 }	
 
 async function addCardToUserMetadata(user, cardId) {
