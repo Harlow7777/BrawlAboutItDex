@@ -182,7 +182,7 @@ document.getElementById('redeem-button').addEventListener("click",
                 addCardToUserMetadata(user, cardId);
                 //TODO: subtract 1 from supply
                 //TODO: add message showing redeem was successful
-                await addElementsToCollectionDiv();
+                addElementsToCollectionDiv();
                 loadCollection();
             }
         });
