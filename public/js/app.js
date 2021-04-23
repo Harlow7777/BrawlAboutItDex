@@ -186,7 +186,7 @@ async function retrieveRedemptionCardId(code) {
         url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
         headers: {'content-type': 'application/json'}
     };
-    axios.request(options).then(function (response) {
+    await axios.request(options).then(function (response) {
         var items = response.data['Items'];
         var cardId;
         Object.values(items).forEach(item =>
@@ -196,10 +196,10 @@ async function retrieveRedemptionCardId(code) {
                 cardId = item['cardId'];
             }
         });
-        return cardId
     }).catch(function(error) {
         console.error(error);
     });
+    return cardId;
 }	
 
 async function addCardToUserMetadata(user, cardId) {
