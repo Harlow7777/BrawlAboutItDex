@@ -180,15 +180,17 @@ document.getElementById('redeem-button').addEventListener("click",
                 console.log("VALID REDEMPTION CODE: " + code);
                 cardId = item['card_id'];
                 console.log("FOUND CARD ID: " + cardId);
-                addCardToUserMetadata(user, cardId);
-                //TODO: subtract 1 from supply
+                redeemMsg.style.opacity = 1;
                 redeemMsg.innerText = "Successfully Redeemed " + code;
                 fadeout();
+                addCardToUserMetadata(user, cardId);
+                //TODO: subtract 1 from supply
                 addElementsToCollectionDiv();
             }
         });
         if(!cardId) {
              console.log("Invalid Redemption Code");
+             redeemMsg.style.opacity = 1;
              redeemMsg.innerText = "Invalid Redemption Code";
              fadeout();
         }
@@ -200,13 +202,13 @@ function fadeout(){
       setInterval(hide, 200);
 }
 function hide(){
-      var body=document.getElementById("redeem-message");
+      var messageTxt=document.getElementById("redeem-message");
       opacity =
-        Number(window.getComputedStyle(body).getPropertyValue("opacity"));
+        Number(window.getComputedStyle(messageTxt).getPropertyValue("opacity"));
 
         if(opacity>0){
                opacity=opacity-0.1;
-                       body.style.opacity=opacity
+               messageTxt.style.opacity=opacity;
         }
         else{
             clearInterval(intervalID);
