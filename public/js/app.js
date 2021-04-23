@@ -185,13 +185,34 @@ document.getElementById('redeem-button').addEventListener("click",
                 redeemMsg.innerText = "Successfully Redeemed " + code;
                 addElementsToCollectionDiv();
                 loadCollection();
+                fadeout();
             }
         });
         if(!cardId) {
              console.log("Invalid Redemption Code");
              redeemMsg.innerText = "Invalid Redemption Code";
+             fadeout();
         }
 });
+
+var opacity=0;
+var intervalID=0;
+function fadeout(){
+      setInterval(hide, 200);
+}
+function hide(){
+      var body=document.getElementById("redeem-message");
+      opacity =
+        Number(window.getComputedStyle(body).getPropertyValue("opacity"));
+
+        if(opacity>0){
+               opacity=opacity-0.1;
+                       body.style.opacity=opacity
+        }
+        else{
+            clearInterval(intervalID);
+        }
+}
 
 async function retrieveRedemptionCardIds(code) {
    var options = {
