@@ -181,6 +181,7 @@ document.getElementById('redeem-button').addEventListener("click",
                 console.log("FOUND CARD ID: " + cardId);
                 addCardToUserMetadata(user, cardId);
                 //TODO: subtract 1 from supply
+                window.location.reload();
             }
         });
         if(!cardId) {
