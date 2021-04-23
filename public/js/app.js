@@ -170,34 +170,29 @@ document.getElementById('redeem-button').addEventListener("click",
         var code = document.getElementById('redeem-input').value;
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
-	    const cardId = await retrieveRedemptionCardId(code);
-        if(cardId) {
-        	console.log("FOUND CARD ID: " + cardId);
-            addCardToUserMetadata(user, cardId);
-            //TODO: subtract 1 from supply
-        } else {
-            console.log("Invalid Redemption code");
-        }
+	    const response = await retrieveRedemptionCardIds(code);
+	    var items = response.data['Items'];
+        Object.values(items).forEach(item =>
+        {
+            if(item['code'].trim() == code.trim()) {
+                console.log("VALID REDEMPTION CODE: " + code);
+                var cardId = item['cardId'];
+                console.log("FOUND CARD ID: " + cardId);
+                addCardToUserMetadata(user, cardId);
+                //TODO: subtract 1 from supply
+            }
+        });
 });
 
-async function retrieveRedemptionCardId(code) {
+async function retrieveRedemptionCardIds(code) {
    var options = {
         method: 'GET',
         url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
         headers: {'content-type': 'application/json'}
     };
-    await axios.request(options).then(function (response) {
-        var items = response.data['Items'];
-        var cardId;
-        Object.values(items).forEach(item =>
-        {
-            if(item['code'].trim() == code.trim()) {
-                console.log("VALID REDEMPTION CODE: " + code);
-                cardId = item['cardId'];
-            }
-        });
-        return cardId;
-    }).catch(function(error) {
+    await axios.request(options).then(
+        return response;
+    ).catch(function(error) {
         console.error(error);
     });
 
