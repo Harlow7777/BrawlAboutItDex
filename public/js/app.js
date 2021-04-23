@@ -175,10 +175,9 @@ document.getElementById('redeem-button').addEventListener("click",
 	    var cardId;
         Object.values(items).forEach(item =>
         {
-            Object.keys(item).forEach(key => console.log(key + ": " + item[key]));
             if(item['code'].trim() == code.trim()) {
                 console.log("VALID REDEMPTION CODE: " + code);
-                cardId = item['cardId'];
+                cardId = item['card_id'];
                 console.log("FOUND CARD ID: " + cardId);
                 addCardToUserMetadata(user, cardId);
                 //TODO: subtract 1 from supply
