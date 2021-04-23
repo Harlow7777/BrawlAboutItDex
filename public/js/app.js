@@ -170,15 +170,15 @@ document.getElementById('redeem-button').addEventListener("click",
         var code = document.getElementById('redeem-input').value;
         const user = await auth0.getUser();
         console.log("Redemption code: " + code);
-	    const validCode = await validateRedemptionCode(code);
-        if(validCode) {
-            addCardToUserMetadata(user, validCode['card_id']);
+	    const cardId = await retrieveRedemptionCardId(code);
+        if(cardId) {
+            addCardToUserMetadata(user, cardId);
         } else {
             console.log("Invalid Redemption code");
         }
 });
 
-async function validateRedemptionCode(code) {
+async function retrieveRedemptionCardId(code) {
    var options = {
         method: 'GET',
         url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
@@ -186,21 +186,18 @@ async function validateRedemptionCode(code) {
     };
     axios.request(options).then(function (response) {
         var items = response.data['Items'];
+        var cardId;
         Object.values(items).forEach(item =>
         {
-            console.log("COMPARING " + item['code']);
-            console.log("TO " + code);
             if(item['code'].trim() == code.trim()) {
                 console.log("VALID REDEMPTION CODE: " + code);
-                return true;
+                return item['cardId'];
             }
         });
         console.log("INVALID REDEMPTION CODE: " + code);
-        return false;
     }).catch(function(error) {
         console.error(error);
-        return false;
-    }); 
+    });
 }	
 
 async function addCardToUserMetadata(user, cardId) {
