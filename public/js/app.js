@@ -223,7 +223,7 @@ async function retrieveRedemptionCardIds(code) {
     return await axios.request(options);
 }
 
-async function updateRedemptionCardIds(code, supply, cardId) {
+async function updateRedemptionCardIdsSupply(code, supply, cardId) {
    var options = {
         method: 'PUT',
         url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
