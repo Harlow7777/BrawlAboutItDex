@@ -177,7 +177,13 @@ document.getElementById('redeem-button').addEventListener("click",
                 redeemMsg.innerText = "Successfully Redeemed " + code;
                 fadeout();
                 addCardToUserMetadata(user, cardId);
-                //TODO: subtract 1 from supply
+                if(item['supply'] > 1) {
+                    console.log("Reducing supply to " + item['supply']-1 + " for " + code);
+                    updateRedemptionCardIdsSupply(code, item['supply']-1, cardId);
+                } else {
+                    console.log("Deleting code " + code)
+                    //TODO: delete code from db
+                }
                 addElementsToCollectionDiv();
             }
         });
@@ -215,7 +221,21 @@ async function retrieveRedemptionCardIds(code) {
         headers: {'content-type': 'application/json'}
     };
     return await axios.request(options);
-}	
+}
+
+async function updateRedemptionCardIds(code, supply, cardId) {
+   var options = {
+        method: 'PUT',
+        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
+        headers: {'content-type': 'application/json'}
+        data: {
+            supply: supply,
+            code: code,
+            card_id: cardId
+        }
+    };
+    return await axios.request(options);
+}
 
 async function addCardToUserMetadata(user, cardId) {
     var cardIdArray = [];
