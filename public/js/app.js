@@ -237,6 +237,7 @@ async function updateRedemptionCardIdsSupply(code, supply, cardId) {
     return await axios.request(options);
 }
 
+//TODO: fix delete 500
 async function deleteRedemptionCode(code) {
    var options = {
         method: 'DELETE',
