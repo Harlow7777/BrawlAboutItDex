@@ -227,7 +227,7 @@ async function updateRedemptionCardIds(code, supply, cardId) {
    var options = {
         method: 'PUT',
         url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes',
-        headers: {'content-type': 'application/json'}
+        headers: {'content-type': 'application/json'},
         data: {
             supply: supply,
             code: code,
