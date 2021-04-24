@@ -182,7 +182,7 @@ document.getElementById('redeem-button').addEventListener("click",
                     updateRedemptionCardIdsSupply(code, item['supply']-1, cardId);
                 } else {
                     console.log("Deleting code " + code)
-                    //TODO: delete code from db
+                    deleteRedemptionCode(code);
                 }
                 addElementsToCollectionDiv();
             }
@@ -233,6 +233,15 @@ async function updateRedemptionCardIdsSupply(code, supply, cardId) {
             code: code,
             card_id: cardId
         }
+    };
+    return await axios.request(options);
+}
+
+async function deleteRedemptionCode(code) {
+   var options = {
+        method: 'DELETE',
+        url: 'https://slize2id4b.execute-api.us-east-2.amazonaws.com/redemption-codes/' + code,
+        headers: {'content-type': 'application/json'},
     };
     return await axios.request(options);
 }
